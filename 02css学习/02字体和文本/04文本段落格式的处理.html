@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+div{
+border:1px solid orange;
+margin:10px;
+}
+</style>
+</head>
+<body>
+<div style="white-space:normal;width:600px;height:40px">normal是默认值，他 会 只 会	保	留	多	个	空	白	中	的	一	个，
+并且会忽略掉换行，但是文字超过边界时会自动换行</div>
+<div style="white-space:pre;width:200px;height:40px">pre	会	保	留文	本中原		来的		格式，即使	超过
+了div的边框</div>
+<div style="white-space:nowrap;width:200px;height:40px">文本			不			会换行除非遇到了br标签，
+ 只 会	保	留	多	个	空	白	中	的	一	个并且会超出边框</div>
+<div style="white-space: pre-wrap;">文本不会超出边框，并且会保留原文本中的空格和换行</div>
+</body>
+</html>

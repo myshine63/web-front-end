@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="450" style="border:1px solid orange"></canvas>
+</body>
+<script>
+    let canvas=document.getElementById('canvas');
+    let context=canvas.getContext('2d');
+    context.strokeStyle='green';
+    context.beginPath();
+    context.moveTo(50,50);
+    context.lineTo(100,50);
+    context.lineTo(75,75);
+    context.lineTo(25,75);
+    context.closePath();
+    context.stroke();
+    context.save();
+    context.translate(0,100);
+    context.beginPath();
+    context.moveTo(50,50);
+    context.lineTo(100,50);
+    context.lineTo(75,75);
+    context.lineTo(25,75);
+    context.closePath();
+    context.stroke();
+    context.restore();
+    context.moveTo(50,50);
+    context.lineTo(50,150);
+    context.moveTo(100,50);
+    context.lineTo(100,150);
+    context.moveTo(25,75);
+    context.lineTo(25,175);
+    context.moveTo(75,75);
+    context.lineTo(75,175);
+    context.closePath();
+    context.stroke();
+</script>
+</html>

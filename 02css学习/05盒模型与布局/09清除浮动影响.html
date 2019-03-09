@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*消除由于元素浮动后他后面元素的位置会补位而发生改变*/
+        .green{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            float: left;
+        }
+        .red{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            float: left;
+        }
+        .blue{
+            width: 300px;
+            height: 200px;
+            background-color: blue;
+        }
+        /*相当于在最后一个元素后面添加了一个块元素，并且这可块元素不可见*/
+        .clear:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .clear{
+            zoom:1;/*为了兼容ie浏览器*/
+        }
+    </style>
+</head>
+<body>
+<p>
+    消除由于浮动产生的位置变化的方法 <br>
+    1 在最后一个浮动元素后面添加类似style="clear: both"的块标签 <br>
+    2 给父级元素使用overflow=hidden;来消除浮动影响，但是当内容溢出父级元素时不能使用 <br>
+    3 在父元素后面添加一个伪元素标签。 <br>
+</p>
+<strong>方法1</strong>
+<div>
+    <div class="green"></div>
+    <div class="red"></div>
+    <div style="clear: both"></div>
+</div>
+<div class="blue"></div>
+<strong>方法2</strong>
+<div style="overflow: hidden">
+    <div class="green"></div>
+    <div class="red"></div>
+</div>
+<div class="blue"></div>
+<strong>方法3</strong>
+<div class="clear">
+    <div class="green"></div>
+    <div class="red"></div>
+</div>
+<div class="blue"></div>
+</body>
+</html>

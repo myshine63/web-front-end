@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    function Person(name, age) {//创建函数，他也是一个类
+        this.name = name;//给函数的属性赋值
+        this.age = age;
+        this.fuc = function () {//给每个实例都添加了一个fuc方法
+            console.log(this.name);
+            console.log(this.age)
+        }
+    }
+
+    var p = Person("xiaoming", 24);//用函数创建一个对象，并且把该对象赋予给p变量
+    p.fuc();//调用对象的方法
+    function test1(name) {
+        console.log(name);
+    }
+
+    window.test1("没有用函数创建对象，那么默认会用该函数创建一个window对象");
+    console.log(Person);//函数名也相当于一个变量。输出函数名相当于输出该函数的代码
+</script>
+</body>
+</html>

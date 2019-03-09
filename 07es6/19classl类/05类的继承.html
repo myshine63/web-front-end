@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*继承必须调用super()方法,调用super方法后才能使用this关键字*/
+    class A{
+        say(){
+            console.log('hello word');
+
+        }
+    }
+    class B extends A{
+        constructor(name){
+            super();//调用父类的构建器
+            this.name=name;
+        }
+    }
+    /*可以通过Object.getPrototypeOf()方法获取父类*/
+    console.log(Object.getPrototypeOf(B)===A);//true
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap-theme.css">
+    <script src="../bootstrap3/js/jquery-3.2.1.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <style>
+        body{
+            padding: 300px;
+        }
+        a{
+            margin: 50px;
+        }
+    </style>
+</head>
+<body>
+<a id="test1" href="#" class="btn btn-info btn-lg" title="弹出框标题" data-content="弹出框内容">弹出框</a>
+<a id="test2" href="#" class="btn btn-info btn-lg btn-block">弹出框</a>
+<script>
+    $(function () {
+        $("#test1").popover();
+        $("#test2").popover({
+            title:"弹出框标题",
+            content:"弹出框内容",
+            placement:"top",
+            trigger:"hover",
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style type="text/css">
+        table {
+            width: 500px;
+            height: 200px;
+            border-collapse: collapse; /*设置单元格无间隙,表格线的粗细将一样*/
+        }
+
+        th, td {
+            border: #e69035 solid 2px;
+            text-align: center; /*设置字体水平居中*/
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<p align="center">table>tr*3>th*1+td*2+tab 快速生成一个表格，这个表格有3行，第一行为th，2行和3行为td表格的规范格式</p>
+<table align="center">
+    <caption><strong>书单</strong></caption>
+    <thead>
+    <tr>
+        <!--th默认表格中的内容居中，黑体-->
+        <th>书名</th>
+        <th>作者名</th>
+        <th>价格</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <!--占用3列-->
+        <td colspan="3" style="text-align: right">总计有3种书</td>
+    </tr>
+    </tfoot>
+    <tbody>
+    <tr>
+        <td>java</td>
+        <td>111</td>
+        <td>20</td>
+    </tr>
+    <tr>
+        <!--占用2行-->
+        <td rowspan="2">css</td>
+        <td rowspan="2">222</td>
+        <td rowspan="3">40</td>
+    </tr>
+    <tr>
+        <!--由于上面的一行表格的大小的2行所以这一行没有表格-->
+    </tr>
+    <tr>
+        <td>html</td>
+        <td>222</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

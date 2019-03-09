@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*给对象部署iterator接口本质:
+    * 1.对象需要具有[Symbol.iterator]()方法
+    * 2.改方法会返回一个对象
+    * 3.返回的对象需要有next()方法
+    * 4.next()方法需要返回一个对象
+    * 5.返回的对象要具有{value,done}属性
+    * 6.最后一定要返回一个{value,done:true},value的值可以任意,但是done的值一定要是true,否则会不停执行*/
+    let obj={
+        [Symbol.iterator](){
+            return{
+                x:0,
+                next(){
+                    if(this.x<5){
+                        this.x++;
+                        return{
+                            value:'hello word',
+                            done:false
+                        }
+                    }
+                    return{value:undefined,done:true}//调用next()方法一定要返回一个对象,因此这里不能缺少
+                }
+            }
+        }
+    };
+    for(let x of obj){
+        console.log(x);
+    }
+    for(let x of obj){//不会再执行
+        console.log(x);
+    }
+   /*for of 循环本质:
+   * let iterator=obj[Symbol.iterator]()//生成遍历器对象;
+   * iterator.next();不停调用用遍历器next()方法;
+   * 当next()方法返回的对象的done:true时停止遍历;
+   * 特别注意该循环不会输出done为true的对象
+   * 当返回对象的done为true时,再调用next()都会返回true,也就意味则再次用for of遍历这个对象,将什么也得不到
+   * */
+</script>
+</body>
+</html>

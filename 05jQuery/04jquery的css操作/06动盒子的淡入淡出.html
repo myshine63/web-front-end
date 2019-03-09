@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #70ffa9;
+            display: none;
+            opacity: 0.9;
+        }
+
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>显示</button><button>隐藏</button><button>切换</button><button>透明度为0.5</button>
+<div></div>
+<script>
+    div=$("div");
+    buttons=$("button");
+    //当盒子显示时，他的透明度会逐渐变成设置的透明度，如果没有设置，则变成1，盒子最终的透明度会和设置的一样
+    //当盒子隐藏时，他的透明度会从当前透明度逐渐变成0，但是盒子最后的透明度还是会和盒子设置的透明度一样
+    //隐藏时display：none,显示时盒子display：block
+    buttons.eq(0).click(function () {
+        //fadein()用法和show(),slidedown()一样
+        // div.fadeIn();//直接显示
+        // div.fadeIn(2000);//2000ms
+        // //fast200ms normal:400ms slow:600ms,并且在执行完毕后调用函数
+        div.fadeIn("fast",function () {
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        });
+    });
+    buttons.eq(1).click(function () {
+        //用法同上
+        div.fadeOut(2000,function () {
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        });//直接淡出
+    });
+    buttons.eq(2).click(function () {
+        //切换
+        div.fadeToggle(2000,function () {
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        });//透明度不为1则隐藏，为0则显示
+    });
+    buttons.eq(3).click(function () {
+        //会改变盒子的display：block
+       div.fadeTo(2000,0.5)//透明度具体到一个值,时间为必须参数
+    })
+</script>
+</body>
+</html>

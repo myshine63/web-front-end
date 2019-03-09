@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            padding: 10px;
+            margin: 5px;
+            border: 5px solid red;
+            background-color: #5eff50;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        //offset
+        var div=document.querySelector("div");
+        console.log(div.offsetWidth);//是数字，没有单位，大小为盒子的大小
+        console.log(div.offsetHeight);
+
+    </script>
+</body>
+</html>

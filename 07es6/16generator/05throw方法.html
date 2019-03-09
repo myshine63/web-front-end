@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function* f() {
+        try {
+            yield 123;
+        } catch (e) {
+            console.log('内部捕捉', e);
+        }
+    }
+
+    let generator = f();
+    generator.next();//没有该语句不会内部捕捉
+    try {
+        generator.throw('a');
+        generator.throw('b');
+    } catch (e) {
+        console.log('外部捕捉', e);
+    }
+
+
+</script>
+</body>
+</html>

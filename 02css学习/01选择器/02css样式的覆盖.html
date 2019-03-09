@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .test1{
+            color:green;
+        }
+        .test2{
+            color:blue;
+        }
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<strong> 选择器的优先级：默认样式《标签选择器《类选择器《id选择器《行样式，，，，，提升优先级 ！improtant</strong>
+                            0         1         10      100        1000          绝对
+    <p class="test1">
+        颜色是绿色，class选择器优先级高
+    </p>
+    <div class="test2 test1">
+        颜色是蓝色，说明选择选择器先选中test2和test1，在按test1和test2在css样式中出现顺序的最后一个执行
+    </div>
+
+</body>
+</html>

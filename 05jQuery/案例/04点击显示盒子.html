@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .box{
+            width: 300px;
+            margin: 100px auto 0;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            border: 1px solid silver;
+            width: 200px;
+            text-align: center;
+        }
+        li>div{
+            display: none;
+            border-top:1px solid silver;
+            width: 200px;
+            height: 200px;
+        }
+        span{
+            display: block;
+            width: 200px;
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul>
+        <li>
+            <span>标题1</span>
+            <div>我是div</div>
+        </li>
+        <li>
+            <span>标题2</span>
+            <div>我是div2</div>
+        </li>
+        <li>
+            <span>标题3</span>
+            <div>我是div3</div>
+        </li>
+        <li>
+            <span>标题4</span>
+            <div>我是div4</div>
+        </li>
+    </ul>
+</div>
+<script>
+    spanarr=$("ul li span");
+    spanarr.click(function () {
+        $(this).parent().siblings("li").children("div").hide();
+        $(this).next("div").show();
+    })
+</script>
+</body>
+</html>

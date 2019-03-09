@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*当代理函数对象时，apply方法可以代替函数的执行*/
+    function f() {
+        console.log('hello word');
+    }
+    let proxy=new Proxy(f,{
+        apply:function () {
+            console.log('how are you');
+        }
+    });
+    proxy();
+    /*apply拦截原函数,会把函数的apply,和call都拦截*/
+    function add(x,y) {
+        return x+y;
+    }
+    let proxy1=new Proxy(add,{
+        apply(target,ctx,args){
+            return Reflect.apply(...arguments)*2;
+        }
+    });
+    console.log(proxy1(1,2));
+    console.log(proxy1.call(null,1,2));
+    console.log(proxy1.apply(null,[1,2]));
+
+</script>
+</body>
+</html>

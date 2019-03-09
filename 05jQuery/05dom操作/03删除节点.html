@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>删除所有节点</button>
+<button>删除第一个节点</button>
+<button>删除最后一个节点</button>
+<button>删除偶数的节点</button>
+<button>删除基数的节点</button>
+<ul>
+    <li>好好学习天天向上</li>
+    <li>你好</li>
+    <li>hao are you</li>
+    <li>beautiful</li>
+    <li>girlfirend</li>
+</ul>
+<script>
+    var buts=$("button");
+    var ul=$("ul");
+    //清空节点
+    buts.eq(0).click(function () {
+        // ul.html("");
+        ul.empty();
+    });
+    buts.eq(1).click(function () {
+        $("li:first").remove();
+    });
+    buts.eq(2).click(function () {
+        $("li:last").remove();
+    });
+    buts.eq(3).click(function () {
+        $("li:nth-child(even)").remove();
+    });
+    buts.eq(4).click(function () {
+        $("li:nth-child(odd)").remove();
+    });
+</script>
+</body>
+</html>

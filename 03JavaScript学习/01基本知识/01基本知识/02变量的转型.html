@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+    //定义变量的方式
+    var a, b, c = 10, d = "hello word";//申明变量，并可以在声明时给不同类型的变量直接赋值，
+    e = "你好";
+    a = 1;
+    b = 2;
+    document.writeln("a:" + a);
+    document.writeln("b:" + b);
+    document.writeln("c:" + c);
+    document.writeln("d:" + d);
+    document.writeln("e:" + e + "<br>");
+    //类型的自动转换
+    a = "abc123";
+    b = "123abc";
+    document.write("转换前a的值" + a + "  " + "转换后a的值" + parseInt(a) + "<br>");//NaN
+    document.write("转换前b的值" + b + "  " + "转换后b的值" + parseInt(b) + "<br>");//123
+    c = "abc1.23";
+    d = "1.23abc";
+    document.write("转换前c的值" + c + "  " + "转换后c的值" + parseFloat(c) + "<br>");//NaN
+    document.write("转换前d的值" + d + "  " + "转换后d的值" + parseFloat(d) + "<br>");//1.23
+    //toString()函数的使用
+    e = "1234";
+    f = 1234;
+    document.write("转换前e的值" + e + "  " + "转换后e的值" + toString(e) + "<br>");//object Window
+    document.write("转换前f的值" + f + "  " + "转换后f的值" + toString(f) + "<br>");//object Window
+    document.write("转换前e的值" + e + "  " + "转换后e的值" + e.toString() + "<br>");//1234
+    document.write("转换前f的值" + f + "  " + "转换后f的值" + f.toString() + "<br>");//1234
+    g = true;
+    document.write("转换前f的值" + g + "  " + "转换后f的值" + g.toString() + "<br>");//true
+</script>
+</body>
+</html>

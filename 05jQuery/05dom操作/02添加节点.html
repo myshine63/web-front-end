@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<ul>
+    <li id="li1">好好学习天天向上</li>
+    <li id="li2">hello word</li>
+</ul>
+<script>
+    //js中添加时用appendChild(),jQuery中用的是append()方法
+    //一个节点不能重复添加多次，即使添加在不同位置
+    //jquery可以添加js创建的节点，js不能直接添加jquery创建的对象
+    var ul=document.getElementsByTagName("ul")[0];
+    var li1=document.createElement("li");
+    li1.innerHTML="beautiful";
+    ul.appendChild(li1);//下面和这个指挥有一个生效
+    // $("ul").append(li1);
+    //jquery中添加节点
+    var li2=$("<li>girl</li>");//该对象是jquery对象，可以使用jquery方法
+    $("ul").append(li2);
+    //在盒子最前面添加元素
+    var li3=document.createElement("li");
+    li3.innerHTML="beautiful";
+    $("ul").prepend(li3);
+    //添加到当前节点后面
+    $("#li1").after("<li>你好</li>");//append()方法也可以用该形式添加
+    //添加到当前元素前面
+    $("#li2").before("<li>how are you</li>");
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*箭头函数没有自己this,因此函数体内的this指的是上下文的this,并且不可以用new去生成对象*/
+    /*在顶层定义的箭头函数,函数体内的this指的是window,即使调用者不是window*/
+    let f=(num)=>{
+        console.log(this.num)
+    };
+    f(3);//undefined,因为this代指window,而window.num不存在
+    var num=0;//相当于window.num=0;
+    f(3);//0,输出window.num
+    f.call({num:4},3);//0,虽然调用者是一个对象,它的num是4,但是this依然指的是window,输出为0
+    let f1=(num)=>{
+        this.num=num;
+        console.log(this.num)
+    };
+    f1(3);//3,this依然值的是window,这里相当于给num变量重新赋值
+    f1.call({num:4},3);//3,this依然指的是window,
+    /*函数中和对象中的箭头函数this表示对象实例*/
+    function f2(num) {
+        this.num=num;
+        this.info=()=>{
+            console.log(this,this.num);
+        };
+        let f=()=>{
+            console.log(this,this.num);
+        };
+        f();
+        f.call(window);
+    }
+    let a=new f2(111);//输出111,111说明函数中所有this都指的是对象实例
+    a.info();//111,
+    a.info.call({num:4});//111,即使调用者为别的对象,this依然指它生成时的那个对象
+
+    /*直接调用构造函数,由于没有生成对象,那么this指的是window*/
+    console.log(f2(2222));//2222,2222,undefined(由于没有生成对象,所以输出undefined)
+    console.log(window.num);//2222
+</script>
+</body>
+</html>

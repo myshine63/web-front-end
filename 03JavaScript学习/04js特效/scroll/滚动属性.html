@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            margin: 10px;
+            border: 10px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    人生自古谁无死，留取丹心照汉青。
+    人生自古谁无死，留取丹心照汉青。
+    人生自古谁无死，留取丹心照汉青。
+    人生自古谁无死，留取丹心照汉青。
+    人生自古谁无死，留取丹心照汉青。
+    人生自古谁无死，留取丹心照汉青。
+
+</div>
+<script>
+    window.onscroll = function () {
+        console.log(1);
+    };
+    var div = document.getElementsByTagName("div")[0];
+    //scrollWidth和scrollHeight不包括border和margin
+    //scrollWidth = width + padding;
+    // 不包括 border和margin;
+    //高度有一个特点：如果文字超出了盒子，高度为超出盒子的内容的高。不超出是盒子本身高度
+    //IE8以下，不包括IE8为盒子本身内容的多少。
+    console.log(div.scrollWidth);
+    console.log(div.scrollHeight);
+
+</script>
+
+</body>
+</html>

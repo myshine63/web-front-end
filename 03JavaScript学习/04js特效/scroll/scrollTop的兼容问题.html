@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            height: 5000px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    window.onscroll = function () {
+        //没有dtd约束的
+//        document.title = document.body.scrollTop;
+        //有dtd约束的
+//        document.title = document.documentElement.scrollTop;
+
+        //兼容写法
+//        document.title = document.body.scrollTop || document.documentElement.scrollTop;
+//        document.title = document.body.scrollTop + document.documentElement.scrollTop;
+//            document.title = window.pageYOffset;
+//        alert(window.pageYOffset);
+//        document.title = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+    }
+</script>
+</body>
+</html>

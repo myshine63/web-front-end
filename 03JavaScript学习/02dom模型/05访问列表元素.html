@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" target="_blank" method="post">
+    <select title="选项" id="sec" name="sec">
+        <option value="java">java入门</option>
+        <option value="html">html入门</option>
+        <option value="css">css入门</option>
+    </select>
+</form>
+<script type="text/javascript">
+    let sec=document.getElementById('sec');//获取下拉列表
+    let options=sec.options;//获取所有的下拉选项
+    let form=sec.form;//获取列表所在的表单
+    let multiple=sec.type;//select-one/select-multiple,获取是否可以多选
+    for(let opt of options){
+        console.log(opt.value,opt.selected);//获取列表项的值和是否被选中;
+        /*opt选项还就有form属性(所在表单),index属性(位置),text属性(包含的文本)*/
+    }
+
+</script>
+</body>
+</html>

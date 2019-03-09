@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* 定时器在使用时最好先清除一次。清除定时器要放在函数的里面*/
+    var count=0;
+    function test() {
+        count++;
+        console.log(count);
+        if(count>10)
+            clearInterval(timer);//清除定时器
+    }
+    timer=setInterval(test,300);//创建一个定时器，每隔300秒执行test函数
+</script>
+</body>
+</html>

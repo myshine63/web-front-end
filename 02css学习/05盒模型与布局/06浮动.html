@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .red {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            float: left;
+        }
+        .orange{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            float: left;
+        }
+        .green {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .blue {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+<p>
+    元素设置浮动后将变成block模型
+    所谓浮动就是元素将从静态元素流中脱离出来,它不会占用静态元素流的位置,<br>
+    它将从它原来的位置开始浮动一直浮到具有边框属性的元素的下一行.本案例中 <br>
+    红色元素浮动,一直向左浮到p元素,然后再换行.黄色元素浮动到红色元素右侧,<br>
+    绿色元素是静态元素,因此它会直接出现在p元素的下一行.蓝色元素浮到绿色元素 <br>
+    的下一行.
+</p>
+<div class="green"></div>
+<div class="red"></div>
+<div class="orange"></div>
+<div class="green"></div>
+<div class="blue"></div>
+</body>
+</html>

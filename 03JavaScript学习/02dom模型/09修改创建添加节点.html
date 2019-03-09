@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="change()">修改内容</button>
+<button type="button" onclick="create()">把节点添加到当前节点的最后一个字节点之后</button>
+<button type="button" onclick="add()">复制一个节点并放在某个节点之前</button>
+<button type="button" onclick="replace()">替换第一个节点</button>
+<div id="box">
+    <p>id为1的第一个子节点</p>
+    <div>id为1的第二个子节点</div>
+</div>
+
+<script>
+    var div = document.getElementById("box");//获取div元素
+    //修改节点的内容
+    function change() {
+        var p = document.querySelector("p");//获取p节点
+        p.innerHTML = "修改后的内容";//修改p节点的内容
+    }
+    //创建一个新节点,并且将节点放到父节点最后
+    function create() {
+        var newp = document.createElement("p");//创建一个新节点
+        newp.innerHTML = "新创建的p元素";//给新节点添加内容
+        div.appendChild(newp);//把新节点添加到div节点的最后一个子节点之后
+    }
+
+    //复制一个节点，并且将这个节点放在某个节点的前面
+    function add() {
+        var copy = div.firstElementChild.cloneNode(false);//复制div的第一个元素孩子，
+        // 也就是p元素,并且不会复制p元素的内容和子元素
+        copy.innerHTML = "复制的元素";//给新元素添加内容
+        div.insertBefore(copy, div.firstElementChild);//加将复制的元素放在第一个元素p元素之前 和
+        // div.insertBefore(copy,div.firstChild)效果一样
+    }
+
+    //替代一个节点
+    function replace() {
+        var p = document.createElement("p");//新建元素
+        p.innerHTML = "替换元素";
+
+        div.replaceChild(p, div.firstElementChild);//替换第一个元素也就是p元素
+        //  div.replaceChild(p,div.firstChild);替换掉第一个空白，不会改变p元素
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div>00000000000</div>
+<span>111111111</span>
+<p id="test">333333333333</p>
+<div>4444444444</div>
+<div>55555555555</div>
+<p>66666666666</p>
+<p>77777777777</p>
+</body>
+<script>
+    $(function () {
+        p3=$("#test");
+        //向前查找
+        //prev(expr)和prevall(expr),获取符合条件的当前元素的前面元素,
+        span=p3.prev();//获取111111元素
+        console.log(span);
+        span2=p3.prev("div");//p3的前一个元素是span,不是div因此这里为空
+        console.log(span2);
+        div=p3.prevAll("div");//p3的前面有div元素,这里是0000000
+        console.log(div);
+        //向后查找
+        div4=p3.next();//结果为444444
+        console.log(div4);
+        a=p3.next("p");///p3的后一个元素是div,因此这里为空
+        console.log(a);
+        p3.nextAll();//用法同上
+        //获取所有的兄弟元素siblings(expr),道理同上
+        p3.siblings();
+        p3.siblings("div")
+    })
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <button>hello word</button>
+    <button>hello tom</button>
+</div>
+</body>
+<script>
+    /*方法1*/
+    let div=document.getElementsByTagName('div')[0];
+    div.onclick= function (e) {
+        console.log(e.target);
+    };
+    let btns = document.querySelectorAll('button');
+    btns[0].onclick = function (e) {
+        console.log(this);
+        console.log(e.target);
+        e.stopPropagation()
+    };
+    /*方法2,第3个参数默认为false,表示在事件冒泡阶段处理,true表示在事件捕捉阶段处理,改方法可以多次执行，给
+    * 同一事件添加不同的监听函数*/
+    let check=function(e){
+        console.log(e.target);
+        e.stopPropagation()
+    };
+    btns[1].addEventListener('click',check);
+    /*删除事件*/
+    // div.onclick=null;
+    // btns[1].removeEventListener('click',check);
+</script>
+</html>

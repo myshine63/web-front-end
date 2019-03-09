@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1.let声明的变量只在它所在的代码块有效。
+2.let声明的变量不会提升，因此要先定义再使用
+3.在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”
+4.let不允许在相同作用域内，重复声明同一个变量。
+</body>
+<script>
+    //暂时性死区
+    var temp=123;
+    if(true){
+        console.log(temp);
+        // let temp=456;
+    }
+    /*函数中的暂时性死区,这说明函数参数相当于是用let进行声明的,因此不可以提前赋值,或者在函数内部再次用let
+    * 进行声明*/
+    // function f(x=y,y=2) {}//由于在给参数x赋值时,y还没有定义,因此会报错
+    function f(a) {
+        // let a=10;//报错
+        var a=10;//不会报错,但是这样定义之后参数将没有意义
+    }
+    //不能再同一个块中重复定义
+    if(true){
+        // var a;
+        // let a;
+    }
+</script>
+</html>

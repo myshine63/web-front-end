@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <ol>
+        <li>html</li>
+        <li id="li2">css</li>
+        <li>js</li>
+        <li>jquery</li>
+    </ol>
+</div>
+<script>
+    let ol=document.getElementsByTagName('ol')[0];
+    let li2=document.getElementById('li2');
+    //获取所有的li
+    let lis=document.getElementsByTagName('li');
+    let lis1=ol.children;
+    //获取第一个节点
+    let li1=li2.previousElementSibling;
+    let li12=ol.firstElementChild;
+    //获取下一个节点
+    let li3=li2.nextElementSibling;
+    //获取最后一个
+    let li4=ol.lastElementChild;
+</script>
+</body>
+</html>

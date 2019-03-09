@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            position: absolute;
+            /*left:400px;*/
+        }
+    </style>
+</head>
+<body>
+<button>运动到50</button>
+<button>运动到600</button>
+<div></div>
+<script>
+    var　btn0 = document.getElementsByTagName("button")[0];
+    var　btn1 = document.getElementsByTagName("button")[1];
+    var　div = document.getElementsByTagName("div")[0];
+    btn0.onclick=function () {
+        runleft(div,50,30);
+    };
+    btn1.onclick=function () {
+        runleft(div,600,30);
+    };
+    function runleft(ele,aim,time) {
+        clearInterval(ele.timer);
+        ele.timer=setInterval(function () {
+            console.log(111111111);
+            var steep=(aim-ele.offsetLeft)/10;
+            steep=steep>0?Math.ceil(steep):Math.floor(steep);
+            if(Math.abs(aim-ele.offsetLeft)<=Math.abs(steep)){
+                ele.style.left = aim+"px";
+                clearInterval(ele.timer);
+            }
+            else
+                ele.style.left=ele.offsetLeft+steep+"px";
+        },time)
+    }
+</script>
+
+</body>
+</html>

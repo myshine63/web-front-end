@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            display: flex;
+            width: 960px;
+            border: 1px solid #000;
+            margin: 0 auto 50px;
+            padding: 5px;
+        }
+
+        div > div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        .wrap {
+            width: 960px;
+            height: 600px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+<p>flex 属性的作用是：
+    1.当子元素宽度之和小于/大于父盒子时，按照一定比例，让子盒子宽度之和等于父盒子,
+    2.默认属性是 flex:flex-grow flex-shrink flex-basis
+    3.当设置flex-basis属性时,元素原来的width属性失效
+</p>
+<div class="container" id="div1">
+    <div style="flex-grow: 4;">栏目1</div>
+    <div style="flex-grow: 3;">栏目2</div>
+    <div style="flex-grow: 2;">栏目3</div>
+</div>
+<div class="container" id="div2">
+    <div style="width: 600px;flex-shrink: 2">栏目1</div>
+    <div style="flex-shrink:3 ">栏目2</div>
+    <div style="flex-shrink:4 ">栏目3</div>
+</div>
+<div class="container" style="justify-content: center">
+    <div>栏目1</div>
+    <div>栏目2</div>
+    <div>栏目3</div>
+</div>
+<div class="container" style="justify-content: space-around">
+    <div>栏目1</div>
+    <div>栏目2</div>
+    <div>栏目3</div>
+</div>
+<div class="container" style="justify-content: space-between">
+    <div>栏目1</div>
+    <div>栏目2</div>
+    <div>栏目3</div>
+</div>
+<div class="wrap" style="justify-content: space-around;align-content:space-around">
+    <!--<div class="wrap" style="justify-content: space-around;align-items:center">-->
+    <div>栏目1</div>
+    <div>栏目2</div>
+    <div>栏目3</div>
+    <div>栏目3</div>
+    <div>栏目3</div>
+    <div>栏目3</div>
+    <div>栏目3</div>
+    <div>栏目3</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div id="box">
+    <div class="red">
+        <span>hello word</span>
+        <div></div>
+    </div>
+    <div>
+        <div></div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        //children（expr）可以有参数也可以没有参数，只查找子代
+        box=$("#box");
+        divs=box.children();//获取所有的元素
+        div1=box.children(".red");//获取含有red的子元素
+        console.log(box);
+        console.log(divs);
+        console.log(div1);
+        //find（expr）查找所有的后代，必须有参数，
+        all=box.find("div,span");//查找所有的后代div和span元素
+        console.log(all);
+        //contents（）类似于childNodes,只包括子代
+        console.log(box.contents());
+    })
+</script>
+</html>

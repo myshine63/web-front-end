@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>显示</button>
+<button>隐藏</button>
+<button>停止</button>
+<div></div>
+</body>
+<script>
+    $(function () {
+        btns=$("button");
+        div=$("div");
+        btns.eq(0).click(function () {
+            div.show(2000);
+        });
+        btns.eq(1).click(function () {
+            div.hide(2000);
+        });
+        btns.eq(2).click(function (){
+            //默认都是false，表示停止当前动画，立刻执行后续动画
+            //第一个参数true,表示后续动画不执行，false，表示后续动画会执行
+            //后一个参数false表示停止当前动画，true表示直接完成当前动画
+            div.stop(false,false);
+        });
+    })
+</script>
+</html>

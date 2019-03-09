@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //遍历字符串
+    for(let char of "hello word"){
+        console.log(char);
+    }
+    //检验字符串
+    let a="hello word";
+    console.log(a.includes('hello'));//判断是否包含字符串
+    console.log(a.endsWith('hello'));//判断是否以字符串结尾
+    console.log(a.startsWith('hello'));//判断是否以字符串开头
+    //生成字符串
+    let b="ha";
+    let c=b.repeat(3);//返回hahaha
+    //补全字符串，使字符串达到指定长度
+    b.padStart(8,'*');//在字符串前面添加，使其长度为8
+    b.padEnd(8,'*');//在字符串后面添加，使其长度为8
+    //模板字符串格式： `正常字符串或者元素标签 ${变量名} 正常字符串或者元素标签 ` 这样就可以不用+连接
+    let str='hello word';
+    document.write(`123木头人<br> ${str} <br> 你好呀`);
+
+</script>
+</body>
+</html>

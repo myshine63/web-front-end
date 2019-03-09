@@ -1,0 +1,26 @@
+@media only screen and (min-device-width: 450px) {
+/*注意and前后的空*/
+}
+
+@media only screen and (max-device-width: 800px) {
+
+}
+
+@media only screen and (min-device-width: 450px) and (max-device-width: 800px) {
+    /*当屏幕尺寸在450到800是使用该样式,不会针对浏览器*/
+}
+
+/*通过css3专有的media queries来创建响应式web设计,会同时考虑屏幕和浏览器是否最大化*/
+
+@media screen and (min-width: 300px) {
+    /*style*/
+}
+
+@media screen and (max-width: 300px) {
+    /*style*/
+}
+
+/*
+通过<link rel..... media="..........">也可以来根据屏幕不一样导入不同样式，但是在请求多个样式时，
+会减慢速度，全部写在一起又会增大单个文件，需要取舍
+*/

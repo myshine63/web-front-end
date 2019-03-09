@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="450" style="border:1px solid orange"></canvas>
+</body>
+<script>
+    //通过状态保存来实现虚实线切换
+    let canvas=document.getElementById('canvas');
+    let context=canvas.getContext('2d');
+    context.beginPath();
+    context.moveTo(50,50);
+    context.lineTo(100,50);
+    context.closePath();
+    context.stroke();
+    context.save();
+    context.beginPath();
+    context.lineWidth=10;
+    context.setLineDash([8,6]);
+    context.moveTo(50,200);
+    context.lineTo(650,200);
+    context.closePath();
+    context.stroke();
+    context.restore();
+    context.beginPath();
+    context.moveTo(300,50);
+    context.lineTo(400,50);
+    context.closePath();
+    context.stroke();
+</script>
+</html>

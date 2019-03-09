@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let[a=true]=[];//a=true;
+    let[c,d=1]=[12];//c=12,d=1;
+    let[e,f=1]=[12,undefined];//e=12;f=1;  当右边的值不是undefined，默认值都没有
+    let[g=1]=[null]; //g=null;
+    function aaa() {
+        console.log(13);
+    }
+    let[h=aaa]=[1];//h=1;函数是惰性求值的，只有在使用时有用
+    let[i=1,j=i]=[1,2];//i=1;j=2
+    let[k=1,l=k]=[3];//k=l=3;
+    // let[m=n,n=4]=[];//会报错，因为程序从左向右执行，在执行m=n时，n还没有定义，
+    let[o=p,p=2]=[3];//不会报错，因为o=p不会执行，o=3
+    console.log(o);
+</script>
+</body>
+</html>

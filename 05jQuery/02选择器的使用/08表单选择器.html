@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+<form id="test" action="#" method="post" target="_self">
+    <input type="text" value="hello word"> <br>
+    <input type="password"><br>
+    <input type="checkbox"><br>
+    <input type="radio"><br>
+    <input type="button"><br>
+    <input type="submit"><br>
+    <input type="reset"><br>
+    <input type="file"><br>
+    <input type="image"><br>
+</form>
+<script>
+    $(function () {
+        $("#test :input").css("border","2px solid red");
+        $("#test :text").val("hello word");
+        $("#test :password").val("hello word");
+    })
+</script>
+</body>
+</html>

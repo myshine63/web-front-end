@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .css1{
+            background-color: #d2a5ff;
+        }
+        .css2{
+            width: 200px;
+            height: 20px;
+            background-color: #5eff50;
+        }
+    </style>
+</head>
+<body>
+
+<div></div>
+<p></p>
+<script type="text/javascript">
+
+    //获取元素
+    var div=document.querySelector("div");
+    var p=document.querySelector("p");
+    //利用元素含有的属性个他增加属性，比如p元素有id属性
+    p.innerHTML="hello word";//给p标签增加文本
+    p.style="border:1px red solid";//给p元素增加样式
+    p.id="test1";//给p元素增加id
+    p.className="css1";//有于script有class关键字，因此要用classname代替class
+    console.log(p.getAttribute("id"));
+    //利用setattribute方法
+    div.setAttribute("id","div1");
+    div.setAttribute("class","css2");//这里不能用classname
+    console.log(div.id);
+    var test=div.getAttribute("id");
+    var test2=div.id;
+    //移除属性的方法
+    p.innerHTML="";//赋予空，来删除p标签中的文字
+    p.removeAttribute("id");//移除p元素的id属性
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // // 错误的写法
+    // let x;
+    // {x} = {x: 1};
+    // // SyntaxError: syntax error
+    // 正确的写法
+    let x;
+    ({x} = {x: 1});
+    //数组解构
+    let arr=[1,2,3];
+    let {0:first,2:last}=arr;//first=1,last=3;
+    //字符串解构
+    let{a,b,c,d,e,f}="hello word";
+
+    let {toString: s1} = 123;
+    s1 === Number.prototype.toString // true
+
+    let {toString: s2} = true;
+    s2 === Boolean.prototype.toString // true
+</script>
+</body>
+</html>

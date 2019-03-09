@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        div {
+            padding-top: 30px;
+            border: 1px solid red;
+            background-color: black;
+            width: 650px;
+            height: 400px;
+            text-align: center;
+            margin: 100px auto 0;
+        }
+
+        ul > li {
+            display: inline-block;
+        }
+        img{
+            opacity: 0.6;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="#"><img src="image/01.jpg" alt=""></a></li>
+        <li><a href="#"><img src="image/02.jpg" alt=""></a></li>
+        <li><a href="#"><img src="image/03.jpg" alt=""></a></li>
+        <li><a href="#"><img src="image/04.jpg" alt=""></a></li>
+        <li><a href="#"><img src="image/05.jpg" alt=""></a></li>
+        <li><a href="#"><img src="image/06.jpg" alt=""></a></li>
+    </ul>
+</div>
+</body>
+<script>
+    $(function () {
+        imgs = $("img");
+        imgs.mouseover(function () {
+            $(this).css("opacity", 1);
+        });
+        imgs.mouseout(function () {
+            $(this).css("opacity", 0.6);
+        })
+
+    })
+</script>
+</html>

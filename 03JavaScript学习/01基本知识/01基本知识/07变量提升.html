@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //这里相当于声明了一个变量a,因此他会覆盖全局变量，再由于他没有被赋值，因此会输出undefined
+    //var a;
+    //变量提升只针对函数，就是函数内声明的所有局部变量都会提升到函数头部声明
+    var a="全局变量";
+    function write() {
+        document.write(a+"<br/>");//此处输出undefined
+        var a="局部变量";
+        document.write(a+"<br/>");//输出局部变量
+    }
+    write();//调用函数，先输出undefined，再输出局部变量
+    document.write(a+"<br/>");//输出全局变量
+
+
+
+    //2只要是局部变量都会发生变量提升，哪怕定义变量的语句没有被执行
+    var c=123;//定义2个全局变量
+    function test() {
+        //var c;     即使没有执行if中的语句，这里也会声明一个局部变量c
+        var bool=false;
+        document.write(c+"<br/>");//由于局部变量会覆盖c,这里会输出undefined
+        if(bool){
+            var c=456;
+        }
+        document.write(c+"<br/>");//由于if中的语句没有被执行，这里也是输出undefined
+    }
+    test();
+    document.write(c+"<br/>");//这里输出123
+</script>
+</body>
+</html>

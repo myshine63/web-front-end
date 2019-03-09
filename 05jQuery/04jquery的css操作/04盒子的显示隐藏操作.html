@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #70ffa9;
+            /*opacity: 0.5;*/
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>显示</button><button>隐藏</button><button>切换</button>
+<div></div>
+<script>
+    div=$("div");
+    buttons=$("button");
+    //当盒子显示时，他最终的透明度会变成css中的透明度，display:block
+    //当盒子隐藏时，他透明度会缓慢变成0，但是最终他的透明度会和css中设置的一样,display:none
+    //无论显示和隐藏，盒子最终的透明度都会和css中设置的一样，如果css中没有设置则为1
+    buttons.eq(0).click(function () {
+        //show()方法的使用
+        // div.show();//直接显示
+        // div.show(2000);//通过缓慢改变宽、高和透明度,从左上角到右下角逐渐显示，2000ms,
+        // div.show("fast")//通过字符串改变显示速度，slow：600ms,normal:400ms,fast:200ms
+        div.show(2000,function () {//在显示完成后执行函数
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+
+        })
+    });
+    buttons.eq(1).click(function () {
+       //hide()改方法原理同上
+        div.hide(2000,function () {
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        });
+    });
+    buttons.eq(2).click(function () {
+        div.toggle(2000,function () {//如果盒子显示则隐藏，隐藏则显示
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        });
+    })
+
+</script>
+</body>
+</html>

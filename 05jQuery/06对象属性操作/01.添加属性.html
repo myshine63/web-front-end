@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div>1111</div>
+    <div>2222</div>
+    <div>3333</div>
+    <div>4444</div>
+</section>
+</body>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    divs=$("div");
+    var div1 = $("div:eq(0)");
+    var div2 = $("div:eq(1)");
+    //第一种方法添加时，有时候会添加到对象属性中，有时候是加到元素的外衣上
+    //第二种直接加到属性上，在html结构中可见
+    //prop(),方法添加一个或者多个属性，一般用来操作表单属性，且获取的是标准内容,
+    divs.prop("a","boy");//给所有div添加属性
+    div1.prop("id", "div1");
+    div1.append("nihao");
+    div2.prop({id:"div2",title:"盒子"});
+    //attr(),用法同上
+    divs.attr("ab","girl");//给所有div添加属性
+    var div3 = $("div:eq(2)");
+    var div4 = $("div:eq(3)");
+    div3.attr("id","div3");
+    div4.attr({id:"div4",title:"盒子"});
+</script>
+</html>

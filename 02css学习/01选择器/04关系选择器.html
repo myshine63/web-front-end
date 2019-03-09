@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*判断法则：
+        先选择对应的li元素，然后再选中其父元素，然后再选中匹配的元素，而且必须是li元素，
+        因此该方法最好只对列表使用，或者同级元素都是同一个标签的元素使用
+        */
+        li:first-child{/*对2个列表第一个li起作用*/
+            color: #2aabd2;
+        }
+        ol>li:first-child{/*对ol中的第一个li起作用*/
+            background-color: chocolate;
+        }
+        li:last-child{/*对2个列表最后一个li起作用*/
+            color: #2b542c;
+        }
+        li:nth-child(2){/*对2个列表第2个li起作用*/
+            color: #809fe6;
+        }
+        li:nth-last-child(2){/*对2个列表倒数第2个li起作用*/
+            color: #e6494d;
+        }
+        li:nth-child(odd){/*对基数有用*/
+            font-size: 30px;
+        }
+        ul>li:nth-child(even){/*对偶数有用*/
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+<ol>
+    <li>html5</li>
+    <li>css3</li>
+    <li>js</li>
+    <li>jquery</li>
+    <li>bootstrap</li>
+</ol>
+<ul>
+    <li>html5</li>
+    <li>css3</li>
+    <li>js</li>
+    <li>jquery</li>
+    <li>bootstrap</li>
+</ul>
+</body>
+</html>

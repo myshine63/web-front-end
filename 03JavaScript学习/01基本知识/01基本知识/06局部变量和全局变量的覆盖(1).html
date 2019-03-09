@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var test="全局变量";
+    var test2="全局变量2"
+    function check() {
+        var test="局部变量";//不会改变全局变量的test值
+        document.write(test);//输出局部变量的值
+        document.write(test2);
+    }
+    check();//调用函数，将输出局部变量
+    document.write(test);//将输出全局变量值
+</script>
+</body>
+</html>

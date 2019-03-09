@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            color: chocolate;
+            font-size: 40px;
+            font-weight: 700;
+            font-style: italic;
+        }
+        .test1{
+            color: #5eff50;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>字体显示为父类的样式</p>
+        <p class="test1">字体为先执行父类在执行子类,冲突部分子类为准</p>
+        <h1>字体大小为80是父类的2倍大小</h1>
+        <p style="font-size: 80px">字体大小为80是父类的2倍大小</p>
+        <p style="font-size: 2em">字体大小为80是父类的2倍大小</p>
+    </div>
+</body>
+</html>

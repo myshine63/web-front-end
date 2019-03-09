@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj={
+        name:'tom',
+        age:20,
+        getprop(){
+            console.log(this.name,this.age);
+        }
+    };
+
+    /*对象的每一个属性都有一个描述对象*/
+    let fun=Object.getOwnPropertyDescriptor(obj,'getprop');//configurable:true,,,enumerable:true
+    console.log(fun);
+    /*enumerable:true  可遍历，当为false时不可遍历。数组的length,class原型都是不可遍历的*/
+
+    /*常见的循环操作
+    * 1.for in ,会循环对象自身和继承的可遍历属性
+    * 2.Object.keys(),只遍历自身可遍历属性
+    * 3.Object.assign(),只复制对象自身可遍历属性
+    * */
+</script>
+</body>
+</html>

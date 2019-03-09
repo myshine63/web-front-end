@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj1=new Object();
+    var obj2=function () {
+        return 1111;
+    };
+    var obj3={//通过js对象字面量创建对象
+        name:"小王",
+        age:20,
+        info:function () {
+            document.write("name:"+this.name+"age:"+this.age);
+        }
+    };
+    var obj4={//通过json创建对象，他也是字面量对象
+        "name":"小王",
+        "age":20,
+        "info":function () {
+            document.write("name:"+this.name+"age:"+this.age);
+        }
+    }
+</script>
+</body>
+</html>

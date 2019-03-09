@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" name="" id="in1" checked="checked">
+<input type="text" name="" id="in2">
+<input type="text" name="" id="in3" disabled="">
+<input type="text" name="" id="in4" disabled="aaaa">
+</body>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    inps=$("input");
+    inp1=inps.eq(0);
+    inp2=inps.eq(1);
+    inp3=inps.eq(2);
+    inp4=inps.eq(3);
+    //用prop（）获取属性,获取的是标准值
+    console.log(inps.prop("id"));//只会获取第一个匹配元素的id
+    console.log(inp1.prop("checked"));//获取的是Boolean的 true
+    console.log(inp2.prop("disabled"));//获取的是false
+    console.log(inp3.prop("disabled"));//获取的是true
+    //用attr()获取属性值，获取的是属性对应的值
+    console.log(inps.attr("id"));//只会获取第一个id
+    console.log(inp1.attr("checked"));//获取的是对应的值 checked
+    console.log(inp2.attr("disabled"));//由于没有该属性，值为undefined
+    console.log(inp3.attr("disabled"));//获取的值是disabled
+    console.log(inp4.attr("disabled"));//获取的值是disabled
+</script>
+</html>

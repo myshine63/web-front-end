@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Object.is()方法与 == 和 === 的区别在于 +0===-0(true),NaN===NaN(false)
+    * Object.is(-0,+0) false  Object.is(NaN,NaN) true 其他没有区别
+    * */
+    console.log(+0 === -0); //true
+    console.log(NaN === NaN);//false
+    console.log(Object.is(+0,-0));//false
+    console.log(Object.is(NaN,NaN));//true
+
+    /*对象相等的判断*/
+    let obj1={a:1,b:2};
+    let obj2=obj1;//这里obj1和obj2是同一个对象
+    obj2.c=3;
+    console.log(obj1===obj2);//true
+    let obj3={};
+    let obj4=obj3;
+   let obj5= Object.assign(obj3,obj1);
+    console.log(obj3);
+    console.log(obj3===obj4);//true;
+    console.log(obj3===obj5);//true;
+</script>
+</body>
+</html>

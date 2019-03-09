@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            height: 400px;
+            margin: 100px;
+            position: relative;
+            border: 10px solid orange;
+        }
+        .div{
+            position: absolute;
+            left:50px;
+            top:50px;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            border: 1px solid blue;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="div"></div>
+</div>
+<script>
+    //jquery中offset()获取left，top,获取的是距离body内容区域的top和left
+    jdiv=$(".div");//获取jquery对象的div1
+    jtop=jdiv.offset().top;
+    jleft=jdiv.offset().left;
+    console.log(jtop);
+    console.log(jleft);
+    //原生js获取的left和top是获取相对于父盒子内容
+    div=document.querySelector(".div");//获取dom中打的div1
+    tp=div.offsetTop;//top在js中时关键字
+    lt=div.offsetLeft;
+    console.log(tp);
+    console.log(lt);
+    //jquery获取盒子在父类中的定位的方式,position()
+    console.log(jdiv.position().left);
+    console.log(jdiv.position().top);
+</script>
+</body>
+</html>

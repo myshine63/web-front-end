@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*箭头函数自身没有arguments因此它只能输出上下文的arguments*/
+    var arguments='tom';
+    function f(a,b) {
+        console.log(arguments);//1,2 输出自己的参数a,b
+    }
+    let fn=(a,b)=>{
+        console.log(arguments);//tom 输出上下文的arguments因此输出全局变量arguments
+    };
+    f(1,2);//1,2
+    fn(1,2);//tom
+    function f1(a,b) {
+        function f(c,d) {
+            console.log(arguments);//3,4 输出自己的arguments
+        }
+        f(3,4);
+    }
+    function f2(a,b) {
+        let fn=(c,d)=>{
+            console.log(arguments);//1,2 输出外层的arguments
+        };
+        fn(3,4);
+    }
+    f1(1,2);//3,4
+    f2(1,2);//1,2
+</script>
+</body>
+</html>

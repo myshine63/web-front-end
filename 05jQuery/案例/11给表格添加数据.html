@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 400px;
+            border: 1px solid red;
+            margin: 100px auto;
+            padding: 5px;
+        }
+
+        div > div {
+            border: 1px solid silver;
+        }
+
+        input {
+            line-height: 30px;
+            font-size: 16px;
+            width: 100px;
+            height: 30px;
+        }
+
+        table {
+            margin-top: 15px;
+            width: 400px;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid silver;
+            text-align: center;
+            font: 400 25px/40px "微软雅黑";
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div>
+        <input name="name" type="text" placeholder="请输入货品名" value="">
+        <input name="price" type="text" placeholder="请输入单价" value="">
+        <input name="num" type="text" placeholder="请输入库存" value="">
+        <button>添加</button>
+    </div>
+    <table>
+        <tr>
+            <th>货品名</th>
+            <th>单价</th>
+            <th>数量</th>
+        </tr>
+    </table>
+</div>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    var table = $("table");
+    var ipts = $("input");
+    $("button").click(function () {
+        var tr = $("<tr></tr>");
+        tr.append("<td>" + ipts.eq(0).val() + "</td>");
+        tr.append("<td>" + ipts.eq(1).val() + "</td>");
+        tr.append("<td>" + ipts.eq(2).val() + "</td>");
+        table.append(tr);
+    })
+</script>
+</body>
+</html>

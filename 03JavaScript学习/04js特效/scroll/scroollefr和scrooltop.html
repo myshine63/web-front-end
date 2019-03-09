@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            height: 5000px;
+            width: 5000px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+
+    window.onscroll = function () {
+//        console.log(document.body.scrollTop);
+        //document.body.scrollTop：网页被卷去的头部
+        //兼容有问题
+        document.title = document.body.scrollTop + "   "+document.body.scrollLeft;
+
+    };
+    function scroll() {
+        return{
+            "top":window.pageYOffset||window.body.scrollTop||document.documentElement.scrollTop,
+            "left":  window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+        }
+    }
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //直接在类中定义方法的坏处
+    //1.在每次创建对象时，都会新建一个函数，而函数具有独立性，因此1个函数就够用了，太多
+    //会使内存泄漏，降低性能
+    //2是函数产生闭包，闭包会扩大局部变量的作用域，使局部变量一直存活到函数外
+
+    function Test() {//在函数内创建方法
+        var a="hello word";
+        this.info=function () {
+            document.write(a+"<br>");
+            return a;
+        }
+    }
+    var b=new Test();
+    var c=b.info();//局部变量会存活到这里
+    document.write(c);
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let f=function (str) {
+        let arr=Array.from(str);
+        let maxcount=1;
+        let s=null;
+        let count=1;
+        if(str.length===1){
+            s=str;
+            return{s,maxcount}
+        }
+        for(let i=0;i<arr.length-1;i++){
+            for(let j=i+1;j<arr.length;j++){
+                if(arr[i]===arr[j]){
+                    count++;
+                }
+            }
+            if(count>maxcount){
+                s=arr[i];
+                maxcount=count;
+            }
+            else if(count===maxcount){
+                s+=arr[i];
+            }
+            count=1;
+        }
+        return {s,maxcount};
+    };
+    console.log(f(""));
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            border: 10px solid orange;
+            background-color: #d2a5ff;
+            position: absolute;
+            padding: 40px;
+            top: 200px;
+            left: 400px;
+        }
+    </style>
+</head>
+<body>
+<button>改变宽度</button>
+<button>改变高度</button>
+<div class="box"></div>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    var buts=$("button");
+    var div=$("div");
+    //获取和改变的永远是内容区域的宽高，不包括padding
+    buts.eq(0).click(function () {
+        console.log("改变前宽："+div.width());//获取当前宽度
+        div.width(400);
+        console.log("改变后宽："+div.width());//获取改变之后的宽高
+    });
+    buts.eq(1).click(function () {
+        console.log("改变前高："+div.height());//获取改变前的高度
+        div.height(400);
+        console.log("改变前高："+div.height());//获取改变后的高度
+    });
+</script>
+</body>
+</html>

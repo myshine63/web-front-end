@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function f(a,b) {
+        console.log(a,b)
+    }
+    f();//允许函数参数为空,输出undefined,undefined
+    f(1);//允许函数参数个数不匹配,输出 1,undefined
+    f(1,2,3);//允许函数参数大于标准,输出 1,2
+
+    //当参数是基本类型时,传入参数不会改变实参本身的值
+    function f1(a) {
+        console.log(++a);
+    }
+    let a=1;
+    f1(a);//2
+    console.log(a);//1
+
+    //当参数时复合类型是,可以改变实参的属性,但是不可以改变它的类型
+    var b={name:'cat'};
+    function f2(a) {
+        a.name='jerry';
+        a=b;//这里其实相当于给全局变量a赋值为b
+        a=null;//这里的a和上面一行的a不是同一个a
+    }
+    let c={name:'tom'};
+    f2(c);
+    console.log(c.name);//jerry,说明 a=null不会起作用
+</script>
+</body>
+</html>

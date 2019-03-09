@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        //入口函数
+        jQuery(document).ready(function () {
+            var box = document.getElementById("box");
+            var cbox = document.getElementsByClassName("box");
+            var div = document.getElementsByTagName("div");
+
+            //jquery对象是一个数组。数组中包含着原生JS中的DOM对象。
+            var jqbox = $("#box");
+            var jqCbox = $(".box");
+            var jqdiv = $("div");
+            //判断jQuery对象是否存在
+            if(jqbox.length>0)
+                console.log("对象存在");
+            console.log(box);
+            console.log(jqbox);
+            console.log("------------");
+            console.log(cbox);
+            console.log(jqCbox);
+            console.log("------------");
+            console.log(div);
+            console.log(jqdiv);
+
+            //原生js中没有css();
+//            div.css("width: 100px;height:100px;background-color:red;margin:10px;");
+
+
+            //jquery中有css();  原因就是因为：jquery有一层功能皮肤。
+            jqdiv.css({"width": 100,"height":100,"background-color":"red","margin":10});
+
+        });
+    </script>
+</head>
+<body>
+    <div></div>
+    <div class="box"></div>
+    <div id="box"></div>
+    <div class="box"></div>
+    <div></div>
+</body>
+</html>

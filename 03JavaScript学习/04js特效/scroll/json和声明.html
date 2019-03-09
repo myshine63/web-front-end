@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //json回顾
+    var json = {"aaa":111,"bbb":222};
+
+    //遍历方法for...in...  (一般数组和dom对象不使用本方法)
+    for(var k in json){
+        console.log(k);   //属性
+        console.log(json[k]); //值：第二种属性绑定和获取值的方法
+    }
+    alert(document.compatMode);//已经声明返回CSS1Compat没有声明返回BackCompat
+</script>
+</body>
+</html>

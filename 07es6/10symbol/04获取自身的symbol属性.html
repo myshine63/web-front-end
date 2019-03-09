@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*返回对象自身所有的symbol属性*/
+    let obj = {
+        name: 'tom',
+        [Symbol('age')]: 30,
+        [Symbol('say')]() {
+            console.log('hello word');
+        }
+    };
+
+    /*for in 只会变量对象自身和继承的可枚举属性，不包括symbol*/
+    for (let key in obj) {
+        console.log('key:' + key + '  属性值:' + obj[key]);//name:tom
+    }
+
+    /*Object.getOwnPropertySymbols()返回自身的所有symbol属性键名,特别注意它返回的是symbol值数组*/
+    let symbolarr = Object.getOwnPropertySymbols(obj);
+    console.log(symbolarr,obj[symbolarr[0]]);//symbol('age'),symbol(say);
+    obj[symbolarr[1]]();
+
+    /*Reflect.ownKeys(),返回对象所有的属性名，包括不可枚举和Symbol键名*/
+    let allattr = Reflect.ownKeys(obj);
+    console.log(allattr);//
+</script>
+</body>
+</html>

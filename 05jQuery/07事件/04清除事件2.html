@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            background-color: #d2a5ff;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<button>清除鼠标移入时改变大小事件</button>
+<button>盒子还原</button>
+<div class="box"></div>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    buts=$("button");
+    div=$("div");
+    //给盒子添加鼠标移入事件
+    div.mouseover(a);
+    div.mouseover(b);
+    function a() {
+        div.width(200);
+        div.height(200);
+    }
+    function b() {
+        div.css("background-color","orange");
+    }
+    //清除指定时间的指定方法
+    buts.eq(0).click(function () {
+        div.off("mouseover",a);
+    });
+    //还原盒子
+    buts.eq(1).click(function () {
+        div.removeAttr("style");
+    })
+</script>
+</body>
+</html>

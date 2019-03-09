@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //在函数内部定义的函数，他只能在外函数被调用时，它才能调用
+    function outer() {
+        function inner1() {
+            document.write("执行内部函数1");
+        }
+        function inner2() {
+            document.write("执行内部函数2");
+        }
+        //执行内部函数
+        inner1();
+        inner2();
+    }
+    outer();//调用外部函数
+</script>
+
+</body>
+</html>

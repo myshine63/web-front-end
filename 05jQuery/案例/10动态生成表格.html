@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            /*只设置了宽度，那么table的高度会根据表格的总高度变化*/
+            border-collapse: collapse;/*合并边框*/
+            width: 300px;
+        }
+        th,td{
+            /*设置了行高，说明表格的高度为40px，没有设置宽度，则表格会根据内容自动调宽度*/
+            border: 1px solid silver;
+            font:500 25px/40px "微软雅黑";
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button>添加</button>
+<table>
+    <tr>
+        <th>货品名</th>
+        <th>单价</th>
+        <th>库存</th>
+    </tr>
+</table>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    var jsons=[{name:"js",price:50,num:30},{name:"html",price:50,num:30},{name:"css",price:50,num:30}];//json数据
+    var table=$("table");
+    $("button").click(function () {
+       for(var i=0;i<jsons.length;i++){
+           var tr=$("<tr></tr>");
+           tr.append("<td>"+jsons[i].name+"</td>");
+           tr.append("<td>"+jsons[i].price+"</td>");
+           tr.append("<td>"+jsons[i].num+"</td>");
+           table.append(tr);
+    }
+    });
+</script>
+</body>
+</html>

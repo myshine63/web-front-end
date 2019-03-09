@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //在函数外用var定义的变量都是局部变量
+    var a = 123;
+    b = "hehe";//直接定义的变量，永远都是全局变量
+    function test() {
+        var c = "456";//函数内用var定义的变量是局部变量
+        d = "全局变量";//不用var定义的变量都是全局变量
+        a = "给全局变量重新赋值";
+    }
+    //js没有块范围
+    for (var i = 0; i < 2; i++) {//此处的i为全局变量
+        document.write(i + "  ");
+    }
+</script>
+</body>
+</html>

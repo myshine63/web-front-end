@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Reflect主要是代替一些通过Object对象调用的方法,用来代替Object*/
+    let obj={};
+    Object.defineProperty(obj,'name',{value:'tom'});
+    Reflect.defineProperty(obj,'age',{value:30});
+    console.log(obj);
+    console.log(obj.name);
+    console.log(obj.age);
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+    //定义常规函数
+    func("hello");//定义的常规函数提升到script元素顶部优先执行,因此可以先调用在定义
+    function func(name) {
+        console.log(name);
+    }
+
+    func();  //js允许不传入参数，但是对应的变量值为undefined
+
+    //匿名函数只能先定义再调用，不会提升
+    var a = function (name) {//定义匿名函数，相当于定义了一个function对象，并把这个对象赋予a
+        console.log(name);
+    };
+    a("word");
+    function test(name,age) {
+        //函数内部arguments相当于参数数组
+        console.log(arguments)
+    }
+    test('jerry',25);
+</script>
+</body>
+</html>

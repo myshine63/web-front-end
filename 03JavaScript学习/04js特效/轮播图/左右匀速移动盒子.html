@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #5eff50;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button>移动到200</button>
+<button>移动到600</button>
+<div></div>
+<script>
+    //思路，盒子和目标值的差的绝对值大于步长时调用timer
+    //盒子和目标值的差的绝对值小于步长时调用timer
+    var but = document.querySelectorAll("button");
+    var div = document.querySelector("div");
+    but[0].onclick = function () {
+        moveleft(div,200,20,30);
+    };
+    but[1].onclick = function () {
+        moveleft(div,600,20,30);
+    };
+    //方法封装
+    function moveleft(ele,aim,step,time) {
+        var newstep=aim>ele.offsetLeft?step:-1*step;//以此来判断应该是加步长还是减去步长
+        clearInterval(ele.timer);//清除定时器
+        ele.timer=setInterval(function () {
+            if(Math.abs(aim-ele.offsetLeft)>step){//盒子和目标值的差的绝对值大于步长时调用timer
+                ele.style.left = ele.offsetLeft + newstep + "px";
+            }
+            else{//最后闪现到指定位置
+                ele.style.left=aim+"px";
+                clearInterval(ele.timer);
+            }
+        },time)
+    }
+    //思路
+//    function test(target) {
+//        var speed = 10;//速度
+//        var div = document.querySelector("div");
+//        if (div.offsetLeft - target > speed) {//如果盒子在目标位置右侧
+//            clearInterval(div.timer);
+//            div.timer = setInterval(function () {
+//                if (div.offsetLeft - target < speed) {
+//                    clearInterval(div.timer);
+//                }
+//                else
+//                    div.style.left = div.offsetLeft - speed + "px";
+//            }, 300);
+//        }
+//        if (target - div.offsetLeft > speed) {
+//            clearInterval(div.timer);
+//            div.timer = setInterval(function () {
+//                if (target - div.offsetLeft < speed) {
+//                    clearInterval(div.timer);
+//                }
+//                else
+//                    div.style.left = div.offsetLeft + speed + "px";
+//            }, 300);
+//        }
+//        if(Math.abs(target-div.offsetLeft)<=10){
+//            div.style.left=target+"px";
+//        }
+//    }
+
+
+</script>
+</body>
+</html>

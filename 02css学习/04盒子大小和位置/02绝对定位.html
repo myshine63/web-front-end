@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: #2aabd2;
+            position: absolute;
+            top: 50px;
+            right: 50px;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background-color: #2aabd2;
+        }
+
+        #div3 {
+            width: 100px;
+            height: 100px;
+            background-color: #2aabd2;
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+        }
+
+        #div4 {
+            width: 200px;
+            height: 200px;
+            background-color: #2aabd2;
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+        }
+
+        #div5 {
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+        }
+    </style>
+</head>
+<body>
+<pre>
+    特点：
+    ★元素使用绝对定位之后不占据原来的位置（脱标）
+    ★元素使用绝对定位，位置是从浏览器可视区域出发。
+    ★嵌套的盒子，父盒子没有使用定位，子盒子绝对定位，子盒子位置是从浏览器可视区域出发。
+    ★嵌套的盒子，父盒子使用定位，子盒子绝对定位，子盒子位置是从父元素位置出发。
+    ★给行内元素使用绝对定位之后，转换为行内块。（不推荐使用，推荐使用display:inline-block;）
+</pre>
+<div id="div1">div1作为body的子元素,他的位置是从浏览器出发</div>
+<div id="div2">
+    div2
+    <div id="div3">父盒子没有定位，也是从浏览器出发</div>
+</div>
+<div id="div4">
+    父盒子有定位是从父盒子出发的
+    <div id="div5">div5</div>
+</div>
+</body>
+</html>

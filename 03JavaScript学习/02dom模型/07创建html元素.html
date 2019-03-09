@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="background-color: #2aabd2">
+    <h1>i love you</h1>
+</div>
+<div>
+    <h1>beautiful girl</h1>
+</div>
+<script>
+    /*通过document.write()方法添加元素*/
+    document.write("<div>通过write创建的div</div>");
+    //通过innerHTML创建元素
+    let div = document.getElementsByTagName('div')[0];
+    div.innerHTML += '<h1>好好学习天天向上</h1>';
+    //通过create创建元素
+    let h1 = document.createElement('h1');
+    h1.innerText = 'hello word';
+    div.appendChild(h1);
+    //通过克隆复制
+    let div1 = document.getElementsByTagName('div')[1];
+    let a = div1.cloneNode(true);//深度复制,完全一模一样，包括id
+    div.appendChild(a);
+    let b = div.cloneNode(false);//只复制父节点
+    b.innerHTML = '<h1>cool boy</h1>';
+    div.appendChild(b);
+</script>
+</body>
+</html>

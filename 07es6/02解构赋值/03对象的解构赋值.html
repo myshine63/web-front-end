@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*对象解构赋值本质:先从左边对象中取一个属性,然后在右边去查找是否有对应的属性,如果有则把右边属性对应的值
+    * 赋值给左边属性对应的值,let{a:b}={a:c},则b=c,a只是一个模式,它并不是变量a的值为undefined
+    * 或者 let{a}={a:c},a=c;*/
+    {
+        let {a:b}={a:1};//a=undefined,b=1;
+        let {c}={c:1};//c=1;
+        let {d,d:e}={d:1};//d=e=1;d和e都是变量
+    }
+    /*对象的嵌套赋值时,要认清本质,反正 : 号前边的名字都是模式,不是真正的变量*/
+    {
+        let obj = {
+            a: [1, {b: 2}]
+        };
+        let {a,a:[x,{b}]}=obj;//a=[1,{b:2}],x=1,b=2;
+    }
+    {
+        let node={
+            a:{
+                b:{
+                    c:1
+                }
+            }
+        };
+        let{a,a:{b},a:{b:{c}}}=node;//a={b:{c:1}},b={c:1},c=1;
+    }
+</script>
+</body>
+</html>

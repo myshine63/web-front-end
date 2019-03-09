@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let map=new Map([['name','tom'],['age',14]]);
+    let keys=map.keys();//返回键名遍历器,不是数组解构
+    let values=map.values();//返回值遍历器
+    let entries=map.entries();//返回键-值对遍历器
+    console.log(...keys);
+    console.log(...values);
+    console.log(...entries);
+    Array.from(map).forEach(([key,value])=>{
+        console.log(key,value);
+    });
+</script>
+</body>
+</html>

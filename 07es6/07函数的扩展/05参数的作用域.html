@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*括号是一个独立的作用域，即括号内部是一个独立的作用域*/
+
+    /*输出12.（a,b=a）是一个独立的作用域，这个作用域里面定义了一个变量a、b,并把a的值赋予b*/
+    let a=1;
+    function f(a,b=a) {
+        console.log(b);
+    }
+    f(12);
+
+    /*在函数内部重新用var 定义参数，相对于是对参数的覆盖*/
+    function f3(a,b=10) {
+        var a=1;
+        var b=2;
+        console.log(a,b);//将输出 1 2
+    }
+
+    /*覆盖的另一个例子
+    * foo2函数的括号内定义了一个变量x1，又定义了一个变量y，y的值为一个函数，他的作用是改变参数x1的值
+    * 函数内部重新定义了一个变量x1，那么他会覆盖掉参数的x1，
+    * 在执行y()方法时，并不会改变函数内部的x1,
+    * 输出的是函数内部的x1
+    * */
+    var x1 = 1;
+    function foo2(x1, y = function() { x1 = 2; }) {
+        var x1 = 3;
+        y();
+        console.log(x1);
+    }
+
+    foo2() // 3
+    x1 // 1
+
+    /*括号内部定义了一个变量b,并且把a的值赋予给变量b。由于在括号内定义b之前没有定义a,那么此时的a只能是外面的a
+    * 如果外面也没有定义a变量，那么会报错
+    * */
+    function f1(b=a) {
+        let a=3;//这里的a是函数内部的局部变量a
+        console.log(b);
+    }
+    f1();//1
+    f1(12);//12
+
+
+    /*该案例在函数内部定义了变量a,b，并且把a的值赋予给了b，那么此时的a,b将作用于整个函数
+    * 因此函数内部就不能再次用 let和const定义
+    * */
+    // function f2(a,b=a) {
+    //     let a=3; 这里的a重复定义，会报错
+    //     console.log(b);
+    // }
+
+
+    /*暂时性死区*/
+    // var x = 1;
+    // function foo(x = x) {  这里相当于 let x=x ;暂时性死区，会报错
+    //     // ...
+    // }
+    // foo() // ReferenceError: x is not defined
+
+    /*当默认参数时函时也遵循参数括号是独立的作用域
+    * 括号内定义了一个参数a,改参数的值是一个默认函数，函数内部为返回一个值str。又因为在
+    * 括号内a之前没有定义str,那么改变了只能是外部变量。
+    *
+    * */
+    var str="outer";
+    function f6(a=function () {
+        return str
+    }) {
+        var str="inner";
+        console.log(a());
+    }
+    f6();//outer
+</script>
+</body>
+</html>

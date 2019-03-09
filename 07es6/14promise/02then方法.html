@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*then方法返回的是一个新的Promise对象*/
+    let promise=new Promise((resolve,reject)=>{
+        resolve(1);
+    });
+   /*1.当then方法中有return时,默认执行resolve(返回值)*/
+    let a=promise.then(x=>{
+        console.log(x);//1
+        return x+m;
+    });
+    console.log(a);
+    /*上面相当于执行
+    let a=new Promise((resolve,reject)=>{
+        resolve(2);
+    });
+    console.log(a);
+    console.log(x;)
+    */
+    /*then方法不含有return,默认执行resolve()*/
+    let b=a.then(x=>{
+        console.log(x+1);
+    });
+    console.log(b);
+    b.then(x=>{
+        console.log(x);//undefined,
+    })
+</script>
+</body>
+</html>

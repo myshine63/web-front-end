@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p:before{/*在指定元素的头部插入内容*/
+            content: "66666";
+            background-color: #2aabd2;
+        }
+        #img:after{
+            content: url("../image/2.png");
+        }
+        /*利用quotes属性进行插入*/
+        #quotes{/*定义插入内容*/
+            quotes: "<<" ">>";/*定义open-quote和close-quote的内容*/
+        }
+        #quotes:before{/*前面插入*/
+            content: open-quote;
+        }
+        #quotes:after{/*后面插入*/
+            content: close-quote;
+        }
+        /*自定义编号*/
+        #counter>div{
+            counter-increment: test;/*为div标签定义一个计数器，样式默认为数字*/
+        }
+        #counter>div:before{/*在div元素前面插入内容“第几本书.”*/
+            content: "第" counter(test,lower-greek) "本书.";
+        }
+        /*自定义多级编号*/
+        #counter2>h3{/*为标题设置计数器，并且每个标题后面都重置一次第二标题的计数器*/
+            counter-increment: first-title;/*设置计数器*/
+            counter-reset: book-name;/*重置计数器*/
+        }
+        #counter2>div{/*为第二标题设置计数器*/
+            counter-increment: book-name;
+        }
+        #counter2>h3:before{
+            content: counter(first-title,lower-greek) ".";
+        }
+        #counter2>div:before{
+            content: "第" counter(book-name) "本书.";
+        }
+    </style>
+</head>
+<body>
+<h4>before伪元素使用</h4>
+<p>hello word <br>
+    how are you <br>
+    i love you <br>
+</p>
+<h4>after伪元素使用</h4>
+<div id="img">
+    aaaaaaaaaaaaaaaaaa
+</div>
+<h4>配合quotes进行插入</h4>
+<div id="quotes">
+十万个为什么
+</div>
+<h4>自定义编号</h4>
+<div id="counter">
+    <div>css</div>
+    <div>js</div>
+    <div>html</div>
+    <div>jquery</div>
+</div>
+<div id="counter2">
+    <h3>java类书</h3>
+    <div>java web</div>
+    <div>java </div>
+    <h3>前端类书</h3>
+    <div>html</div>
+    <div>css</div>
+    <div>js</div>
+</div>
+</body>
+</html>

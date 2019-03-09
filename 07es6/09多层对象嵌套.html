@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj = {
+        p: [123, {x: 456}]
+    };
+    let {p, p: [a, {x}]} = obj; //此时p=123,{x:456},a=123,x=456;
+    //多层次嵌套
+    const node = {
+        loc: {
+            start: {
+                line: 1,
+                column: 5
+            }
+        }
+    };
+    let {
+        loc,//解构loc,loc={start:{line:1,column:5}}
+        loc: {start},//解构loc中的start属性，它的值等于{{line:1,column:5}}
+        loc: {start: {line: m, column: n}}//解构{对象}，由于属性和模型不一样，因此 m=1;n=5;
+    } = node;
+    console.log(loc);
+    console.log(start);
+    console.log(m);
+    console.log(n);
+</script>
+</body>
+</html>

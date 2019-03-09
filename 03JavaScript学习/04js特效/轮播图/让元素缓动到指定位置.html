@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<button >huandong</button>
+<div>
+</div>
+<script>
+    var b=document.querySelector("button");
+    var d=document.querySelector("div");
+    b.onclick=function () {
+        movetoaim(d,600,400,10,30);
+    };
+    function movetoaim(ele, xaim, yaim, step, time) {
+        clearInterval(ele.timer);//清除定时器
+        var xstep = xaim > ele.offsetTop ? step : -1 * step;
+        var ystep = yaim > ele.offsetTop ? step : -1 * step;
+        ele.timer = setInterval(function () {
+            if (Math.abs(xaim - ele.offsetLeft) > step) {//盒子和目标值的差的绝对值大于步长时调用timer
+                ele.style.left = ele.offsetLeft + xstep + "px";
+            }
+            else {//最后闪现到指定位置
+                ele.style.left = xaim + "px";
+            }
+            if (Math.abs(yaim - ele.offsetTop) > step) {//盒子和目标值的差的绝对值大于步长时调用timer
+                ele.style.top = ele.offsetTop + ystep + "px";
+            }
+            else {//最后闪现到指定位置
+                ele.style.top = yaim + "px";
+            }
+            if (Math.abs(yaim - ele.offsetTop) < step && Math.abs(xaim - ele.offsetLeft) < step)
+                clearInterval(ele.timer);
+        }, time)
+    }
+    function runtoaim(ele, xaim, yaim, time) {
+        clearInterval(ele.timer);
+        ele.timer = setInterval(function () {
+            var xstep = (xaim - ele.offsetLeft) / 10;
+            var ystep = (yaim - ele.offsetTop) / 10;
+            xstep = xstep > 0 ? Math.ceil(xstep) : Math.floor(xstep);
+            ystep = ystep > 0 ? Math.ceil(ystep) : Math.floor(ystep);
+            //处理x方向
+            if (Math.abs(xaim - ele.offsetLeft) <= Math.abs(xstep)) {
+                ele.style.left = xaim + "px";
+            }
+            else {
+                ele.style.left = ele.offsetLeft + xstep + "px";
+            }
+            //处理y方向
+            if (Math.abs(yaim - ele.offsetTop) <= Math.abs(ystep)) {
+                ele.style.top = yaim + "px";
+            }
+            else {
+                ele.style.top = ele.offsetTop + ystep + "px";
+            }
+            //x和y都符合后清除定时器
+            if(Math.abs(xaim - ele.offsetLeft) <= Math.abs(xstep)&&Math.abs(yaim - ele.offsetTop) <= Math.abs(ystep))
+                clearInterval(ele.timer);
+        }, time)
+    }
+</script>
+</body>
+</html>

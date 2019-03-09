@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div > div:first-of-type { /*div元素的父元素的第一个div元素*/
+            background-color: #2aabd2;
+        }
+
+        #div > p:last-of-type { /*p元素的父元素的最后一个p元素*/
+            background-color: #809fe6;
+        }
+
+        #div > div:nth-of-type(even) { /*偶数个div*/
+            background-color: #e64a47;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    <p>好好学习天天向上</p>
+    <div>好好学习天天向上1</div>
+    <p>好好学习天天向上</p>
+    <p>好好学习天天向上</p>
+    <div>好好学习天天向上2</div>
+    <div>好好学习天天向上3</div>
+    <p>好好学习天天向上</p>
+    <div>好好学习天天向上4</div>
+</div>
+</body>
+</html>

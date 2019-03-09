@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 600px;
+            height: 50px;
+            margin: 50px auto;
+            background-color: #5eff50;
+            text-align: center;
+        }
+        span{
+            text-align: center;
+            font:700 18px/50px "微软雅黑";
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>距离2018年3月20还有：</span>
+        <span id="test"></span>
+    </div>
+<script>
+    var timer=null;
+    function sett() {
+        var fdate=new Date("2018/3/20 00:00:00");//创建未来时间
+        var ndate=new Date();//获取现在时间
+        var ftime=fdate.getTime();///或去未来毫秒
+        var ntime=ndate.getTime();//获取现在毫秒
+        var con=(ftime-ntime)/1000;//秒差
+        var day=parseInt(con/60/60/24);//算出天数差
+        var hour=parseInt(con/60/60%24);//算出小时差
+        var minute=parseInt(con/60%60);//算出分钟差
+        var seconds=parseInt(con%60);//算出秒差
+        var str=day+"天"+hour+"时"+minute+"分"+seconds+"秒";//得出时间
+        var span=document.getElementById("test");
+        if(con<0){
+            span.innerHTML="00天00小时00分钟00秒";
+            timer.clearInterval();
+        }
+        else{
+            span.innerHTML=str;
+        }
+    }
+    timer=setInterval(sett,1000);
+</script>
+</body>
+</html>

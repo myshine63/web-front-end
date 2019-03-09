@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    //遍历数组
+    var arr=[1,2,3,4,"aaaa","bbbbb",true];
+    $.each(arr,function (name,value) {
+        console.log("name:"+name);
+        console.log("value:"+value);
+        console.log(arr[name]);
+
+    });
+    //遍历对象
+    var obj={
+        name:"小王",
+        age:25
+    };
+    $.each(obj,function (name,value) {
+        console.log("name:"+name);
+        console.log("value:"+value);
+        console.log(obj[name]);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid orange;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>好好学习</div>
+<div>天天向上</div>
+<ul>
+    <li>
+        <p>ccccccccc</p>
+        <ul>
+            <p>aaaaaaaaa</p>
+            <li>好好学习</li>
+            <li>天天向上</li>
+        </ul>
+    </li>
+    <li>天天向上</li>
+    <li>beautiful girl</li>
+</ul>
+<ul>
+    <li>
+        <p>aaaaaa</p>
+        <ul>
+            <p>aaaaaaaaa</p>
+            <li>好好学习</li>
+            <li>天天向上</li>
+        </ul>
+    </li>
+    <li>天天向上</li>
+    <li>beautiful girl</li>
+</ul>
+<div id="one">
+    好好学习天天向上
+</div>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    /**
+     *说明，在低版本的jquery中推荐使用bind()和delegate()方法，在高版本的jquery中推荐使用on()方法
+     */
+    //bind()放发为元素添加一个和或者多个事件,推荐使用on方法代替
+    divs = $("div");
+    //绑定一个事件
+    divs.eq(0).bind("click", function () {
+        $(this).css("background-color", "green");
+    });
+    //绑定多个事件适合多个事件的相同方法
+    divs.eq(0).bind("click mouseout", function () {
+        console.log($(this).text());
+    });
+    //给元素添加事件，适合不同的事件不同的方法
+    divs.eq(1).bind({
+        "click": function () {
+            $(this).css("background-color", "blue")
+        },
+        "mouseover": function () {
+            $(this).css("border", "5px solid red");
+        }
+    });
+
+
+    //delegate(),给被选中元素的后代中匹配选择器的元素添加方法。
+    //会给ul中所有的li添加方法，但是不会给p元素添加方法
+    $("ul").eq(0).delegate("li", "click", function () {
+        $(this).css("border", "1px solid orange");
+        return false;//阻止事件的冒泡
+    });
+    //该方法说明上面的方法没有给p元素绑定click事件
+    // $("p").click(function () {
+    //     return false;
+    // });
+
+
+    //on方法类似于delegate()方法,
+    $("ul").eq(2).on("click", "li",function () {
+        $(this).css("border", "1px solid orange");
+        return false;
+    });
+
+
+
+    //只使用一次的事件
+    $("#one").one("click",function () {
+        console.log($(this).text());
+    })
+
+</script>
+</body>
+</html>

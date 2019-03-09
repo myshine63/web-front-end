@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form id="form" action="#" method="post">
+    <label for="username">用户名：<input id="username" type="text"></label><br>
+    <label for="password">密码：<input id="password" type="password"></label> <br>
+    <label for="choice">颜色选择：
+        <select name="choice" id="choice">
+            <option value="green">绿色</option>
+            <option value="red">红色</option>
+        </select>
+    </label><br>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+<script type="text/javascript">
+    var form = document.getElementById('form');
+    let elements = form.elements;//获取所有表单元素
+    console.log(elements);//获取表单控件，不包括br，长度为6
+    console.log(form.children);//获取所有的元素，包括br，长度为9
+    //获取表单元素
+    let user1 = elements.username;
+    let user = elements['username'];//通过name/id 获取元素
+    let password = elements[1];//通过index获取元素
+
+    form.method = "get";//修改表单的method方法
+    form.action = "https://www.baidu.com";//修改action
+    form.target = "_self";
+    //另外还有reset()方法，和submit()方法
+</script>
+</html>

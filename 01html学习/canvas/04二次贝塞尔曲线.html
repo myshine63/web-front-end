@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="test" width="1200" height="600"></canvas>
+<script>
+    let canvas = document.getElementById('test');
+    let draw = canvas.getContext('2d');
+    draw.beginPath();
+    draw.moveTo(50,50);
+    draw.quadraticCurveTo(100,300,150,50);
+    draw.stroke();
+</script>
+</body>
+</html>

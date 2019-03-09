@@ -1,0 +1,6 @@
+@CHARSET "UTF-8";
+div{
+	width:100px;
+	height:50px;
+	background-color:gray;
+}

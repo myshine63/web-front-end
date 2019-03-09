@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #test1 { /*默认的宽高是内容的宽高*/
+            border: 10px solid red;
+            width: 200px;
+            height: 100px;
+            background-color: #7effad;
+        }
+
+        #test2 {
+            box-sizing: content-box; /*设置内容的宽高*/
+            width: 200px;
+            height: 100px;
+            border: 2px dashed red;
+            background-clip: content-box; /*设置背景的覆盖范围*/
+            background-color: #7effad;
+            padding: 20px;
+        }
+
+        #test3 { /*设置整体的宽高*/
+            box-sizing: border-box; /*设置宽高为整体的宽高*/
+            width: 200px;
+            height: 100px;
+            background-clip: content-box;/*设置背景的覆盖范围*/
+            background-color: #7effad;
+            padding: 20px;
+            border: 1px solid red;
+
+        }
+
+        #test4 { /*设置边框圆角*/
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+<div id="test1">jhjkhfawkhdjahjkdh</div>
+<div id="test2">jhjkhfawkhdjahjkdh</div>
+<div id="test3">jhjkhfawkhdjahjkdh</div>
+<div id="test4">jhjkhfawkhdjahjkdh</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="450" style="border:1px solid orange"></canvas>
+<script type="text/javascript">
+var canvas=document.getElementById("canvas");
+var draw=canvas.getContext("2d");
+draw.fillStyle="rgba(255,0,0,0.3)";
+draw.fillRect(100,300,150,75);//该图形的位置，大小不会受到下面的影响
+draw.translate(50,250);
+for(var i=0;i<50;i++){
+	draw.translate(50,50);
+	draw.scale(0.9,0.9);//图形的长和宽的因子，但是顶点坐标的位置不变
+	draw.rotate(-Math.PI/10);//让图形发生旋转
+	draw.fillRect(0,0,150,75);//第一次循环该图形的顶点坐标位100,300
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            span1=$("span:contains('beautiful')");//包含有内容beautiful的span
+            console.log(span1);
+            div1=$("div:has(p)");//含有p元素的div
+            console.log(div1);
+            div2=$("div:empty");//不含有元素或者文本的div
+            console.log(div2);
+            div3=$("div:parent");//含有元素或者文本的div
+            console.log(div3);
+        })
+    </script>
+</head>
+<body>
+<div>
+    <span>hello word</span><br>
+    <span>beautiful</span>
+</div>
+<div>
+    <p>你好</p>
+</div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .border{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div class="red">11111111</div>
+<div class="red border">2222222</div>
+</body>
+<script>
+    div=document.getElementsByClassName("red");//div的长度为2，包含了2个div
+    console.log(div.length);
+</script>
+</html>

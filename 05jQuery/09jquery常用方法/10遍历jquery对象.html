@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>11111111</li>
+    <li>22222222</li>
+    <li>33333333</li>
+    <li>44444444</li>
+    <li>55555555</li>
+    <li>66666666</li>
+    <li>77777777</li>
+</ul>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $("li").each(function (index) {
+        if(index==3){//如果index=3则不输出
+            return true
+        }
+        if(index==5){//如果index=5则跳出循环
+            return false
+        }
+        console.log("index:"+index+this.innerHTML);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //普通函数调用
+    function f1(name, age) {
+        console.log(name, age);
+    }
+
+    f1('tom', 24);//直接调用
+    window.f1('tom', 24);//没有附加给某个对象的函数，可以通过window调用
+    f1.call(null, 'tom', 24);//需要以此传入参数
+    f1.apply(null, ['tom', 24]);//参数以数组的形式传入
+    //构造函数调用
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    Person('jerry',20);//直接调用相当于给window创建了一个name：jerry和age：20属性
+    console.log(window.name,window.age);
+    window.Person('bob',1);//当于给window修改了name：bob 和age：1属性，和上面差不多
+    console.log(window.name,window.age);
+    let obj={};
+    Person.call(obj,'jerry',20);//相当于给obj增加了name和age属性
+    console.log(obj);
+    Person.apply(obj,['bob',18]);//相当于修改了obj的name和age属性
+    console.log(obj);
+    Person.call(null,'marry',12);
+    console.log(window.name,window.age);//由于传入了空对象，相当于传入了window
+</script>
+</body>
+</html>

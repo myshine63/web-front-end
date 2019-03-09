@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 200px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            position: relative;
+        }
+        .div1{
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        .div2{
+            position: absolute;
+            left: 250px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="div1">不阻止冒泡</div>
+    <div class="div2">阻止冒泡</div>
+</div>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    //给父盒子绑定单击事件
+    $(".box").click(function () {
+        $(this).css("background-color","silver");
+    });
+    //不阻止冒泡
+    $(".div1").click(function () {
+        $(this).css("background-color","green");
+    });
+    //阻止冒泡
+    $(".div2").click(function () {
+        $(this).css("background-color","blue");
+        event.preventDefault();//只阻止默认行为，不会阻止冒泡
+        event.stopPropagation();//只阻止当前事件的冒泡
+        // return false;//不仅阻止冒泡，还阻止一些默认行为，想当于上面的组合
+    });
+</script>
+</body>
+</html>

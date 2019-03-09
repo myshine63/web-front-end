@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script type="text/javascript">
+        //绘制n边型
+        function drawmap(x, y, r, n, draw) {//r为点构成的圆的半径，x,y为圆心。
+            var rad = Math.PI * 2 / n;
+            draw.beginPath();
+            for (var i = 0; i <= n; i++) {
+                draw.lineTo(x + r * Math.cos(rad * i), y + r * Math.sin(rad * i))
+            }
+            draw.closePath();
+        }
+        function drawstar(x, y, r1, r2, n, draw) {//r1为外顶点的圆半径，r2位内顶点圆的半径，x,y为圆心，r1,r2互换位置没影响
+            var rad = Math.PI * 2 / n;
+            var rad2 = Math.PI / n;
+            draw.beginPath();
+            for (var i = 0; i <= n; i++) {
+                draw.lineTo(x + r1 * Math.cos(rad * i), y + r1 * Math.sin(rad * i));
+                draw.lineTo(x + r2 * Math.cos(rad * i + rad2), y + r2 * Math.sin(rad * i + rad2))
+            }
+            draw.closePath();
+        }
+    </script>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="450" style="border:1px solid orange "></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var draw = canvas.getContext("2d");
+    draw.strokeStyle = "#f0f";
+    drawmap(200, 200, 50, 4, draw);
+    draw.stroke();
+    drawmap(400, 200, 50, 7, draw);
+    draw.stroke();
+    drawstar(600, 200, 13, 50, 3, draw);
+    draw.stroke();
+</script>
+</body>
+</html>

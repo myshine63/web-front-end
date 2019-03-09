@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //ajax同源政策，即协议，地址，端口一致
+    //创建xhr对象方法
+    document.cookie='name=tom';
+    let xhr = new XMLHttpRequest();//ie7以下版本需要用其他方法
+    //给xhr对象的readyState属性绑定状态
+    xhr.readystatechange = function () {
+        alert(xhr.readyState);
+        if (xhr.readyState === 4) {//readyState状态为4表示请求完成
+            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {//status状态表示请求成功
+                alert('请求成功', xhr.statusText)
+            }
+            else {
+                alert(xhr.status);
+            }
+        }
+    };
+    //通过open方法用来启动发送请求参数分别是：请求方式，请求地址，是否异步请求
+    xhr.open('get','#', true);//现在已经启动请求以备发送
+    //发送请求
+    xhr.send({name: 'tom', age: 15});
+</script>
+</body>
+</html>

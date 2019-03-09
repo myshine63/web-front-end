@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj={name:'tom',age:{lag:12}};
+    let obj2={...obj};
+    console.log(obj===obj2);
+    obj2.name='jerry';
+    obj2.age.lag=15;
+    console.log(obj.name);
+    console.log(obj.age.lag);
+    console.log(obj.age===obj2.age);
+</script>
+</body>
+</html>

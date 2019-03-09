@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .clss1 {
+        }
+        .clss2{
+        }
+    </style>
+</head>
+<body>
+<div id="test1"></div>
+<div id="test2">
+    <div id="test3"></div>
+</div>
+<p id="test4" class="class1 class2"></p>
+<script type="text/javascript">
+    //根据id获取元素
+    var a = document.getElementById("test1");
+    //根据标签名字来获取,所得结果是一个类似数组解构
+    var b = document.getElementsByTagName("div");
+    //根据class属性来获取,所得结果是类似数组解构
+    var c = document.getElementsByClassName("class1");
+    //querySelector('选择器'),获取与之匹配的第一个元素
+    var d = document.querySelector("p");
+    var e = document.querySelector("#test4");
+    var f = document.querySelector(".class1");
+    //querySelectorAll('选择器'),选择与之匹配的所有元素,所得结果是类似数组解构
+    var g = document.querySelectorAll("div");
+</script>
+</body>
+</html>

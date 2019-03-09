@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        /*原生js，入口函数。页面上所有内容加载完毕，才会执行。不仅文本加载完毕，而且图片也要加载完毕，再执行函数。*/
+        // window.onload = function () {
+        //            alert(1);
+        //        }
+        /*query的入口函数，文档加载完毕，图片不加载的时候就可以执行这个函数。*/
+        //        $(function () {
+        //            alert(1);
+        //        });
+        /*jquery的入口函数的缩写。*/
+        //        $(document).ready(function () {
+        //            alert(1);
+        //        })
+        /*jquery的入口函数。文档加载完毕，图片也加载完毕的时候在执行这个函数。*/
+        //        $(window).ready(function () {
+        //            alert(1);
+        //        })
+    </script>
+</head>
+<body>
+<!--<img src="" width="100px" height="100px" style="border: 1px solid red;"/>-->
+<img src="logo.png" alt=""/>
+</body>
+</html>

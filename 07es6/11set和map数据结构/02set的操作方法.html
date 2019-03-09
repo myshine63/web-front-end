@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*add()添加数据,注意如果直接用add添加对象和数组那么不能够用has和delete方法去操作这个对象或数组
+    * 因为判断对象相等时利用地址去判断,而两个对象和数组即使一模一样他们的地址也是不等的
+    * 即[]!==[],{}!=={}*/
+    let set1=new Set();
+    let arr=[1,2,3];
+    set1.add(1);
+    set1.add([1,2,3]);
+    set1.add(arr);
+    set1.add(true);
+    console.log(arr===[1,2,3]);//false
+    console.log(set1);//size=4,
+    console.log([...set1]);//生成一个数组，
+
+    /*has()判断是否有某个值，返回值为boolean*/
+    console.log(set1.has([1,2,3]));//false，这里的数组和add添加的数组不一样
+    console.log(set1.has(arr));//true
+
+    /*delete()删除某个值，返回值为Boolean*/
+    console.log(set1.delete([1,2,3]));//false,这里的数组和add添加的数组不一样
+    console.log(set1.delete(arr));//true
+
+    /*清空set数据结构*/
+    set1.clear();//没有返回值
+
+</script>
+</body>
+</html>

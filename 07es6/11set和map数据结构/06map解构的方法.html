@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let map=new Map();
+    /*1.添加数据,返回新的map解构,因此可以链式操作*/
+    map.set('name','tom').set('age',14);
+
+    /*2.获取键的值,返回字符串或者undefined*/
+    map.get('name');//tom
+    map.get('jerry');//undefined
+
+    /*3.判断是否有某个键*/
+    map.has('name');
+    map.has('jerry');
+
+    /*4.删除某个键,返回Boolean*/
+    map.delete('name');
+    map.delete('jerry');
+    /*5.清空map*/
+    map.clear();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1200" height="600" style="border: 1px solid #000;"></canvas>
+</body>
+<script>
+    let canvas=document.getElementById('canvas');
+    let context=canvas.getContext('2d');
+    context.fillStyle='#dadacc';
+    context.strokeStyle='red';
+    context.fillRect(50,50,200,50);
+    context.strokeRect(50,50,200,50);
+    context.save();//保存当前的画笔属性，以栈的形式保存
+    context.fillStyle='#55dd1c';
+    context.strokeStyle='blue';
+    context.fillRect(300,50,200,50);
+    context.strokeRect(300,50,200,50);
+    context.save();//保存当前的画笔属性
+    context.restore();//恢复保存的画笔属性
+    context.fillRect(50,300,200,50);
+    context.strokeRect(50,300,200,50);
+    context.restore();//恢复保存的画笔属性
+    context.fillRect(300,300,200,50);
+    context.strokeRect(300,300,200,50);
+</script>
+</html>

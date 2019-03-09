@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*新建一个promise对象,参数是一个函数,并且函数有2个参数,这2个参数都是函数*/
+    let promise=new Promise((resolve,reject)=>{
+        if(a){
+            resolve(a);//返回a的值
+        }
+        else{
+            reject()//返回一个错误
+        }
+    });
+    promise.then(x=>{//成功后执行的函数,x是成功后返回的值,也就是a的值
+        console.log(x+c);
+    },(y)=>{//错误后执行的的函数,y表示一个错误状态
+        console.log(y);
+    });
+    promise.catch(y=>{
+        console.log(y)
+    });
+    let a=1,b=2;
+    let c=a+b;
+    console.log(c);
+
+</script>
+</body>
+</html>

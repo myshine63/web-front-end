@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*set属性可以按照自己的需求给属性赋值*/
+    let obj={};
+    let proxy=new Proxy(obj,{//设置obj对象的属性值只能是数字
+        set(target,key,val){
+            if(typeof val==='number'){
+                target[key]=val;
+            }
+            else
+                throw new RangeError('属性值只能为数字类型');
+        }
+    });
+    proxy.age=15;
+    // proxy.name='tom';
+    console.log(proxy.age);
+    // console.log(proxy.name);
+</script>
+</body>
+</html>

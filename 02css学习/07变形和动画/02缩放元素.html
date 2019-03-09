@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+        .box1{
+            background-color: #2aabd2;
+            /*把元素以它的中心点缩放,当只有一个参数时sx=sy,表示x轴和y轴都要缩放*/
+            transform: scale(0.5);
+        }
+        .box2{
+            /*3d缩放,z轴缩放看不出效果*/
+            background-color: chocolate;
+            /*transform: scale3d(0.5,0.8,0.7);*/
+            transform:scaleX(0.5) scaleY(0.8) scaleZ(0.7);
+        }
+    </style>
+</head>
+<body>
+<div class="box1">box1</div>
+<div class="box2">box2</div>
+</body>
+</html>

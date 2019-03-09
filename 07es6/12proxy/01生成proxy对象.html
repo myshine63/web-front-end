@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let obj={
+        name:'tom',
+        age:25,
+        say(){
+            console.log(this.name,this.age);
+        }
+    };
+    /*proxy是用来代理对象的一些操作,当一个对象设置了代理后,利用代理或者源对象都可以改变对象状态*/
+    /*用来代理对象的get 和set操作*/
+    let proxy=new Proxy(obj,{
+        get:function (target,key) {//获取对于属性值
+            return target[key];
+        },
+        set(target,key,val){//设置对应属性值
+           target[key]=val;
+        }
+    });
+    /*当设置了代理后，所有对原对象的操作，都可以通过操作代理对象来实现*/
+    console.log(proxy.name);//tomb
+    console.log(obj.name);//tom
+    obj.age=15;//直接操作原对象,不用代理
+    console.log(obj.age)
+
+
+    /*如果handler没有设置任何拦截，那么等同于原对象*/
+
+</script>
+</body>
+</html>

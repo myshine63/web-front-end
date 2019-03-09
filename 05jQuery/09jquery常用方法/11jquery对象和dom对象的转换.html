@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    var $li=$("li");//获取jquery对象的li集合
+    var li=$li.get();//获取dom对象的li数组
+    var newli=li.reverse();//反转li数组
+    $("ul").html(newli);
+</script>
+</body>
+</html>

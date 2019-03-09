@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="450" style="border:1px solid orange "></canvas>
+<script type="text/javascript">
+    var canvas = document.getElementById("canvas");
+    var draw = canvas.getContext("2d");
+    //画填充圆
+    draw.beginPath();//开始路径
+    draw.arc(50, 50, 50, 0, Math.PI*2, false); //画图,false 表示顺时针画图
+    draw.closePath();//结束路径
+    draw.fillStyle = "#a086ff";//设置颜色
+    draw.fill();//把路径画出来
+    //画弧线
+    draw.beginPath();
+    draw.arc(200, 100, 50, 0, Math.PI * 1.5, true);//true
+    draw.strokeStyle = "#b9ffc5";
+    draw.lineWidth=5;
+    draw.stroke();
+    // draw.closePath();//自动连接起点和终点
+    //画线条
+    draw.beginPath();
+    draw.moveTo(100, 200);
+    draw.lineTo(200, 400);
+    draw.lineTo(100, 400);
+    draw.closePath();
+    draw.strokeStyle = "#fof";
+    draw.lineJoin='round';
+    draw.stroke();
+    //画虚线
+    draw.beginPath();
+    draw.moveTo(300, 200);
+    draw.lineTo(500, 400);
+    draw.lineTo(300, 400);
+    draw.closePath();
+    draw.strokeStyle = "#afafaf";
+    draw.setLineDash([20,10]);
+    draw.lineJoin='round';
+    draw.stroke();
+</script>
+</body>
+</html>

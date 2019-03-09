@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        body {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<div draggable="true"></div>
+
+<script>
+    let div = document.getElementsByTagName('div')[0];
+    document.ondragover = function () {
+        return false
+    };
+    let x, y;
+    div.ondragstart = function (e) {
+        e.dataTransfer.setData('test', 'hello word');
+        x=e.pageX;
+        y=e.pageY;
+        console.log(x,y)
+    };
+    document.ondrop = function (e) {
+        let w=e.pageX-x;
+        let h=e.pageY-y;
+        console.log(w,h);
+        div.style.left=div.offsetLeft+w+'px';
+        div.style.top=div.offsetTop+h+'px';
+
+        return false
+    };
+</script>
+</body>
+</html>

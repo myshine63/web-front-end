@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*rest参数的模型是 ...变量名，它和数组比较像 比如 var a=[];*/
+    function add(...values) {//...表示参数为可以是任意的个数
+        let sum=0;
+        for(var i of values){
+            sum+=i;
+        }
+        return sum;
+    }
+    console.log(add(1,2,3));//6
+    console.log(add(1,2,3,4));//10
+    /*当使用了reset参数后，它的后面就不能再跟别的参数，且rest不算长度*/
+    function f(a,...val) {}// 长度为1
+    // function f(a,...val,b) {}  会报错
+</script>
+</body>
+</html>

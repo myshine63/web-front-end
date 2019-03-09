@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+       .box1{
+           width:300px;
+           height:300px;
+           padding: 50px;
+           border: 5px solid red;
+           position: relative;
+           background-color: #5eff50;
+       }
+        .box2{
+            width: 50px;
+            height: 50px;
+            background-color: #389fff;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="box1">
+    <div class="box2"></div>
+</div>
+<script>
+    //是计算盒子相对于基准的位置，比如子绝父相，就是相对于父盒子。如果父盒子没定位，子盒子有定位就是相对于body
+    var div1=document.querySelector(".box1");
+    var div2=document.querySelector(".box2");
+    console.log(div1.offsetLeft);
+    console.log(div1.offsetTop);
+    console.log(div2.offsetLeft);
+    console.log(div2.offsetTop);
+    console.log(div2.style.left);//由于box2没有给left赋值，因此这里为空。如果有赋值比如left:100px;那么他和offsetLeft差一个px单位
+</script>
+</body>
+</html>

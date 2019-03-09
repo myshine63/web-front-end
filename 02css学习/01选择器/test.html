@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <style>
+        div > h4 {
+            counter-increment: title;
+            counter-reset: book;
+        }
+
+        div > h4:before {
+            content: counter(title);
+        }
+
+        div > div {
+            counter-increment: book;
+        }
+        div > div:before{
+            content: '第' counter(book) '.';
+        }
+    </style>
+</head>
+<body>
+<span>好好学习天天向上</span>
+<div>
+    <h4>前端</h4>
+    <div>java</div>
+    <div>js</div>
+    <div>css</div>
+    <h4>后台</h4>
+    <div>python</div>
+    <div>java</div>
+    <div>php</div>
+</div>
+</body>
+</html>

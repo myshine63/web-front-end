@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+基本方式,poster只对video有用，当视频出错或者在加载时显示poster链接内容，一般为图片的url
+<audio src="./music/1.mp3" controls autoplay="autoplay" loop="loop">当浏览器不支持时，会显示这里的文本</audio>
+<video src="123.mp4" controls width="200" height="200" poster="01基本.html">当浏览器不支持时，会显示这里的文本</video>
+当应对多中浏览器不兼容时可以用下面方式
+<audio controls>
+    <source src="./music/1.mp3" type="audio/ogg"/>
+    <source src="" type="audio/ogg"/>
+</audio>
+
+</body>
+</html>

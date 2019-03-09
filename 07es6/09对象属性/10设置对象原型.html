@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Object.setPrototypeOf(obj,prototype)给obj设置对象原型，并可以返回第一个参数对象*/
+    let obj=Object.setPrototypeOf({},{name:'tom',age:14});
+    /*获取对象原型*/
+    console.log(Object.getPrototypeOf(obj));
+</script>
+</body>
+</html>

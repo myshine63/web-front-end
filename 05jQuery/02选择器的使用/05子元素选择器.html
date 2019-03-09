@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="test">
+    <li>11111好好学习天天向上</li>
+    <li>22222好好学习天天向上</li>
+    <li>33333好好学习天天向上</li>
+    <li>44444好好学习天天向上</li>
+    <li>55555好好学习天天向上</li>
+    <li>66666好好学习天天向上</li>
+    <li>77777好好学习天天向上</li>
+    <li>88888好好学习天天向上</li>
+</ul>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        //排序是从1开始的,最好只对ul中只有li使用，不然容易出错
+        $("li:first-child").css("background-color", "red");//li元素的父元素的第一个子元素的背景色变红
+        $("ul li:nth-child(1)").css("color", "white");//第一个li元素字体变白
+        $("#test li:nth-child(2n)").css("background-color", "green");//排序为偶数的背景色变绿
+        $("li:nth-child(odd)").css("background-color", "yellow");//排序为基数的变黄
+        $("li:last-child").css("background-color", "red");//可能获取不到元素，使用时测试一下
+    })
+</script>
+</body>
+</html>

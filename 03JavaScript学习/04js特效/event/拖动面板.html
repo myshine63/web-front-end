@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            border: 1px solid red;
+            width: 200px;
+            height: 200px;
+            background-color: #5eff50;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var div = document.querySelector("div");
+    div.onmousedown = function (event) {
+        event = event || window.event;
+        var pagex = event.pageX || event.clientX + scroll().left;
+        var pagey = event.pageY || event.clientY + scroll().top;
+        var divx = pagex - div.offsetLeft;
+        var divy = pagey - div.offsetTop;
+        document.onmousemove = function (event) {
+            var x = event.pageX || event.clientX + scroll().left;
+            var y = event.pageY || event.clientY + scroll().top;
+            div.style.left = x - divx + "px";
+            div.style.top = y - divy + "px";
+        }
+    };
+    div.onmouseup = function () {
+        //解绑
+        document.onmousemove = null;
+    };
+    function scroll() {
+        return {
+            "top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+            "left": window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //规定只要函数参数使用了默认值、解构赋值、或者扩展运算符，那么函数内部就不能显式设定为严格模式，否则会报错。
+    //使用严格模式的方法:1全局定义 2把函数到无参数的立即执行函数里面去
+    const doSomething = (function () {
+        'use strict';
+        return function(value = 42) {
+            return value;
+        };
+    }());
+</script>
+</body>
+</html>

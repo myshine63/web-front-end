@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .test {
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="aa" class="test">
+    <p class="test">11111111</p>
+</div>
+<p></p>
+<script type="text/javascript">
+    //根据标签的名字创建一个元素
+    var newp = document.createElement("p");//必须是合法的标签名字
+    newp.innerText = 'hello word';
+    //根据现有的标签克隆一个标签,可以节省开销.注意克隆时id也会克隆
+    var div = document.querySelector("div");//获取要复制的标签对象
+    var newdiv = div.cloneNode(true);//复制一个一模一样的当前元素
+    var newdiv2 = div.cloneNode(false);//除了元素包含的内容其余部分全部复制，包括样式和id
+    console.log(newdiv);
+    console.log(newdiv2);
+    //替换掉当前元素的某个子元素
+    var p = document.createElement("p");//新建元素
+    p.innerText = 'hello word';
+    var div2 = document.querySelector("div");//获取要复制的标签对象的父元素
+    div.replaceChild(p, div.firstElementChild);//替换的div元素中的p元素
+
+</script>
+</body>
+</html>

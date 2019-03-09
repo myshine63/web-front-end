@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*super用来代指父类的原型，只能用在对象方法中*/
+    let parent = {age: 15};
+    let son = {
+        age: 12,
+        getparent() {
+            return super.age;//返回父亲age 等用于 Object.getPrototypeOf(this).age
+        }
+    };
+    Object.setPrototypeOf(son,parent);//实现继承
+    console.log(son.age);
+    console.log(son.getparent());
+</script>
+</body>
+</html>

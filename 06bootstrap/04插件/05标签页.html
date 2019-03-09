@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap-theme.css">
+    <script src="../bootstrap3/js/jquery-3.2.1.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="tabbale">
+    <ul class="nav nav-tabs">
+        <li><a href="#tab1" data-toggle="tab">图片1</a></li>
+        <li><a href="#tab2" data-toggle="tab">图片2</a></li>
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉菜单 <i class="caret"></i></a>
+            <ul class="dropdown-menu">
+                <li><a href="#tab3" data-toggle="tab">图片3</a></li>
+                <li><a href="#tab4" data-toggle="tab">图片4</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane" id="tab1"><img src="../images/2.jpg" alt=""></div>
+        <div class="tab-pane" id="tab2"><img src="../images/3.jpg" alt=""></div>
+        <div class="tab-pane" id="tab3"><img src="../images/4.jpg" alt=""></div>
+        <div class="tab-pane" id="tab4"><img src="../images/5.jpg" alt=""></div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".nav a").click=function (e) {
+            e.preventDefault();
+            $(this).toggle.show()
+        }
+    })
+</script>
+</body>
+</html>

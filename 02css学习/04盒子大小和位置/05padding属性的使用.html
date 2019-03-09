@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .test1 {
+            border: 1px red solid;
+            width: 200px;
+            height: 50px;
+            background-color: #70ffa9;
+        }
+
+        .test2 { /*padding属性会改变盒子的大小*/
+            border: 1px red solid;
+            width: 200px;
+            height: 50px;
+            background-color: #70ffa9;
+            padding: 20px 30px 50px;/*上20  左右30   下50*/
+        }
+
+        .test3 { /*利用padding属性让元素居中*/
+            border: 1px red solid;
+            width: 210px; /*这里的宽高设置成和子元素整体大小一样*/
+            height: 60px;
+            background-color: #70ffa9;
+            padding: 20px 30px; /*这里用来设置子元素距离父元素边框的距离*/
+        }
+
+        .test4 { /*子元素*/
+            border: 5px red solid;
+            width: 200px;
+            height: 50px;
+            background-color: black;
+        }
+
+        .test5 {
+            width: 200px;
+            height: 60px;
+            border: 10px red solid;
+            background-color: gold;
+            overflow: hidden;
+        }
+        .test6 { /*子盒子一般不会撑大父元素盒子*/
+            border: 5px black solid;
+            padding-left: 10px;
+            background-color: rosybrown;
+            width: 200px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="test1"></div>
+<div class="test2"></div>
+<div class="test3">
+    <div class="test4"></div>
+</div>
+<div class="test5">
+    <div class="test6"></div>
+</div>
+</body>
+</html>

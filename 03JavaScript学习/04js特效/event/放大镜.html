@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            border: 1px solid red;
+            top: 50px;
+            left: 100px;
+        }
+
+        .small {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: #eeeeee;
+            opacity: 0.6;
+            width: 80px;
+            height: 80px;
+        }
+
+        .img1 {
+            width: 250px;
+            height: 250px;
+        }
+
+        .img2 {
+            width: 750px;
+            height: 750px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 260px;
+            width: 240px;
+            height: 240px;
+            border: 1px solid blue;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="small">
+        <img src="image/small.jpg" alt="" class="img1">
+        <div class="mask"></div>
+    </div>
+    <div class="big">
+        <img src="image/big.jpg" alt="" class="img2">
+    </div>
+</div>
+<script>
+    //获取相关元素
+    var box = document.querySelector(".box");
+    var small = document.querySelector(".small");
+    var mask = document.querySelector(".mask");
+    var big = document.querySelector(".big");
+    var img=document.querySelector(".img2");
+    //当鼠标移入时显示盒子
+    small.onmouseover = function () {
+        mask.style.display = "block";
+        big.style.display = "block";
+    };
+    //当鼠标移入时隐藏盒子
+    small.onmouseout = function () {
+        mask.style.display = "none";
+        big.style.display = "none";
+    };
+    //当鼠标移动时
+    small.onmousemove = function (event) {
+        event = event || window.event;//获取事件源
+        var pagex = event.pageX || event.clientX + scroll().left;//获取鼠标在body的x坐标
+        var x = pagex - box.offsetLeft;//获取盒子在父盒子中的x距离
+        var pagey = event.pageY || event.clientY + scroll().top;//获取鼠标在body的y// 坐标
+        var y = pagey - box.offsetTop;//获取盒子在父盒子中的y距离
+        //让鼠标指在放大器中间
+        if(x<mask.offsetWidth/2){
+            x=mask.offsetWidth/2;
+        }
+        if(x>small.offsetWidth-mask.offsetWidth/2)
+        {
+            x=small.offsetWidth-mask.offsetWidth/2;
+        }
+        //让遮布不超出边框
+        if(y<mask.offsetHeight/2)
+        {
+            y=mask.offsetHeight/2;
+        }
+        if(y>small.offsetWidth-mask.offsetHeight/2){
+            y=small.offsetWidth-mask.offsetHeight/2
+        }
+        //移动遮布
+        mask.style.left = x -mask.offsetWidth/2+ "px";
+        mask.style.top = y -mask.offsetHeight/2+ "px";
+        //按比例移动图片
+        img.style.left=-mask.offsetLeft*3+"px";
+        img.style.top=-mask.offsetTop*3+"px";
+    };
+
+    function runtoaim(ele, xaim, yaim, time) {
+        clearInterval(ele.timer);//清除定时器
+        ele.timer = setInterval(function () {
+            var xstep = (xaim - ele.offsetLeft) / 10;//处理x方向步长
+            var ystep = (yaim - ele.offsetTop) / 10;//处理y方向步长
+            xstep = xstep > 0 ? Math.ceil(xstep) : Math.floor(xstep);//二次处理x方向步长
+            ystep = ystep > 0 ? Math.ceil(ystep) : Math.floor(ystep);//二次处理y方向步长
+            //处理x方向
+            if (Math.abs(xaim - ele.offsetLeft) <= Math.abs(xstep)) {
+                ele.style.left = xaim + "px";
+            }
+            else {
+                ele.style.left = ele.offsetLeft + xstep + "px";
+            }
+            //处理y方向
+            if (Math.abs(yaim - ele.offsetTop) <= Math.abs(ystep)) {
+                ele.style.top = yaim + "px";
+            }
+            else {
+                ele.style.top = ele.offsetTop + ystep + "px";
+            }
+            //x和y都符合后清除定时器
+            if (Math.abs(xaim - ele.offsetLeft) <= Math.abs(xstep) && Math.abs(yaim - ele.offsetTop) <= Math.abs(ystep))
+                clearInterval(ele.timer);
+        }, time)
+    }
+
+    function scroll() {
+        return {
+            "top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+            "left": window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+        }
+    }
+</script>
+</body>
+</html>

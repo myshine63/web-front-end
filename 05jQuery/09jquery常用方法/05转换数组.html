@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>11111</li>
+    <li>22222</li>
+    <li>33333</li>
+    <li>44444</li>
+</ul>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    //就是把类似于数组结构的对象转换成数组
+    var li=$("li");
+    console.log(li);
+    var arr=$.makeArray(li);//把类数组对象转换成数组
+    var narr=arr.reverse();
+    $("ul").html(narr);
+</script>
+</body>
+</html>

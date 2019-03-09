@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*第一种，对于子元素是块元素有用*/
+        #a {
+            width: 300px;
+            height: 60px;
+            border: 1px red solid;
+        }
+
+        #a > div {
+            width: 160px;
+            height: 40px;
+            border: 1px silver solid;
+            margin: 0 auto; /*auto可以让元素水平居中,可以改变第一个的值，让元素垂直也居中*/
+        }
+        /*第二种，对于设置了大小的元素使用*/
+        #b { /*让父元素内容区域的宽和高等于子元素整体的宽高，实现水平和垂直居中*/
+            width: 220px;
+            height: 60px;
+            border: 1px solid orange;
+            padding: 20px; /*通过该值改变子元素在父元素中位置*/
+            margin: 5px;
+        }
+
+        #b > div { /*元素整体的宽高为父元素的内容区域的宽高*/
+            width: 200px;
+            height: 50px;
+            border: 5px solid green;
+        }
+        /*第三种，对于行内元素，和行内块元素有用*/
+        #c {
+            width: 300px;
+            height: 60px;
+            border: 1px red solid;
+            text-align: center; /*对于行内块元素有用,让其水平居中*/
+        }
+
+        #c > span {
+            background-color: #5eff50;
+            line-height:60px;/*通过设置行高，让元素垂直居中*/
+        }
+    </style>
+</head>
+<body>
+<div id="a">
+    <div>对于block元素，让其在父元素中水平居中</div>
+</div>
+<div id="b">
+    <div>让父元素内容区域的宽和高等于子元素整体的宽高</div>
+</div>
+<div id="c">
+    <span>对于行内和行内块元素有用</span>
+</div>
+</body>
+</html>

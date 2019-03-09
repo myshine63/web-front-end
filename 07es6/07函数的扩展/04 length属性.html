@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //length属性，将返回没有指定默认值的参数个数。
+    (function (a) {}).length ;// 1
+    (function (a = 5) {}).length ;// 0
+    (function (a, b, c = 5) {}).length ;// 2
+    //如果设置了默认值的参数不是尾参数，那么length属性也不再计入后面的参数了。
+    (function (a = 0, b, c) {}).length; // 0
+    (function (a, b = 1, c) {}).length; // 1
+</script>
+</body>
+</html>

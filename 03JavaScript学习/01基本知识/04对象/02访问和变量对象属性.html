@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+        this.name=name;
+        this.age=age;
+        this.info=function () {
+            console.log("hello word");
+        }
+    }
+    //遍历时用对象[属性名]的方式访问属性不容易出错
+    var person=new Person("tom",15);
+    for(let key in person){
+        console.log(key+';'+person[key]);//此处key是变量，因此只能用[key]的方式访问
+    }
+    //直接访问时用'.'运算
+    person.info();
+</script>
+</body>
+</html>

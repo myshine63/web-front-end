@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+    try {
+        for (var i = 0; i < 5; i++) {
+            document.writeln(i);
+            if (i > 3)
+                throw new Error("大于3发生错误")
+        }
+    }
+    catch (e) {
+        document.writeln(e.message);
+    }
+    finally {
+        document.writeln("发现错误，已经捕捉")
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body onclick="document.designMode='on'">
+<form action="#" method="get" target="_blank" id="test">
+    用户名：<input id="username" name="username" type="text" maxlength="20" placeholder="提示语" autofocus/><br/>
+    密码：<input id="password" name="password" type="password" maxlength="20"/><br/>
+    只读文本框：<input id="readonly" name="readonly" type="text" value="只读文本" readonly="readonly"/><br/>
+    隐藏文本框：<input id="hidden" name="hidden" type="hidden" value="提交"/><br/>
+    复选框：<br/>
+    <input id="green" name="color" type="checkbox" value="green"/>绿<br/>
+    <input id="red" name="color" type="checkbox" value="red"/>红<br/>
+    <input id="yellow" name="color" type="checkbox" value="yellow"/>黄<br/>
+    单选框：<br/>
+    <input id="man" name="gender" type="radio" value="male"/>男<br/>
+    <input id="woman" name="gender" type="radio" value="female"/>女<br/>
+    上传文件<br/>
+    <input id="file" name="file" type="file"/><br/>
+    <input id="submit" name="submit" type="submit" value="提交"/><br/>
+    <input id="disabled" name="disabled" type="submit" value="提交" disabled="disabled"/><br/>
+    <input id="reset" name="reset" type="reset" value="重置"/><br/>
+    <input id="no" name="no" type="button" value="按钮"/><br/>
+    <input type="submit" formaction="http://www.baidu.com" formmethod="get" formtarget="_self" value="提交到百度"/><br>
+    <input type="submit" formaction="http://www.sina.com" formmethod="post" formtarget="_blank" value="提交到新浪"/>
+</form>
+<p>在表单外面为表单增加组件</p>
+<input form="test" value="test">
+</body>
+<script>
+    //当多个元素设置自动获取焦点时，仅第一个元素自动获取焦点
+    document.getElementById('password').focus()
+</script>
+</html>

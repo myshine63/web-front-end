@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var a = "hello word";
+    var b = ' welcome';
+    //注意这些方法都不会改变原来的字符串
+    console.log(a.charAt(1) + "<br>");//获取指定位置字符,e
+    console.log(a.length + "<br>");//10
+    console.log(a.toUpperCase() + "<br>");//不会改变a
+    console.log(a.toLowerCase() + "<br>");
+    console.log(a.indexOf('el') + "<br>");//1
+    console.log(a.substring(0, 5) + "<br>");//截取下标0开始到下标5结束(不包括5)的字符串，
+    // 可以理解为0开始截取长度为5-0=5
+    console.log(a.slice(0, -1) + "<br>");//截取0到倒数第一个（不包括）
+    console.log(a.concat(b) + "<br>");//连接2个字符串
+    var c = a.split(" ");//分割字符串
+    console.log(c);
+    console.log(a.replace('hello', 'hi'));
+</script>
+</body>
+</html>

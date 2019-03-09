@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //每一个函数func都有一个prototype属性，也叫原型。prototype属性的值是一个对象。
+    //每个prototype对象都有一个默认属性constructor,该属性指向该函数func
+    //通过函数func创建的每一个对象obj都有一个__proto__属性，该属性指向函数func的prototype属性
+    //访问对象的属性时，先查询对象本身是否有该属性，如果没有再通过__proto__属性去原型中查找是否有该属性，
+    // 如果有则返回，没有则为undefined。
+    //如果对象本身有a属性，原型链中也有a属性，那么对象自身的a属性会屏蔽掉对象原型中的a属性。
+    //建议在定义类之后马上定义方法，这样可读性高
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    Person.prototype.name = 'jerry';//给对象原型添加属性
+    Person.prototype.say = function () {//对函数对象原型添加方法
+        console.log(this.name, this.age)
+    };
+    let person = new Person('tom', 24);
+    person.say();//输出tom 24
+    delete (person.name);//删除person自身的name属性
+    person.say();//输出jerry 24
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            padding: 20px;
+            width: 960px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        div > div {
+            display: inline-block;
+            vertical-align: top; /*顶端对齐*/
+            border: 5px solid #e6261d;
+            margin: 20px;
+        }
+        span{
+            display: inline-block;
+            padding: 50px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<pre>
+    1.行内元素inline: span a input strong em mark,不能设置宽和高
+    2.块元素block: div p pre article session nav aside main figure table ul li
+    3.行内块inline-block:img tr td
+    4.display:none,可以隐藏元素,不会占据原来位置
+    5.opacity:0,可以隐藏元素,但是会占据原来位置
+</pre>
+<div class="container">
+    <div style="width: 200px;height: 200px;"></div>
+    <div style="width: 200px;height: 230px;"></div>
+</div>
+<span>hello word</span>
+<span>hello word</span>
+<span>hello word</span>
+</body>
+</html>

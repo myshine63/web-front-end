@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //逗号运算符的值为最右边的表达式的值
+    var a, b, c, d;
+    a = (b = 4, c = 10, d = 12 - 9);
+    console.log(a);//输出结果为3
+    //三目运算符，
+    var flag = 5 < 3 ? 'yes' : 'no';
+    console.log(flag);//输出结果为no
+    //void用于指定表达式没有返回值
+    var m = 5, n = 3;
+    var k = void(m - n);
+    console.log(k);//输出结果为undefined
+</script>
+</body>
+</html>

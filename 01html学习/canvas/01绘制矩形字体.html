@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        #canvas1{
+            /*不可以在这里设置宽度和高度*/
+            margin: 50px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas1" width="1200" height="600"></canvas>
+<script type="text/javascript">
+    //1.获取画布元素。2.获取画笔。3设置填充色或者边框颜色。4设置边框线条宽度。5。绘制图像
+    var canvas = document.getElementById("canvas1");//创建画图板
+    var draw = canvas.getContext("2d");//获取画笔
+    //绘制填充矩形
+    draw.fillStyle = "#f00";//设置填充色
+    draw.fillRect(50, 50, 100, 50);//设置左上角坐标为50,50长为100，高为50的矩形
+    //绘制矩形边框
+    draw.strokeStyle = "#0ff";//设计矩形边框颜色
+    draw.lineWidth = 5;//设置矩形边框的线条宽度
+    draw.lineJoin = "round";//设置矩形的边角为圆型
+    draw.strokeRect(250, 50, 100, 50);
+    //绘制填充文字
+    draw.fillStyle = "#ff95c3";//设置字体颜色
+    draw.font = "normal 50px 微软雅黑";//设置字体文本，字号 ，斜体
+    draw.fillText("我爱你", 450, 100);//第一个字的左下脚坐标
+    //绘制字体
+    draw.lineWidth = 0.5;//设置宽度
+    draw.strokeStyle = "#f0f";
+    draw.font = "normal 45px 宋体";
+    draw.strokeText('轻量级java应用', 650, 100);
+    //设置阴影
+    draw.shadowBlur = 5;//设置模糊程度
+    draw.shadowColor = "#000000";//设置模糊的颜色
+    draw.shadowOffsetX = 10;//倾斜方向
+    draw.shadowOffsetY = 8;
+    draw.lineWidth = 0.5;//设置宽度
+    draw.strokeStyle = "#f0f";
+    draw.font = "bold 45px 宋体";
+    draw.strokeText('轻量级java应用', 50, 200);
+</script>
+</body>
+</html>

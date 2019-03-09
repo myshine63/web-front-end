@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div,p,section{
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+        }
+        div:empty{/*div元素,且不含有子元素(包括文本节点)*/
+            background-color: #3ae679;
+        }
+        p:empty{
+            background-color: #e64a47;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div>
+
+</div>
+<p></p>
+<p></p>
+<section></section>
+</body>
+</html>

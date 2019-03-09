@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*symbol作为属性名的方法*/
+    let obj={};
+    let sym=Symbol();
+    let sym1=Symbol();
+    let sym2=Symbol();
+    obj[sym]='tom';
+    Object.defineProperty(obj,sym1,{value:'tom',enumerable:false});
+    let obj1={
+        [sym2]:'tom',
+    };
+
+    /*symbol是变量，因此不能用点运算，当使用点运算时，其实是对一个字符串赋值*/
+    let sym3=Symbol();
+    let obj2={};
+    obj2.sym3='tom';//这里相当于给obj2新增了一个属性，属性名是sym3
+    obj2[sym3]='jerry';//这里给obj2新增了一个属性，属性名是[sym3];
+    console.log(obj2.sym3);//tom
+    console.log(obj2['sym3']);//tom
+    console.log(obj2[sym3]);//jerry
+
+    /*symbol还可以表示一组不相等的常量*/
+    let arr=[sym1,sym2];
+</script>
+</body>
+</html>

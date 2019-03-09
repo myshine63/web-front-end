@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    let div=document.getElementsByTagName('div');
+    for(let x of div){
+        console.log(x);
+    }
+    let obj={
+        flag:0,
+        [Symbol.iterator](){
+            return this;
+        },
+        next(){
+            if(this.flag<5){
+                return {
+                    value:this.flag++,
+                    done:false
+                }
+            }
+            return{value:undefined,done:true};
+
+        }
+    };
+    let it=obj[Symbol.iterator]();
+    for(let x of it){
+        console.log(x);
+    }
+
+</script>
+</body>
+</html>

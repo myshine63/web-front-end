@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: #70ffa9;
+            display: none;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>显示</button><button>隐藏</button><button>切换</button>
+<div></div>
+<script>
+    div=$("div");
+    buttons=$("button");
+    //显示和隐藏时，盒子的宽度和透明度都不会改变，只改变高度，display：none
+    //当盒子显示时，他最终会变成block，当盒子隐藏时，他最终会变成none
+    //无论显示和隐藏，盒子最终的透明度都会和css中设置的一样，如果css中没有设置则为1
+    buttons.eq(0).click(function () {
+        //slideDown()改方法的用法和show()方法一样
+        // div.slideDown();//直接滑出
+        // div.slideDown(2000);//2000ms
+        // // slideUp(字符串);   slow慢：600ms   normal正常:400ms   fast快：200ms
+        div.slideDown("fast",function () {
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        });//
+    });
+    buttons.eq(1).click(function () {
+        div.slideUp(2000,function () {
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        })//用法和show()一样
+    });
+    buttons.eq(2).click(function () {
+        div.slideToggle(2000,function () {
+            console.log(div.css("opacity"));
+            console.log(div.css("display"));
+        })//如果没有则滑下，如果有则滑上
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            border-radius: 200px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<fieldset>
+    <legend>方向渐变</legend>
+    <button>to top</button>
+    <button>to right</button>
+    <button>to left</button>
+    <button>to bottom</button>
+    <button>to top right</button>
+    <button>to bottom right</button>
+</fieldset>
+<fieldset>
+    <legend>角度渐变</legend>
+    <input type="range" min="0" max="360" step="10">
+</fieldset>
+<button>循环渐变</button>
+<script>
+    div=document.getElementsByTagName('div')[0];
+    btns=document.getElementsByTagName('button');
+    for(let i=0;i<btns.length-1;i++){
+        btns[i].onclick=function () {
+            div.style.background=`linear-gradient(${this.innerHTML},red,blue)`;
+            console.log(this);
+        }
+    }
+    input=document.getElementsByTagName('input')[0];
+    input.onchange=function () {
+        div.style.background=`linear-gradient(${this.value}deg,red,orange,green,blue)`;
+    };
+    btns[btns.length-1].onclick=function(){
+        div.style.background='repeating-linear-gradient(red,orange 10%,green,blue)';
+    }
+</script>
+</body>
+</html>

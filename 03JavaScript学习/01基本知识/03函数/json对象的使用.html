@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var obj1={//通过json创建对象，他也是字面量对象
+        "name":"小王",
+        "age":20,
+        "info":function () {
+            document.write("name:"+this.name+"age:"+this.age);
+        }
+    };
+    document.write(obj1+"<br>");//object
+    //遍历json
+    for(var key in obj1){
+        document.write(key+"&nbsp;&nbsp;"+obj1[key]+"<br>");
+        console.log(obj1[key]);
+    }
+</script>
+</body>
+</html>

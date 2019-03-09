@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>发送请求</button>
+</body>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $("button").click(function () {
+        $.get(
+            "test.html",
+            {
+                name:"xiaowang",
+                age:25
+            },
+            function (data) {
+                console.log(data);
+            }
+        )
+    })
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <span>div1</span>
+</div>
+<div id="div2">
+    <div></div>
+    <span>div2</span>
+</div>
+<div id="div3">
+    <span>div3</span>
+</div>
+<div id="div4">
+    <span>div4</span>
+</div>
+<span>hello word</span>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $(document).ready(function () {
+        //相邻选择器孔，只匹配同等级的，且一定要紧跟着的
+        div=$("#div2 + div");//相邻选择器，选择后面同等级的div元素,结果为div3
+        console.log(div);
+        s=$("#div3 + span");//结果为空，因为div3中包含的span不是同等级的不能匹配，同等级后面也没有span元素所以为空
+        console.log(s);
+        span=$("#div4 + span");//结果为span,hello word;
+        console.log(span);
+        //兄弟选择器，只匹配同等级的，且在其后面的所有符合元素
+        div34=$("#div2 ~ div");//结果为div3和4
+        console.log(div34);
+        spans=$("#div2 ~ span");//结果为hello word
+        console.log(spans);
+    })
+</script>
+</body>
+</html>

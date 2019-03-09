@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<form action="http://www.baidu.com" method="post" target="_self">
+    简单下拉列表:<br/>
+    <select id="books" name="books" title="下拉列表">
+        <option value="java">java从入门到精通</option>
+        <option value="c++">c++从入门到精通</option>
+    </select><br/>
+    多选列表：<br/>
+    <select id="color" name="color" multiple="multiple" size="3" title="复选列表">
+        <option value="green">绿</option>
+        <option value="yellow">黄</option>
+        <option value="blue">蓝</option>
+        <option value="black">黑</option>
+    </select><br/>
+    多选列表：<br/>
+    <select id="color2" name="color" multiple="multiple" size="5" title="">
+        <optgroup label="test">
+            <option value="green">绿</option>
+            <option value="yellow">黄</option>
+            <option value="blue">蓝</option>
+            <option value="black">黑</option>
+        </optgroup>
+        <optgroup label="test2">
+            <option value="java">java从入门到精通</option>
+            <option value="c++">c++从入门到精通</option>
+        </optgroup>
+    </select><br>
+</form>
+</body>
+</html>

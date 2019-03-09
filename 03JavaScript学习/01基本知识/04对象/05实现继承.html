@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //在子函数中通过apply或者call调用Father,把父类的属性使用起来
+    //该方法的缺点是，不能使用Father原型上定义的方法和属性。
+    function Father(name) {
+        this.name = name;
+    }
+
+    Father.prototype.say = function () {
+        console.log(this.name, this.age);
+    };
+
+    function Son1(name, age) {
+        Father.call(this, name);//通过call,或者apply实现继承
+        this.age = age;
+    }
+
+    let son1 = new Son1('tom', 24);
+    console.log(son1);//son1 没有say方法
+
+    //通过把子类的原型设置成父类的实例对象,注意最后需要改回来。
+    //缺点，在继承之前，定义在Son2原型上的属性和方法将不能使用。
+    function Son2(age) {
+        this.age = age;
+    }
+
+    Son2.prototype = new Father();//把子类的原型设置成父类的对象
+    Son2.prototype.constructor = Son2;//把构建器改回去,不然利用F2创建对象时,对象原型会发生变化
+    var son2 = new Son2(15);
+    son2.say();//继承后可以使用父类原型上的方法
+
+    //将子类的原型设置成父类的原型,
+    //缺点子类和父类公用一个原型对象。子类添加到原型上的方法和属性，父类原型上也有
+    //在继承之前，定义在Son3原型上的属性和方法将不能使用
+    function F3(age) {
+        this.age = age;
+    }
+
+    F3.prototype = Father.prototype;//将子类原型设置成父类原型
+    F3.prototype.constructor = F3;//同样需要改回去
+    var f3 = new F3(15);
+    f3.say();
+
+    //把方法1和方法2集合起来使用
+    function Son4(name, age) {
+        this.age = age;
+        Father.call(this, name);
+    }
+
+    Son4.prototype = new Father();
+    Son4.prototype.constructor = Son4;
+    let son4=new Son4('tom',12);
+    son4.say();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--注意导入顺序-->
+    <link href="jqueryui/jquery-ui.css" rel="stylesheet">
+    <script src="jqueryui/external/jquery/jquery.js"></script>
+    <script src="jqueryui/jquery-ui.js"></script>
+    <style>
+        #tab{
+            width: 300px;
+            height: 300px;
+        }
+        #tabs1{
+            background-color: #5eff50;
+        }
+    </style>
+</head>
+<script>
+    $(function () {
+        $("#tab").tabs();
+    })
+</script>
+<body>
+<p>href要连接对应的div</p>
+<div id="tab">
+    <ul>
+        <li><a href="#tabs1"><span>新浪</span></a></li>
+        <li><a href="#tabs2"><span>百度</span></a></li>
+        <li><a href="#tabs3"><span>阿里</span></a></li>
+    </ul>
+    <div id="tabs1">11111</div>
+    <div id="tabs2">22222</div>
+    <div id="tabs3">33333</div>
+</div>
+
+
+</body>
+</html>

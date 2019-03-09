@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul,body,li{
+            margin: 0;
+            padding:0;
+        }
+        #div1{
+            border:1px solid red;
+            width: 490px;
+            height: 170px;
+            margin: 100px auto 0;
+            padding: 5px;
+        }
+        #div2{
+            position: relative;
+            width: 490px;
+            height: 170px;
+            overflow: hidden;
+        }
+        #div3{
+            position: absolute;
+            bottom:5px;
+            right: 5px;
+        }
+        ul{
+            width: 500%;
+            list-style: none;
+            position: absolute;
+            left: 0;
+        }
+        li{
+            float:left;
+        }
+        span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            line-height: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .click{
+            background-color: orange;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <ul>
+                <li><img src="image/01.jpg" alt=""></li>
+                <li><img src="image/02.jpg" alt=""></li>
+                <li><img src="image/03.jpg" alt=""></li>
+                <li><img src="image/04.jpg" alt=""></li>
+                <li><img src="image/05.jpg" alt=""></li>
+            </ul>
+            <div id="div3">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+            </div>
+        </div>
+    </div>
+<script>
+    var ul=document.querySelector("ul");
+    var spans=document.querySelectorAll("span");
+    for(var i=0;i<spans.length;i++){
+        spans[i].index=i;
+        spans[i].onmouseover=function () {
+            for(var j=0;j<spans.length;j++){
+                spans[j].className="";
+            }
+            this.className="click";
+            moveleft(ul,-490*this.index,100,30);
+        }
+    }
+    function moveleft(ele,aim,step,time) {
+        clearInterval(ele.timer);//清除定时器
+        var newstep=aim>ele.offsetLeft?step:-1*step;//以此来判断应该是加步长还是减去步长
+        ele.timer=setInterval(function () {
+            if(Math.abs(aim-ele.offsetLeft)>step){//盒子和目标值的差的绝对值大于步长时调用timer
+                ele.style.left = ele.offsetLeft + newstep + "px";
+            }
+            else{//最后闪现到指定位置
+                ele.style.left=aim+"px";
+                clearInterval(ele.timer);
+            }
+        },time)
+    }
+</script>
+</body>
+</html>

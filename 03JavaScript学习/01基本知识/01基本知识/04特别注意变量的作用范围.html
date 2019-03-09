@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+    //1.变量没有for,if,while等语句块范围。
+
+    for (var i = 0; i < 2; i++) {//此处的i为全局变量
+        document.write(i + "  ");
+    }
+    document.write("<br>" + i + "<br>");//输出for语句块中的i的值 为2
+    if (true) {
+        var k = 1;//此处定义的为全局变量
+        document.write("输出if语句中的k:" + k + "<br>");
+    }
+    document.write("输出if语句块中定义的k:" + k + "<br>");//输出if语句块中定义的k
+
+    //2.函数内部变量会覆盖全局变量。函数外部的变量为全局变量，内部的为局部变量
+
+    var a = "hello word";
+
+    function test() {
+        var a = "你好";//会覆盖全局变量
+        document.write("函数内部的a:" + a + "<br>");
+    }
+
+    test();
+    document.write("函数外部的a:" + a + "<br>");
+
+    //3.在函数内，没有用var定义的变量为全局变量
+
+    function test1() {
+        f = "你好";//没有用var定义，为全局变量
+        document.write("函数内部的f:" + f + "<br>");
+    }
+
+    test1();
+    document.write("函数内部没有用var定义的f:" + f + "<br>");
+
+    //4.函数内部定义的局部变量，总相当于在函数的顶部进行申明---变量提升
+
+    function test2() {
+        //函数内部定义了一个局部变量，那么相当于在此处会加一个声明 var f,但是这个时候还没有给f赋值
+        document.write("输出上面定义的全局变量f:" + f + "<br>");
+        var f = "函数内部定义的局部变量";
+        document.write("输出函数内部定义的局部变量f:" + f + "<br>");
+    }
+
+    test2();
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        select{
+            margin: 20px;
+            border: 1px solid #b9ffc5;
+            width: 200px;
+            height:auto;
+        }
+    </style>
+</head>
+<body>
+<button type="button" onclick="add1()">add方法增加选项</button><br>
+<button type="button" onclick="add2()">new方法增加选项</button><br>
+<select id="1"></select><br>
+<select id="2"></select><br>
+<script type="text/javascript">
+    //用add方法增加选项
+    var tag1=0,tag2=0;
+    var se1=document.getElementById("1");//获取第一个下拉框
+    var se2=document.getElementById("2");//获取第二个下拉框
+    function add1() {
+        tag1++;
+        var opt=document.createElement("option");
+        opt.innerHTML="创建第"+tag1+"个选项";
+        se1.add(opt,null);//添加到最后，null代表最后，也就是添加到第2个参数的前面,等同于sel.appendChild(opt);
+    }
+    function add2() {
+        tag2++;
+        var opt=new Option("创建第"+tag2+"个选项");
+        se2.options[tag2-1]=opt;
+    }
+</script>
+</body>
+</html>

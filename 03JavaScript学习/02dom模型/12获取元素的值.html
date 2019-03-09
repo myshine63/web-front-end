@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p id="p1" style="border: 2px solid orange;width: 200px;height: 20px" >第一个p元素的内容</p>
+    <p id="p2" style="border: 2px solid orange;width: 200px;height: 20px" >第二个p元素的内容</p>
+    <textarea id="text" rows="5" cols="20" style="border: 2px solid #d2a5ff">textarea元素的内容</textarea>
+</div>
+<script type="text/javascript">
+    //利用id获得元素
+    var a=document.getElementById("p1");
+    var b=document.getElementById("text");
+    document.write(a.innerHTML+"<br>");//由于p元素全是字符串，因此可以用innerHTML获取内容
+    document.write(b.value+"<br>");//textarea是表单元素，有自己的value,因此用value获取内容
+    //利用css选择器获取元素
+    document.write("<hr>");
+    var c=document.querySelector("p");//此时为元素选择器，获得第一个与之匹配的元素
+    var d=document.querySelectorAll("p");//此处获得所有的p元素，因此d为对象数组
+    document.write(c.innerHTML+"<br>");
+    for(var i =0;i<d.length;i++){
+        document.write(d[i].innerHTML+"<br>");
+    }
+    //利用节点访问  首先需要确定一个节点
+    var e=document.getElementById("p2");
+    document.write(e.nextSibling.nextSibling.nodeName+"<br>");//注意在dom中空白意味着一个节点，因此这里需要2次，也就是textarea元素
+    document.write(e.nextElementSibling.nodeName+"<br>");//获取下一个html元素节点，英雌会忽略掉空白节点
+    document.write(e.previousSibling.previousSibling.nodeName+"<br>");//也就是访问p1元素
+    document.write(e.parentNode.nodeName+"<br>");//访问父节点也就是div
+</script>
+</body>
+</html>

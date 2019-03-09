@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+
+        .cla {
+            background-color: #d2a5ff;
+        }
+    </style>
+</head>
+<body>
+<button>添加样式1</button>
+<button>移除样式1</button>
+<button>添加样式2</button>
+<button>移除样式2</button>
+</body>
+<div></div>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    buts = $("button");
+    div = $("div");
+    //通过添加类，来添加样式
+    buts.eq(0).click(function () {
+        div.addClass("cla");
+    });
+    //移除过滤类添加的样式
+    buts.eq(1).click(function () {
+        div.removeClass("cla");
+    });
+    //通过行内式添加的样式
+    buts.eq(2).click(function () {
+        div.css("background-color", "pink");
+        div.width(400);
+        div.height(400);
+    });
+    //删除通过行类式添加的样式,会将所有的行内样式全部删除
+    buts.eq(3).click(function () {
+        div.removeAttr("style");
+    })
+</script>
+</html>

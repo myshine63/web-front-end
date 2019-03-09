@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <button>单击</button>
+    </div>
+</body>
+<script>
+    let catchEvent=function (e=window.event) {
+        if(e.stopPropagation){
+            e.stopPropagation();//阻止事件传播
+        }
+       else{
+            event.cancelBubble
+        }
+        console.log(e.currentTarget);
+    };
+    let bubble=function (e) {
+        e.stopPropagation();//阻止事件传播
+        console.log(e.currentTarget);
+    };
+    let div=document.getElementsByTagName('div')[0];
+    let btn=document.getElementsByTagName('button')[0];
+    /*在事件捕捉阶段阻止事件传播,将只触发顶层处理器*/
+    // div.addEventListener('click',catchEvent,true);
+    // btn.addEventListener('click',catchEvent,true);
+    /*在事件冒泡阶段阻止事件传播,将只触发当前处理器*/
+    div.addEventListener('click',bubble,false);
+    btn.addEventListener('click',bubble,false);
+</script>
+</html>

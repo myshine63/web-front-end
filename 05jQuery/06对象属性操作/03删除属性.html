@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" name="" id="in1" checked="checked">
+<input type="text" name="" id="in2">
+<input type="text" name="" id="in3" disabled="">
+<input type="text" name="" id="in4" disabled="aaaa">
+</body>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    inps = $("input");
+    inp1 = inps.eq(0);
+    //采用removeAttribute(),方法，removeProp（）只能删除他自己添加的属性
+    inps.removeAttr("name");//改方法会删除所有匹配元素的name
+    inp1.removeAttr("id");
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            border: 5px solid cornflowerblue;
+        }
+        #div{
+            position: relative;
+            top: 50px;
+            right: 50px;
+        }
+        #div2{
+            position: relative;
+            bottom: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+<pre>
+    1.所谓相对定位，就是盒子会占据原来的位置。
+    2.盒子现在的位置是根据原来的位置定位的
+    3.盒子会浮起来，可能会遮挡别的东西
+</pre>
+<div></div>
+<div id="div">盒子相当于原来的位置，向下平移了50px,向左平移了50px</div>
+<div id="div2">盒子相当于他原来的位置想上平移了50px向右平移了50px</div>
+</body>
+</html>

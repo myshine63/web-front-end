@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #tab{
+            width: 200px;
+            height: 150px;
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid #000;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<table id="tab">
+    <caption>表格</caption>
+    <thead></thead>
+    <tfoot></tfoot>
+    <tr>
+        <td>1</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+</table>
+<script>
+    let tab=document.getElementById('tab');
+    tab.caption.innerHTML='修改表格标题';
+    let rows=tab.rows;//获取所有的表格行
+    let tBodies=tab.tBodies;//获取所有的tbody集合
+    let tfoot=tab.tFoot;
+    let thead=tab.tHead;
+    let cells=rows[0].cells;//获取某列的所有表格
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*背景色和背景图片默认覆盖padding和content*/
+        div {
+            width: 400px;
+            height: 360px;
+            border: 5px solid #809fe6;
+            margin: 20px 30px;
+            padding: 30px;
+        }
+        /*背景色*/
+        #test1 {
+            background-color: #67e6a0;
+        }
+        /*默认背景图片*/
+        #test2 {
+            background-image: url("../image/2.png");
+        }
+        /*x方向平铺*/
+        #test3 {
+            background-image: url("../image/2.png");
+            background-repeat: repeat-x;
+        }
+        /*平铺时等分，有间隔*/
+        #test4 {
+            background-image: url("../image/2.png");
+            background-repeat: space;
+        }
+        /*平铺时调整图片大小，没间隔*/
+        #test5 {
+            background-image: url("../image/2.png");
+            background-repeat: round;
+        }
+        /*设置起始位置*/
+        #test6 {
+            background-image: url("../image/2.png");
+            background-position: 50px 50px;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+<p>
+    1.background-image: url(无标题.png);图片路径 背景图片会覆盖背景色 <br>
+    2.background-repeat: repeat;/*这种填充的方式，可选 repeatx,repeaty norepeat round space*/ <br>
+    3.background-clip: border-box;/*填充的覆盖范围padding-box、content*/ <br>
+    4.background-position:设置图片开始填充的位置 <br>
+    5.background-attachment:设置背景固定和移动 <br>
+    6.background-size:设置图片的大小 <br>
+    7.background:颜色 图片 平铺方式 固定/滚动 起始位置
+</p>
+<div id="test1">全部覆盖</div>
+<div id="test2">默认背景图片</div>
+<div id="test3">repeat-x</div>
+<div id="test4">space</div>
+<div id="test5">round</div>
+<div id="test6">no-repeat</div>
+</body>
+</html>

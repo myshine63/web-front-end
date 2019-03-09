@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Symbol.for(key),查找描述为key值的symbol变量，如果存在，将会返回该变量。如果不存在，便会从新
+    *生成一个描述为key的symbol变量，并且会登记key值，key值的查找是全局查找的*/
+    let sym1=Symbol('tom');//创建一个symbol变量，
+    let sym2=Symbol.for('tom');//查找描述为tom的symbol,由于sym1的tom没有登记,因此会创建一个新的symbol
+    let sym3=Symbol.for('tom');//查找描述为tom的symbol，由于上面已经定义了，因此sym3=sym2
+    console.log(sym1===sym2);//false
+    console.log(sym2===sym3);//true
+
+    /*查找某个symbol变量的描述值,返回字符串*/
+    console.log(Symbol.keyFor(sym1));//undefined，因为sym中的tom没有登记
+    console.log(Symbol.keyFor(sym2));//tom
+    console.log(Symbol.keyFor(sym3));//tomgf
+</script>
+</body>
+</html>

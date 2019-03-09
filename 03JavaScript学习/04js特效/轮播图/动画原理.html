@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #5eff50;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button>闪动</button>
+<div></div>
+<button>匀速移动</button>
+<div style="left:0;top: 200px"></div>
+<script>
+    //动画原理： 盒子未来的位置 = 盒子现在的位置 + 步长；
+    //style.left赋值，用offsetLeft获取值。
+    //style.left获取值不方便，获取行内式，如果没有是“”；容易出现NaN；
+    //offsetLeft获取值特别方便，而且是现成number方便计算。因为他是只读的不能赋值。
+    var but=document.getElementsByTagName("button");
+    var div=document.getElementsByTagName("div");
+    //闪动
+    but[0].onclick=function () {
+        div[0].style.left="100px";
+    };
+    //匀速移动
+    but[1].onclick=function () {
+        clearInterval(div[1].timer);//使用定时器的时候先清除定时器
+        div[1].timer=setInterval(test,300);//把定时器作为一个元素的属性，方便处理
+    };
+    function test() {
+        if(div[1].offsetLeft>500)
+            clearInterval(div[1].timer);
+        else
+            div[1].style.left=div[1].offsetLeft+20+"px";
+    }
+</script>
+</body>
+</html>

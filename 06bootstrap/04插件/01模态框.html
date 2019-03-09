@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap-theme.css">
+    <script src="../bootstrap3/js/jquery-3.2.1.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+</head>
+<body>
+<h4>基本模态框</h4>
+<a href="#mymodal" class="but btn-default" data-toggle="modal">弹出模态框</a>
+<div id="mymodal" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p>这是对话框内容</p>
+        </div>
+    </div>
+</div>
+<h4>完整模态框</h4>
+<a href="#mymodal2" class="but btn-default" data-toggle="modal">弹出模态框</a>
+<div id="mymodal2" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" type="button" data-dismiss="modal">&times;</button>
+                <h4>标题</h4>
+            </div>
+            <div class="modal-body">正文</div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<h4>模态框调用方式</h4>
+<p>1.用a标签建立锚点调用 <br>
+2.用data-target="id"
+</p>
+<a href="#mymodal3" class="but btn-default" data-toggle="modal">弹出模态框</a>
+<button type="button" data-target="#mymodal3" data-toggle="modal">弹出模态框</button>
+<div id="mymodal3" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <p>这是对话框内容</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

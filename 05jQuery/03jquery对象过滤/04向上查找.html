@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #70ffa9;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span>hello word</span>
+</div>
+<div>
+    <div>
+        <span>beautiful</span>
+    </div>
+</div>
+<p>
+    <span>i love you</span>
+</p>
+<script>
+    $(function () {
+        spans=$("span");//获取所有的span元素
+        //parents(expr)，查找符合的祖先元素
+        all=spans.parents();//获取所有的父元素，包括body,html
+        console.log(all);
+        divs=spans.parents("div");//获取所有的div父元素，
+        console.log(divs);
+        //parent(expr)，查找符合的父亲元素
+        a=spans.parent();//获取spans的父元素,不包括body和html
+        b=spans.parent("p");//获取span元素的父元素且为p元素的
+        console.log(a);
+        console.log(b);
+    })
+</script>
+</body>
+</html>

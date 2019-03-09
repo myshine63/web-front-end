@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+//            $(document).on("click mouseenter", function () {
+//                alert("页面被点击了");
+//            });
+
+            //事件触发(1)(触发浏览器行为)
+//            $(document).click();
+//            $(document).mouseenter();
+
+            //事件触发(2)(触发浏览器行为)
+//            $(document).trigger("mouseenter");
+//            $(document).trigger("click");
+
+            //事件触发(3)(不触发浏览器行为)
+//            $(document).triggerHandler("mouseenter");
+//            $(document).triggerHandler("click");
+
+            $("input").on("focus", function () {
+                alert("我获取了焦点！");
+            });
+
+            //事件触发(2)(触发浏览器行为)(执行程序，触动事件)
+//            $(document).click(function () {
+//                $("input").trigger("focus");
+//            });
+
+
+            //事件触发(3)(不触发浏览器行为)(只执行程序，不触动事件)
+            $(document).click(function () {
+                $("input").triggerHandler("focus");
+            });
+        })
+    </script>
+</head>
+<body>
+
+<input type="text"/>
+
+
+</body>
+</html>

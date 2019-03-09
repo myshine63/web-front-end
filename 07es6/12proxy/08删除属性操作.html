@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj={
+        name:'tom',
+        _age:20
+    };
+    let proxy=new Proxy(obj,{
+        deleteProperty(target,key){
+            if(key[0]==='_'){
+                throw new Error('property:'+key+' is private')
+            }
+            else{
+                return true;
+            }
+        }
+    });
+    delete proxy.name;
+    delete proxy._age;
+</script>
+</body>
+</html>

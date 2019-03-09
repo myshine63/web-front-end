@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #tab1{
+            /*表格默认border-collapse:separate*/
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            /*后2个属性在separate时生效*/
+            border-spacing: 10px;
+            empty-cells: hide;/*隐藏空表格*/
+        }
+        #tab2{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            border-collapse: collapse;/*合并单元格边线*/
+        }
+        td{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<h3>表格1</h3>
+<table id="tab1">
+    <tr>
+        <td></td>
+        <td>好好学习天天向上</td>
+        <td>好好学习天天向上</td>
+    </tr>
+    <tr>
+        <td>好好学习天天向上</td>
+        <td></td>
+        <td>好好学习天天向上</td>
+    </tr>
+    <tr>
+        <td>好好学习天天向上</td>
+        <td>好好学习天天向上</td>
+        <td></td>
+    </tr>
+</table>
+<h3>表格2</h3>
+<table id="tab2">
+    <tr>
+        <td>好好学习天天向上</td>
+        <td></td>
+        <td>好好学习天天向上</td>
+    </tr>
+    <tr>
+        <td>好好学习天天向上</td>
+        <td>好好学习天天向上</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>好好学习天天向上</td>
+        <td>好好学习天天向上</td>
+    </tr>
+</table>
+</body>
+</html>

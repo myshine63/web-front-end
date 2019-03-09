@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 100px;
+            border: 1px solid #000;
+            margin: 30px;
+        }
+        /*x,y,模糊程度,偏移程度,颜色,是否内置(有insert表示内置,没有表示外面).4个参数将默认没有偏移程度*/
+        .test{
+            box-shadow: 5px 5px 5px red;
+        }
+
+        .test2{
+            box-shadow: -5px 5px 5px 5px green;
+        }
+        .test3{
+            box-shadow: -5px 5px 5px 5px green inset;
+        }
+
+    </style>
+</head>
+<body>
+<pre>
+    基本格式：x y 模糊程度 缩放程度 颜色 外部阴影(不带参数表示外部，默认)/内部阴影（inset）
+</pre>
+<div class="test"></div>
+<div class="test2"></div>
+<div class="test3"></div>
+</body>
+</html>

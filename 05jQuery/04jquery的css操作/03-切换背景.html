@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .current {
+            background-color: green;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                div=$("div");
+                //需求：点击按钮 ，切换背景
+               if(div.hasClass("current")){
+                   //如果有类名，那么删除
+                   div.removeClass("current")
+               }else{
+                   //如果没有类名，那么添加
+                   div.addClass("current")
+               }
+                //切换类（toggleCLass）,当有当前类时删除，没有时添加
+                // $("div").toggleClass("current");
+            });
+        })
+    </script>
+</head>
+<body>
+<button>切换</button>
+<div></div>
+</body>
+</html>

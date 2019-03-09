@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 500px;
+            height: 400px;
+            margin-top: 200px;
+            position: relative;
+            border: 10px solid orange;
+        }
+        .div1{
+            position: absolute;
+            left:50px;
+            top:50px;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            border: 1px solid blue;
+        }
+        .div2{
+            position: absolute;
+            left:250px;
+            top:50px;
+            width: 100px;
+            height: 100px;
+            background-color: purple;
+            border: 1px solid blue;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="box">
+    <div class="div1"></div>
+    <div class="div2"></div>
+</div>
+</body>
+<script>
+    //通过offset()改变盒子相对于body的位置
+    div1=$(".div1");
+    div1.offset({left:50,top:50});//下面2种写法都可以，但是数字后面不能带px单位
+    // div1.offset({"left":50,"top":50});
+    // div1.offset({"left":"50","top":"50"});
+    //通过position()方法只能获取值，不能改变值
+</script>
+</html>

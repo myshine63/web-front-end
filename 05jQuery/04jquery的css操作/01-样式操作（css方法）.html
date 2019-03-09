@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        //改方法改变的盒子的行内样式
+        $(function () {
+            //样式操作方法1(设置样式)：  css(json);
+//            $("div").css({"width":100,"height":100,"background-color":"pink"});
+
+            //样式操作方法2(设置样式)：  css(属性，值);
+            $("div").css("background-color", "red");
+
+            //样式操作方法2(获取样式)：  css(属性);
+            //获取的时候如果有很多，那么获取jquery对象中的第一个
+            alert($("div").css("width"));
+        })
+    </script>
+</head>
+<body>
+<div></div>
+<div style="width: 200px;height:300px;background: yellow"></div>
+<div style="width: 200px;height:300px;background: yellow"></div>
+<div style="width: 200px;height:300px;background: yellow"></div>
+</body>
+</html>

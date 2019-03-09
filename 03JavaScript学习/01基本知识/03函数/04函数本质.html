@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+    function f(name) {
+        this.name=name;
+    }
+    //所有函数都是Function的实例
+    console.log(f instanceof Function);//true
+    //所有的函数名都是一个对象
+    console.log(f instanceof Object);//true
+    //函数名也是一个变量，可以赋值给别的变量
+    let func=f;
+    //函数名也是一个类，可以用来创建对象
+    let obj=new f('tom');
+    //直接输出函数名，将输出函数代码
+    console.log(f);
+    //如果函数没有指定为某个对象的方法，都可以通过window来调用
+    window.f('jerry');//通过window调用那么函数内部的this就指代window
+    console.log(window.name)//jerry
+</script>
+</body>
+</html>

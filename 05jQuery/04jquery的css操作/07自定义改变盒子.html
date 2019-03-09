@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<button>动画</button>
+<div></div>
+<script>
+    $(function () {
+        //绑定单击事件
+        $("button").click(function () {
+            //获取div
+            div = $("div");
+            //该json表示盒子最终的形态和位置
+            var json = {"width": 200, "height": 200, "left": 400, "top": 300};
+            var json2 = {
+                "width": 100,
+                "height": 100,
+                "left": 100,
+                "top": 100,
+                "border-radius": 100,
+                "background-color": "red"
+            };
+            //让盒子通过动画变成最终形态
+            // $(selector).animate({params},speed,callback);
+            // 第一个参数表示：要执行动画的CSS属性（必选）
+            // 第二个参数表示：执行动画时长（可选）
+            // 第三个参数表示：动画执行完后立即执行的回调函数（可选）
+            div.animate(json, 1000, function () {//执行第一次变化
+                div.animate(json2, 2000)//在一次执行，第二次变化
+            });
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+    //动态获取时间
+    var date = new Date();
+    document.write(date + "<br/>");//获取标准时间
+    document.write(date.toLocaleString() + "<br/>");//按照本地时间格式获取时间
+    document.write(date.getFullYear() + "年<br/>");//获取年份
+    document.write(date.getYear() + "年<br/>");//获取年份
+    document.write(date.getMonth() + 1 + "月<br/>");//获取月
+    document.write(date.getDate() + "日<br/>");//获取天
+    document.write(date.getDay() + "星期几<br/>");//获取星期几
+    document.write(date.getHours() + "小时<br/>");//获取小时
+    document.write(date.getMinutes() + "分钟<br/>");//获取分钟
+    document.write(date.getSeconds() + "秒<br/>");//获取秒
+    document.write(date.getTime() +"秒<br>");//获取标准时间到现在时间有多少毫秒
+    //创建自定义时间
+    var date1 = new Date("2018/10/1 00:00:00");
+    document.write(date1);
+    /*倒计时*/
+    var seconds=(date1.getTime()-date.getTime())/1000;//获取未来时间到现在时间的时间秒差
+    var days=parseInt(seconds/3600/24);
+    var hour=parseInt(seconds/3600)%24;
+    var minute=parseInt(seconds/60)%60;
+    var second=parseInt(seconds)%60;
+    document.write(`倒计时为:${days}天${hour}小时${minute}分${second}秒`)
+</script>
+</body>
+</html>

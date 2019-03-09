@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div>
+    <p>床前明月光，</p>
+    <p>疑是地上霜。</p>
+    <p>举头望明月，</p>
+    <p>低头思故乡。</p>
+</div>
+<script>
+    $(function () {
+        $("p:odd").hide();//隐藏索引为奇数的p元素；
+        $("p:odd").css("color","red");//索引为奇数的p元素字体为红色
+        $("p:visible").css("color","green");//剩余可见元素字体为绿色
+        $("p:odd").show();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。
+    // 下面是一些使用嵌套数组进行解构的例子。
+    let [foo, [[bar], baz]] = [1, [[2], 3]];
+    // foo // 1
+    // bar // 2
+    // baz // 3
+    var [a,c,d]=[1,5,8];
+    let [ , , third] = ["foo", "bar", "baz"];
+    // third // "baz"
+
+    let [x, , y] = [1, 2, 3];
+    // x // 1
+    // y // 3
+
+    let [head, ...tail] = [1, 2, 3, 4];
+    // head // 1
+    // tail // [2, 3, 4]
+
+    let [x, y, ...z] = ['a'];
+    // x // "a"
+    // y // undefined
+    // z // []
+</script>
+</body>
+</html>

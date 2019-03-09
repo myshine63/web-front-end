@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div id="test1">1</div>
+<div class="red">2</div>
+<div class="red blue">3</div>
+<script>
+    $(document).ready(function () {
+        div1=$("#test1");//id选择器获取div1
+        divs=$("div");//元素选择器获取所有的div
+        div23=$(".red");//类选择器获取div2和3
+        div3=$(".blue");//类选择器获取div3
+        div4=$(".blue,.red,div");//分组选择器
+        console.log(div1);
+        console.log(divs);
+        console.log(div23);
+        console.log(div3);
+    })
+</script>
+</body>
+</html>

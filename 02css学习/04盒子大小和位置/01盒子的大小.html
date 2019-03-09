@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*盒子默认大小为内容区和填充区*/
+        #test1 {
+            box-sizing: border-box; /*总体大小*/
+            /*box-sizing: padding-box;除去边框大小*/
+            /*box-sizing: content-box;内容区大小*/
+            /*box-sizing: inherit;继承父盒子模型*/
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+
+        /*动态设置子盒子大小*/
+        #test2 {
+            box-sizing: inherit;
+            width: calc(50% - 30px);
+            height: calc(50% - 30px);
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<div id="test1">
+    <div id="test2"></div>
+</div>
+</body>
+</html>

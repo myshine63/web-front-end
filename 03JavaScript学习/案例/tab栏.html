@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        div{
+            width: 400px;
+            height: 50px;
+            background-color: #eeeeee;
+            margin: 20px auto 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 400px;
+            height: 50px;
+            text-align: center;
+        }
+        li{
+            display: inline-block;
+            opacity: 0.2;/*透明度*/
+        }
+        a{
+            font: 700 14px/50px "微软雅黑";
+            text-decoration: none;
+            padding: 0 20px ;
+        }
+        .bac{
+            opacity: 1;
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">新浪</a></li>
+        <li><a href="#">百度</a></li>
+        <li><a href="#">谷歌</a></li>
+        <li><a href="#">搜狐</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    arr=document.querySelectorAll("a");
+    for(var i=0;i<arr.length;i++){
+        arr[i].onclick=function () {
+            for(var j=0;j<arr.length;j++){
+                arr[j].parentNode.className="";
+            }
+            this.parentNode.className="bac";
+        }
+    }
+</script>
+</body>
+</html>

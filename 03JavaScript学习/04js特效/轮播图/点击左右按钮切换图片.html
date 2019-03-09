@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 490px;
+            height: 170px;
+            padding:5px;
+            border: 1px solid red;
+            margin: 100px auto 0;
+        }
+        #div2{
+            width: 490px;
+            height:170px;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 500%;
+            position: absolute;
+        }
+        li{
+            margin:0;
+            padding: 0;
+            float: left;
+        }
+        .left{
+            display: none;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            opacity: 0.5;
+            background-color: black;
+            padding:15px 0;
+            top:72.5px;
+            left:20px;
+            text-align: center;
+        }
+        .right{
+            display: none;
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            opacity: 0.5;
+            background-color: black;
+            padding:15px 0;
+            top:72.5px;
+            right:20px;
+            text-align: center;
+        }
+        span{
+            color: white;
+            line-height: 20px;
+        }
+    </style>
+
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <ul>
+            <li><img src="image/01.jpg" alt=""></li>
+            <li><img src="image/02.jpg" alt=""></li>
+            <li><img src="image/03.jpg" alt=""></li>
+            <li><img src="image/04.jpg" alt=""></li>
+            <li><img src="image/05.jpg" alt=""></li>
+        </ul>
+        <div class="left">
+            <span><</span>
+        </div>
+        <div class="right">
+            <span>></span>
+        </div>
+    </div>
+</div>
+<script>
+    //本质，在网页上放一个盒子1，在1上放1个等大的盒子2，这样可以设置2位相对布局，并且隐藏，方便给其子元素绝对布局
+    //ul在放盒子2里面，设置ul的宽为所有图片的宽，这样ul相当于一个厂图片。这时候固定了盒子2需要把ul向左移动，
+    //这是相当于把ul的顶点向左移动
+    var div1=document.querySelector("#div1");
+    var divf=document.querySelector(".left");
+    var divr=document.querySelector(".right");
+    var ul=document.querySelector("ul");
+    div1.onmouseover=function () {
+        divf.style.display="block";
+        divr.style.display="block";
+    };
+    div1.onmouseout=function () {
+        divf.style.display="none";
+        divr.style.display="none";
+    };
+    var flag=0;
+    divf.onclick=function () {
+        flag--;
+        if(flag<0)
+            flag+=5;
+        moveleft(ul,-490*flag,30,30);
+    };
+    divr.onclick=function () {
+        flag=(flag+1)%5;
+        moveleft(ul,-490*flag,30,30);
+    };
+    function moveleft(ele,aim,step,time) {
+        var newstep=aim>ele.offsetLeft?step:-1*step;//以此来判断应该是加步长还是减去步长
+        clearInterval(ele.timer);//清除定时器
+        ele.timer=setInterval(function () {
+            if(Math.abs(aim-ele.offsetLeft)>step){//盒子和目标值的差的绝对值大于步长时调用timer
+                ele.style.left = ele.offsetLeft + newstep + "px";
+            }
+            else{//最后闪现到指定位置
+                ele.style.left=aim+"px";
+                clearInterval(ele.timer);
+            }
+        },time)
+    }
+
+</script>
+</body>
+</html>

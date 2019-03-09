@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    var a = 123;
+    var b = 1.24e2;//科学计数法，等同于124
+    var c = 35E-2;//科学计数法，等同于0.35
+    var d = 014;//8进制以0开头,等同于12
+    var e = 0xc;//16进制以0x开头,等同于12
+    document.writeln(d - e);//输出0
+    //正数除以0得正infinity，负数除以0得-infinity；
+    document.writeln(a / 0);
+    document.writeln(-a / 0);
+    //0/0=NaN,即非数字
+
+    /*判断2个浮点数是否相等,应该用差值法,即当他们差值的绝对值小于一个很小的数时,就可以认为他们相等*/
+</script>
+</body>
+</html>

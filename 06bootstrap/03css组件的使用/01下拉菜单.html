@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../bootstrap3/js/jquery.js"></script>
+    <script src="../bootstrap3/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap3/css/bootstrap-theme.css">
+</head>
+<body>
+<div class="dropdown">
+    <a href="#" class="btn btn-lg btn-success"  data-toggle="dropdown">下拉菜单<i class="caret"></i></a>
+    <ul class="dropdown-menu">
+        <li><a href="#">菜单选项1</a></li>
+        <li><a href="#" class="disabled">菜单选项2</a></li>
+        <li class="dropdown-header"><a href="#">标题</a></li>
+        <li><a href="#">菜单选项3</a></li>
+        <li class="divider"></li>
+        <li><a href="#">菜单选项4</a></li>
+    </ul>
+</div>
+<script type="text/javascript">
+    // $(function () {
+    //     $("#dropdown").dropdown()
+    // })
+</script>
+<p>
+    1.下拉列表，需要包含在下拉容器内，即dropdown容器 <br>
+    2.下拉列表由 激活元素和下拉菜单组成 <br>
+    3.激活元素可以是任意元素，但最好为a标签， <br>
+    4.菜单要放在dropdown-menu容器内 <br>
+    5.激活需要给激活元素添加data-toggle="dropdown"，或者用jQuery激活，但是用jQuery激活的下拉菜单
+    下拉后不能隐藏 <br>
+    6.给下拉菜单的选项添加 class="disabled"可以让某个选项不可用 <br>
+    7.给下拉容器添加 pull-right/left,选择下拉菜单对齐方式 <br>
+    8.给空的li元素添加class='divider'属性可以设置分割线 <br>
+    9.给li添加class="dropdown-header"可以添加标题 <br>
+    10. <i class="caret"></i> 可以设置下三角
+</p>
+</body>
+</html>

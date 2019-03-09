@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            display: flex;
+            width: 960px;
+            border: 1px solid #000;
+            margin:  0 auto 50px;
+            padding: 5px;
+        }
+        /*默认值 从左向右排列，当子元素宽度和大于父元素时，不换行*/
+        #div1{
+            /*flex-flow: row wrap;*/
+            flex-direction: row;/*从左向右排列 row-reverse 从右向左排列*/
+            flex-wrap:wrap;/*换行*/
+        }
+        #div2{
+            /*flex-flow:column wrap;*/
+            flex-direction: column;/*从上向下排列 column-reverse 从下向上排列*/
+            flex-wrap:wrap;
+        }
+        div>div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+<body>
+flex-flow是由flex-direction和flex-wrap组成的复合属性。
+flex-direction：row,从做到有，row-reverse:从右到左。column:从上往下，column-reverse，从下往上
+<div class="container" id="div1">
+    <div style="width: 600px;order:2" >栏目1</div>
+    <div style="order:1">栏目2</div>
+    <div style="order:3">栏目3</div>
+</div>
+<div class="container" id="div2">
+    <div style="order: 3">栏目1</div>
+    <div style="order: 2">栏目2</div>
+    <div style="order: 1">栏目3</div>
+</div>
+</body>
+</html>

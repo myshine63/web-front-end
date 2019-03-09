@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style>
+        div { /*元素选择器,*对于所有的div元素有效*/
+            width: 100px;
+            height: 50px;
+            border: 2px solid orange;
+            margin: 0 auto; /*设置居中*/
+        }
+
+        div[id=test] { /*属性选择器，对含有id且值为test的div标签有效*/
+            background-color: red;
+        }
+
+        #test1 { /*id选择器，id为test1起效*/
+            background-color: blue;
+            width: 100px;
+            height: 50px;
+            border: 2px solid orange;
+            margin: 5px;
+        }
+
+        #test2 { /*id选择器，对于id为test2的p标签起作用*/
+            width: 100px;
+            height: 50px;
+            border: 2px solid orange;
+            margin: 5px;
+            background-color: green;
+        }
+
+        .test3 { /*class 选择器，对class为test3的标签起作用*/
+            width: 100px;
+            height: 50px;
+            border: 2px solid orange;
+            margin: 5px;
+            background-color: #244685;
+        }
+
+        div.test4 { /*对于div标签，且class为test4的起作用*/
+            width: 100px;
+            height: 50px;
+            border: 2px solid orange;
+            margin: 5px;
+            background-color: #456;
+        }
+
+        div .test5 { /*对于父元素为div中所有class为test5的后代元素*/
+            width: 80px;
+            height: 40px;
+            border: 2px solid orange;
+            margin: 5px;
+            background-color: #154242;
+        }
+
+        div > div { /*子选择器，对div元素中的div子元素起作用*/
+            width: 80px;
+            height: 40px;
+            border: 2px solid orange;
+            margin: 5px;
+            background-color: #158425;
+        }
+
+        #test6，#test7 { /*分组选择器*/
+
+        }
+
+        p ~ div { /*兄弟选择器，对p元素后面的所有同级div元素有用*/
+            font-size: 30px;
+        }
+    </style>
+</head>
+<strong> 选择器的优先级：默认样式《标签选择器《类选择器《id选择器《行样式</strong>
+<body>
+<div>hello</div>
+<div id='test'>hello</div>
+<p id="test1">hello</p>
+<p id="test2">hello</p>
+<p class="test3 test4">hello</p>/*同时使用2个选择器*/
+<div class=test4>hello</div>
+<div>
+    <p class=test5>hello</p>
+</div>
+<div>
+    <div>hello</div>
+</div>
+</body>
+</html>

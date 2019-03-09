@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*当文本的行高等于边框的高度时，可以实现文本的居中*/
+        /*默认的情况下一个em=16px*/
+        p{
+            border: 1px solid red;
+            width: 300px;
+        text-align: center;/*让文字在水平居中*/
+        }
+        .test1{ /*p元素会自带一个margin：1em这里的em是指当前的文字大小*/
+            height: 40px;
+            background-color: #b9ffc5;
+            font-size: 2em;/*此时的size=32px*/
+            line-height: 40px;/*行高等于p元素的大小，实现垂直居中*/
+        }
+        .test2{
+            font-size: 1em;/*设置文字打的默认大小16px*/
+            line-height:2em;/*行高为32px*/
+        }
+        .test3{
+            font-size: 2em;/*这里的em代表文字的默认大小为16个像素*/
+            line-height: 2em;/*由于上面设置了字体大小 因此这里的em=32  行高=64*/
+            /*这里的默认margin=1em=32*/
+        }
+        .test4{
+            font-size:20px;
+            line-height:2;/*行高为40px*/
+        }
+    </style>
+</head>
+<body>
+<p class="test1">文本的实现1</p>
+<p class="test2">文本的实现2</p>
+<p class="test3">文本的实现3</p>
+<p class="test4">文本的实现</p>
+<p class="test5">文本的实现</p>
+</body>
+</html>

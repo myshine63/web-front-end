@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+function drawtest(x,y,n,r1,r2,draw){//x,y为图形中心坐标，r1位内点半径 r2为外点半径。r2>r1外凸，r2<r1内凹
+	var rad=2*Math.PI/n;
+	var rad2=Math.PI/n;
+	draw.beginPath();
+	draw.moveTo(x+r1,y);
+	for(var i=1;i<=n;i++){
+		var ctrlx=x+r2*Math.cos(rad*i-rad2);//控制点在2点中间
+		var ctrly=y+r2*Math.sin(rad*i-rad2);
+		tox=x+r1*Math.cos(rad*i);
+		toy=y+r1*Math.sin(rad*i);
+		draw.quadraticCurveTo(ctrlx,ctrly,tox,toy);
+	}
+	draw.closePath();
+}
+</script>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="450" style="border:1px solid orange "></canvas>
+<script type="text/javascript">
+var canvas=document.getElementById("canvas");
+var draw=canvas.getContext("2d");
+draw.strokeStyle="#f0f";
+drawtest(400,200,6,150,50,draw);
+draw.stroke();
+drawtest(200,200,6,30,80,draw);
+draw.stroke();
+</script>
+</body>
+</html>

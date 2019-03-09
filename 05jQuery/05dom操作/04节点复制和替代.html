@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="test">
+    <li id="test1">hello word</li>
+    <li>beautiful girl</li>
+    <li>girl friend</li>
+    <li>how are you</li>
+</ul>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    $("body").append($("ul").clone());//复制整个ul
+    $("ul").append($("#test1").clone());//复制id为test1的li
+</script>
+</body>
+</html>

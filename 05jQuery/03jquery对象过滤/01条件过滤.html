@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../02选择器的使用/jquery-3.2.1.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="red"></div>
+<div>
+    <span></span>
+</div>
+</body>
+<script>
+    $(function () {
+        divarr = $("div");//获取所有的div元素
+        //类过滤
+        bool = divarr.hasClass("red");//检查是否包含了又red类的div元素，返回值是boolean
+        //获取指定索引的元素
+        div = divarr.eq(0);//获取第一个div
+        console.log(div);
+        //根据表达式获取元素
+        divs = divarr.filter(".red");//选出还有red的div
+        console.log(divs);
+        //含有指定后代元素的父元素
+        a = divarr.has(".red");//获取后代含有red的父元素,长度为0;
+        b = divarr.has("span");//获取后代含有span的div
+        console.log(a);
+        console.log(b);
+        //清除
+        ndivarr=divarr.not(".red");//返回不含有red的div
+        console.log(ndivarr);
+    })
+</script>
+</html>

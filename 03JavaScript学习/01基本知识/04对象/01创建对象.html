@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.通过函数创建对象
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.info = function () {
+            console.log("name:" + this.name + "age:" + this.age);
+        }
+    }
+
+    var p = new Person("小米", 30);//创建对象
+    p.info();//调用对象的方法
+    p.id = 511325;//动态的为对象添加属性
+    p.say = function () {//动态的添加方法
+        console.log("id:" + this.id);
+    };
+    p.say();//调用say方法
+    //通过对象字面量
+    var a = {
+        name: "小李",
+        age: 15,
+        id: 15,
+        info: function () {
+            console.log(this.name + this.age + this.id);
+        }
+    }
+</script>
+</body>
+</html>

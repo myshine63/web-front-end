@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //通常情况下，应该吧默认参数放在最后面
+    function f1(x,y,z=1) {
+        return [x,y,z];
+    }
+    f1();//undefined undefined 1
+    f1(1);//1 undefined 1
+    f1(1,1);// 1 1 1
+    f1(1,1,undefined);// 1 1 1
+
+    //如果默认参数不在最后面，又想使用默认参数，则指定它为 undefined，并且不能空着它
+    function f2(x,y=1,z) {
+        return [x,y,z];
+    }
+    f2();//undefined 1 undefined
+    f2(1);//1 1 undefined
+    // f2(1,,1)//  会报错
+    f2(1,undefined,1)// 1 1 1
+</script>
+</body>
+</html>

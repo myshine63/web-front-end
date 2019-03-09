@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        .current {
+            background-color: red;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            button = $("button");
+            div = $("div");
+            button.eq(0).click(function () {
+                //添加类
+                div.addClass("current");
+                //判断类
+                alert(div.hasClass("current"));
+            });
+
+            button.eq(1).click(function () {
+                //删除类
+                div.removeClass("current");
+                //判断类
+                alert(div.hasClass("current"));
+            });
+            //alert($("div").hasClass("current"));//jquery对象中有一个带有类名的也是true，所有都不带才是false；
+        })
+    </script>
+</head>
+<body>
+<button>添加</button>
+<button>删除</button>
+<div></div>
+<div></div>
+<div></div>
+<div class="current"></div>
+</body>
+</html>

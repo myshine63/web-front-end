@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #000;
+            background-color: #d2a5ff;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+<button>清除单击事件</button>
+<button>单击还原</button>
+<button>清除鼠标移入事件</button>
+<button>鼠标移入还原</button>
+<button>清除所有事件</button>
+<div></div>
+<script src="jquery-3.2.1.js"></script>
+<script>
+    buts=$("button");
+    div=$("div");
+    div.click(function () {
+        div.width(200);//给盒子添加单击事件
+    });
+    buts.eq(0).click(function () {
+       div.off("click");//移除盒子的单击事件
+    });
+    buts.eq(1).click(function () {
+        div.width(300);//还原盒子
+    });
+    div.mouseover(function () {
+        div.height(200);//给盒子添加鼠标移入事件
+    });
+    buts.eq(2).click(function () {
+        div.off("mouseover")//移除盒子鼠标移入事件
+    });
+    buts.eq(3).click(function () {
+        div.height(300);//还原盒子
+    });
+    buts.eq(4).click(function () {
+        div.off();//清除所有事件
+    });
+
+
+</script>
+</body>
+</html>

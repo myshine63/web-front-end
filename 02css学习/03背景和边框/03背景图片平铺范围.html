@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*设置背景的平铺起始位置,需要和background-clip搭配使用*/
+        div {
+            width: 400px;
+            height: 200px;
+            border: 20px dashed #809fe6;
+            margin: 30px;
+            padding: 100px;
+            background-image: url("../image/2.png");
+        }
+        /*以边框开始*/
+        #test1 {
+            background-origin: border-box;
+            background-clip: border-box;
+        }
+        /*以填充区域开始*/
+        #test2 {
+            background-origin: padding-box;
+            background-clip: padding-box;
+        }
+        /*以内容区域开始*/
+        #test3 {
+            background-origin: content-box;
+            background-clip: content-box;
+        }
+
+    </style>
+</head>
+<body>
+<div id="test1"></div>
+<div id="test2"></div>
+<div id="test3"></div>
+</body>
+</html>

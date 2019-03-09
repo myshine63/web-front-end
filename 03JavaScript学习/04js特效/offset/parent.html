@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="test1"></div>
+    </div>
+    <div class="box">
+        <div id="test2"></div>
+    </div>
+<script>
+    var div1=document.querySelector("#test1");
+    var div2=document.querySelector("#test2");
+    console.log(div1.offsetParent);//父盒子都没有定位，因此值是body
+    console.log(div2.offsetParent);//父盒子有定位，返回最近的一个有定位的盒子
+</script>
+</body>
+</html>

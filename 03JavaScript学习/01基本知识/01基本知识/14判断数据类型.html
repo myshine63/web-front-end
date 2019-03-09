@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //数据类型有undefined,object,boolean,number,string,function;\
+    /*typeof 一般用来判断数据类型,instanceof 一般用来判断对象原型,所有只能对对象使用*/
+    var a, b = null, c = {}, d = true, e = 12, f = "hello";
+    var g = function () {
+        return 1;
+    };
+    var h = [1, 2];
+    var i=Number(1);
+    console.log(typeof a);//undefined
+    console.log(typeof b);//object
+    console.log(typeof c);//object
+    console.log(typeof d);//boolean
+    console.log(typeof e);//number
+    console.log(typeof f);//string
+    console.log(typeof g);//function
+    console.log(typeof h);//object
+    console.log(g instanceof Object);//true
+    console.log(g instanceof Function);//true
+    console.log(e instanceof Number);//false,因为e是数字类型,不是对象
+    console.log(e instanceof Object);//false
+</script>
+</body>
+</html>

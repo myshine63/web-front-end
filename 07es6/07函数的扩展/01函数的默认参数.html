@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //es5中给函数默认参数的方式
+    function f1(a,b) {
+        b=b||"word";//如果有值则为b，没有值则为默认参数，但是当传入的是false时会出错
+        console.log(a+" "+b);
+    }
+    f1();
+    f1("hello");
+    f1("hello","china");
+    //参数变量是默认声明的，所以不能用let或const再次声明。
+    function foo2(x = 5) {
+        let x = 1; // error
+        const x = 2; // error
+    }
+    //es6中默认参数的方法
+    function f2(a,b="word") {
+        console.log(a+" "+b);
+    }
+    f2();
+    f2("hello");
+    f2("hello","china");
+    //如果默认参数是表达式，那么默认值会根据表达式的值的改变而改变
+    let x = 99;
+    function foo(p = x + 1) {
+        console.log(p);
+    }
+
+    foo();// 100
+
+    x = 100;
+    foo();// 101
+    //类的默认赋值
+    function Point(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+    }
+</script>
+</body>
+</html>

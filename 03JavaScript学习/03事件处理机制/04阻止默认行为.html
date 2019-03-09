@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let stopDefault=function (event) {
+        e=event||window.event;
+        /*方法1*/
+        if(e.preventDefault){
+            e.preventDefault();
+        }
+        /*方法2*/
+        else {
+            e.returnValue=false;
+        }
+        /*方法3*/
+        return false;
+    }
+</script>
+</body>
+</html>

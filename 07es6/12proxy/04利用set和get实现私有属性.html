@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj={
+        name:'tom',
+        _age:25
+    };
+    let proxy=new Proxy(obj,{
+        get(target,key){
+            if(key[0]==='_'){
+                console.log(`${key}是私有属性不能获取`);
+                return false
+            }
+            else
+                return target[key];
+        },
+        set(target,key,val){
+            if(key[0]==='_'){
+                console.log(key+'是私有属性不能赋值');
+            }
+            else
+                target[key]=val;
+        }
+    });
+    console.log(proxy.name);
+    console.log(proxy._age);
+    proxy._test='hello word';
+    console.log(proxy._test);
+</script>
+</body>
+</html>

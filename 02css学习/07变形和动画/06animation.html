@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes change {
+            0% {
+                width: 200px;
+                height: 200px;
+                background-color: #2a6496;
+            }
+            40% {
+                width: 400px;
+                height: 400px;
+                background-color: green;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                border-radius: 150px;
+                background-color: orangered;
+            }
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #2b2b2b;
+        }
+        div:hover
+         {
+            animation-name: change;
+            animation-duration: 5s;
+        }
+    </style>
+</head>
+<body>
+<div class="div">
+</div>
+<button>start</button>
+<script>
+    // let div = document.querySelectorAll('div')[0];
+    // let btn = document.getElementsByTagName('button')[0];
+    // btn.onclick = function () {
+    //     div.className = 'aim';
+    // }
+
+</script>
+</body>
+</html>

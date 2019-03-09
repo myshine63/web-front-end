@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*说明：obj[变量]=obj["变量的值"]=obj.变量的值,obj['字符串']=obj.字符串;
+    * 1.对象内部 name='name'=['name'];
+    * 2.对象内部 [name]=test='test'=['test']
+    * 3.获取属性的方法：
+    * obj.name=obj.['name'],
+    * obj[name]=obj.test=obj['test']
+    * */
+    let name = "test";
+    var obj = {
+        name,
+        name: 1,
+        'name':2,
+        [name]:3,//相当于 test:3,
+        ['name']:4
+    };
+   console.log(obj.name);//4
+    console.log(obj[name]);//3
+    console.log(obj['name']);//4
+    console.log(obj.test);///3
+    // console.log(obj[test]);
+    console.log(obj['test']);//3
+    console.log(obj[name])
+</script>
+</body>
+</html>

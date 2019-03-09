@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            display: none;
+            width: 200px;
+            height: 200px;
+            border:1px solid silver;
+            position:fixed;
+            right: 0;
+            bottom: 0;
+        }
+        .close>span{
+            display: block;
+            width: 30px;
+            height: 30px;
+            float:right;
+            font:700 25px/30px "微软雅黑";
+            text-align: center;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+    <script>
+       $(function () {
+          $("div").slideDown(2000).fadeOut(4000);
+          $("span").click(function () {
+              $(this).parent().stop(false,true);
+          })
+       })
+    </script>
+</head>
+<body>
+<div>
+    <div class="close"><span>×</span></div>
+    <div class="content">
+        <a href=""><img src="" alt=""></a>
+    </div>
+</div>
+</body>
+</html>

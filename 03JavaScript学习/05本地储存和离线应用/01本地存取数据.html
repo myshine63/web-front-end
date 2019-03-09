@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*存数据说明,先放进去的数据,index的值大些,类似于队列存放数据*/
+    localStorage.clear();
+    localStorage.setItem('tom','tom');//存数据
+    localStorage['age']=15;//存数据
+    console.log(localStorage.length);//获取数据条数
+    console.log('name:',localStorage.getItem('tom'));//获取数据
+    console.log('key:',localStorage.key(0));//序号的key
+    // localStorage.removeItem('tom');//删除数据
+    // localStorage.clear();//清除所有数据
+</script>
+</body>
+</html>

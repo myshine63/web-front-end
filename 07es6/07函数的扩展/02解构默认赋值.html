@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //对象的解构赋值默认值，并不是给参数默认赋值，因此参数一定要是对象
+    function f1({x,y=123}) {
+        console.log(x,y);
+    }
+    // f1();//直接调用会报错，因此没有传入对象参数
+    f1({});
+    f1({x:1});
+    f1({x:1,y:456});
+    //对象的解构赋值默认值，并给给参数设置了对象（该对象为空对象）
+    function foo({x, y = 5} = {}) {
+        console.log(x, y);
+    }
+    foo() // undefined 5，可以直接调用
+
+    function f2([x=1,y]) {
+        console.log(x,y);
+    }
+    f2([,5]);//
+</script>
+</body>
+</html>

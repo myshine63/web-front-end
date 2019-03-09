@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //函数是值传递，当传入的参数是基础变量时，不会变传入参数的值。
+    let age=14;//定义一个变量
+    function f(age) {
+        age++
+    }
+    f(age);//调用函数
+    console.log(age);//14，值没有发生改变
+    //当传入的变量时一个对象时，可以改变对象的属性，当时不会把改对象变量指向别的变量
+    let obj={name:'tom',age:24};
+    function person(obj) {
+        obj.name='jerry';
+        obj.age=24;
+        obj={//试图让obj指向别的对象，但是不会生效
+            name:'bob',
+            age:15
+        }
+    }
+    person(obj);
+    console.log(obj);//{name: "jerry", age: 24}
+</script>
+</body>
+</html>

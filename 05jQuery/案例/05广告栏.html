@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, li, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 252px;
+            border: 1px solid pink;
+            margin: 100px auto 0;
+        }
+
+        li, image {
+            box-sizing: border-box;
+        }
+
+        image {
+            width: 200px;
+            border: 1px solid pink;
+        }
+
+        ul {
+            height: 252px;
+            overflow: hidden;
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #left, #right, #center {
+            float: left;
+        }
+
+        #left > li, #right > li {
+            line-height: 28px;
+            background-color: pink;
+            width: 75px;
+            text-align: center;
+            border: 1px solid red;
+            height: 28px;
+        }
+    </style>
+    <script src="jquery-3.2.1.js"></script>
+</head>
+<body>
+<div class="box">
+    <ul id="left">
+        <li><a href="#">女靴</a></li>
+        <li><a href="#">雪地靴</a></li>
+        <li><a href="#">冬裙</a></li>
+        <li><a href="#">呢大衣</a></li>
+        <li><a href="#">毛衣</a></li>
+        <li><a href="#">棉服</a></li>
+        <li><a href="#">女裤</a></li>
+        <li><a href="#">羽绒服</a></li>
+        <li><a href="#">牛仔裤</a></li>
+    </ul>
+    <ul id="center">
+        <li><a href="#"><img src="image/女靴.jpg"/></a></li>
+        <li><a href="#"><img src="image/雪地靴.jpg"/></a></li>
+        <li><a href="#"><img src="image/冬裙.jpg"/></a></li>
+        <li><a href="#"><img src="image/呢大衣.jpg"/></a></li>
+        <li><a href="#"><img src="image/毛衣.jpg"/></a></li>
+        <li><a href="#"><img src="image/棉服.jpg"/></a></li>
+        <li><a href="#"><img src="image/女裤.jpg"/></a></li>
+        <li><a href="#"><img src="image/羽绒服.jpg"/></a></li>
+        <li><a href="#"><img src="image/牛仔裤.jpg"/></a></li>
+        <li><a href="#"><img src="image/女包.jpg"/></a></li>
+        <li><a href="#"><img src="image/男包.jpg"/></a></li>
+        <li><a href="#"><img src="image/登山鞋.jpg"/></a></li>
+        <li><a href="#"><img src="image/皮带.jpg"/></a></li>
+        <li><a href="#"><img src="image/围巾.jpg"/></a></li>
+        <li><a href="#"><img src="image/皮衣.jpg"/></a></li>
+        <li><a href="#"><img src="image/男毛衣.jpg"/></a></li>
+        <li><a href="#"><img src="image/男棉服.jpg"/></a></li>
+        <li><a href="#"><img src="image/男靴.jpg"/></a></li>
+    </ul>
+    <ul id="right">
+        <li><a href="#">女包</a></li>
+        <li><a href="#">男包</a></li>
+        <li><a href="#">登山鞋</a></li>
+        <li><a href="#">皮带</a></li>
+        <li><a href="#">围巾</a></li>
+        <li><a href="#">皮衣</a></li>
+        <li><a href="#">男毛衣</a></li>
+        <li><a href="#">男棉服</a></li>
+        <li><a href="#">男靴</a></li>
+    </ul>
+    <script>
+        leftli = $("#left>li");
+        rightli = $("#right>li");
+        imgarr = $("#center>li");
+        leftli.mouseover(function () {
+            imgarr.css("display", "none");
+            imgarr.eq($(this).index()).css("display", "block");
+        });
+        rightli.mouseover(function () {
+            imgarr.css("display", "none");
+            imgarr.eq($(this).index()+8).css("display", "block");
+        })
+    </script>
+</div>
+</body>
+</html>

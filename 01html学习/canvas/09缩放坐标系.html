@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas" width="1000" height="450" style="border:1px solid orange"></canvas>
+</body>
+<script>
+    let canvas=document.getElementById('canvas');
+    let context=canvas.getContext('2d');
+    context.fillStyle='#dadacc';
+    context.strokeStyle='red';
+    context.fillRect(200,50,200,50);
+    context.strokeRect(200,50,200,50);
+    // context.scale(0.5,0.5);//相当于把所有坐标都乘以0.5
+    // context.fillRect(200,100,200,50);
+    // context.strokeRect(200,100,200,50);
+    context.scale(2,2);
+    context.fillStyle='#aacddd';
+    context.strokeStyle='green';
+    context.fillRect(200,100,200,50);
+    context.strokeRect(200,100,200,50);
+</script>
+</html>
