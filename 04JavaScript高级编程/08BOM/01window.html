@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+//BOM的核心是window对象。定义在全局范围内的方法和属性都将作为window的属性。
+//在全局范围内通过var定义的方法和属性都将作为window的属性。
+//通过let定义的方法和属性不会成为window的属性
+//当通过var定义的变量，变量名和window属性的属性名一样时，会发生一些问题
+//delete 不能删除全局变量
+<script>
+    //BOM的核心是window对象。定义在全局范围内的方法和属性都将作为window的属性。
+    //在全局范围内通过var定义的方法和属性都将作为window的属性。
+    //通过let定义的方法和属性不会成为window的属性
+    //当通过var定义的变量，变量名和window属性的属性名一样时，会发生一些问题
+    //delete 不能删除全局变量
+    var a=1;
+    let b=2;
+    console.log(a,b);//1,2
+    delete window.a;
+    delete window.b;
+    console.log(a,b);//1,2
+</script>
+</body>
+</html>
