@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //需要根据兼容来获取窗口位置。即浏览器左上角相对屏幕左上角的位置。注意不是网页窗口
+    let leftPos = (typeof window.screenLeft === 'number' ?window.screenLeft:window.screenX);
+    let topPos = (typeof window.screenTop === 'number' ?window.screenTop:window.screenY);
+    console.log(leftPos,topPos);
+</script>
+</body>
+</html>
