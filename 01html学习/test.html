@@ -10,15 +10,11 @@
 <body>
 </body>
 <script>
-    let counter=function () {
-        var sum=0;
-        return function (num) {
-            return sum+=num;
-        }
-    }();
-   console.log(counter(5));
-   console.log(counter(5));
-   console.log(counter(5));
-   console.log(counter(5));
+    if(localStorage.getItem("name")){
+        console.log(localStorage.getItem("name"))
+    }
+    else{
+        localStorage.setItem("name","tom")
+    }
 </script>
 </html>
