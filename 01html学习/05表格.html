@@ -2,12 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Insert title here</title>
+    <title>table表格</title>
     <style type="text/css">
         table {
             width: 500px;
-            height: 200px;
-            border-collapse: collapse; /*设置单元格无间隙,表格线的粗细将一样*/
+            height: 300px;
+            /*border-collapse:collapse; !*设置单元格无间隙,表格线的粗细将一样*!*/
+            border-spacing:5px;
         }
 
         th, td {
@@ -18,8 +19,8 @@
     </style>
 </head>
 <body>
-<p align="center">table>tr*3>th*1+td*2+tab 快速生成一个表格，这个表格有3行，第一行为th，2行和3行为td表格的规范格式</p>
-<table align="center">
+<p>table>tr*3>th*1+td*2+tab 快速生成一个表格，这个表格有3行，第一行为th，2行和3行为td表格的规范格式</p>
+<table>
     <caption><strong>书单</strong></caption>
     <thead>
     <tr>

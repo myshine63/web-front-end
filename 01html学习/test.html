@@ -10,11 +10,8 @@
 <body>
 </body>
 <script>
-    if(localStorage.getItem("name")){
-        console.log(localStorage.getItem("name"))
-    }
-    else{
-        localStorage.setItem("name","tom")
-    }
+   let obj={a:1,b:2};
+   let obj1={b:2,a:1};
+   console.log(JSON.parse(JSON.stringify(obj))===JSON.parse(JSON.stringify(obj1)))
 </script>
 </html>

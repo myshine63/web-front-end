@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   Array.prototype.test=function (fun) {
+       return Array.prototype.concat.apply([],this.map(fun))
+   }
+   let arr=[1,2,3,4];
+   let a=arr.test(function (param) {
+       console.log(param);
+       return param;
+   });
+   console.log(a===arr);
+</script>
+</body>
+</html>
