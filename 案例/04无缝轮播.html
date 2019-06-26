@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul, li {
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            position: absolute;
+            width: 500px;
+            height: 300px;
+        }
+
+        li {
+            float: left;
+        }
+
+        .li1 {
+            width: 100px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .li2 {
+            width: 100px;
+            height: 300px;
+            background-color: green;
+        }
+
+        .li3 {
+            width: 100px;
+            height: 300px;
+            background-color: orange;
+        }
+
+        .li4 {
+            width: 100px;
+            height: 300px;
+            background-color: blue;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul>
+        <li class="li1">1</li>
+        <li class="li2">2</li>
+        <li class="li3">3</li>
+        <li class="li4">4</li>
+        <li class="li1">1</li>
+    </ul>
+</div>
+<script>
+    let ul = document.getElementsByTagName("ul")[0];
+    let count = 1;
+    let timer = setInterval(function () {
+        if (count === 4) {
+            setTimeout(function () {
+                ul.style = `transform:translateX(0);`;
+                count = 1;
+            }, 1000);
+        }
+        ul.style = `transition:transform 1s ease;transform:translateX(${-count * 20}%);`;
+        count++;
+    }, 2000)
+</script>
+</body>
+</html>
