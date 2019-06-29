@@ -1,2 +1,0 @@
-<!--文件引入顺序bootstrap.css再是其他css-->
-jQuery 必须放在最前面，然后是 bootstrap.js，最后是我们自己的 JavaScript 插件。
