@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>add1</button>
+</body>
+<script>
+    // 多次快速点击按钮，只会执行一次打印;
+    let btn = document.getElementsByTagName("button")[0];
+    let count = 0;
+    btn.onclick = function () {
+        count++;
+        if (this.timer) {
+            clearTimeout(this.timer)
+        }
+        this.timer = setTimeout(() => {
+            console.log(count)
+        }, 3000);
+    }
+</script>
+</html>
