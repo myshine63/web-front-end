@@ -6,16 +6,16 @@
 </head>
 <body>
 <script>
-    let obj={
-        name:'tom',
-        age:20,
-        getprop(){
-            console.log(this.name,this.age);
+    let obj = {
+        name: 'tom',
+        age: 20,
+        getprop() {
+            console.log(this.name, this.age);
         }
     };
 
     /*对象的每一个属性都有一个描述对象*/
-    let fun=Object.getOwnPropertyDescriptor(obj,'getprop');//configurable:true,,,enumerable:true
+    let fun = Object.getOwnPropertyDescriptor(obj, 'getprop');//configurable:true,,,enumerable:true
     console.log(fun);
     /*enumerable:true  可遍历，当为false时不可遍历。数组的length,class原型都是不可遍历的*/
 

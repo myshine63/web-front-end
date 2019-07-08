@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<script>
+    let divs = document.getElementsByTagName("div");
+    console.log(divs);
+    // form 将类似于数组的结构转换成真的数组
+    let arr = Array.from(divs);
+    console.log(arr);
+    // 用于将一组值转换成真的数组
+    let arr2 = Array.of(1, 2, 3);
+    console.log(arr2);
+</script>
+</body>
+</html>
