@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<script>
 
     // 设计思路，如果字符串长度为0 则直接返回空数组。
     // 依次取出字符串中的字符。看结果数组对象中有没有存在这个字符，有则把它的num加1.并且结束这次循环。如果结果对象
@@ -31,8 +23,8 @@
         }
         return res;
     }
-
-    console.log(countChar("adwadwadwadczdfwdadwadwaadd"));
-</script>
-</body>
-</html>
+    let res = countChar("abbcccddddeeeefffffggggggg")
+    res.sort(function (a,b) {
+        return a.num-b.num;
+    });
+    console.log(res);
