@@ -1,4 +1,6 @@
-//generator对象只能遍历一次。用for of遍历后再次遍历或者调用next方法，都不再会返回值
+//generator对象实例可以用for of 去遍历。它可以返回yield状态。注意他不会遍历return返回值
+//next方法相对于for of可以返回return的返回值。
+//generator对象遍历过后就不能再遍历。
 
 //定义generator函数,调用该函数回返回一个遍历器对象，而不是函数的执行结果，或者返回值
 function* Generator() {
@@ -16,6 +18,7 @@ let generator = Generator();//调用generator函数,生成遍历器对象
 
 //第一次遍历
 for (let value of generator) {
+    //不会打印return的返回值
     console.log(value);
 }
 
@@ -25,6 +28,7 @@ console.log(generator.next());//调用next函数,获得属性
 console.log(generator.next());//调用next函数,获得属性
 console.log(generator.next());//调用next函数,获得属性
 console.log(generator.next());//调用next函数,获得属性
+
 //再一次用for of遍历不会打印任何东西
 for (let item of generator) {
     console.log(item);

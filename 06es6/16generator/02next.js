@@ -1,9 +1,12 @@
-/*yield作为表达式时,要加括号,另外注意执行顺序*/
+// yield 表达式自身不返回任何值。
+// next方法带有参数时，表示上一次yield表达式的值
+// yield表达式，会先把yield的状态返回，再下一次next方法时才会执行运算。
 let generator = (function* () {
     yield 'tom';
-    console.log(11111)
+    console.log(11111);
     console.log('hello' + (yield 'word'));
 })();
+
 console.log(generator.next());//输出tom
 console.log(generator.next());//输出 word
 console.log(generator.next());//进行hello+(yield 'word')计算,并输出语句,在返回对象{value:undefined,done:true}
@@ -25,9 +28,11 @@ console.log(generator1.next('word'));//用word去代替yield 'beautiful',然后�
 // 再输出,然后再输出undefined
 
 function* f1() {
-    for(var i = 0; true; i++) {
+    for (var i = 0; true; i++) {
         var reset = yield i;
-        if(reset) { i = -1; }
+        if (reset) {
+            i = -1;
+        }
     }
 }
 
