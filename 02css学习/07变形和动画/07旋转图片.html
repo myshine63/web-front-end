@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes sca {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        div {
+            position: fixed;
+            background-image: url("./1.jpg");
+            background-size: cover;
+            left: 50%;
+            top: 50%;
+            width: 1024px;
+            height: 576px;
+            margin-top: -288px;
+            margin-left: -512px;
+        }
+
+        .ani {
+            animation-name: sca;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ani">
+
+</div>
+</body>
+</html>

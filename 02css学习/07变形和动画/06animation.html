@@ -28,11 +28,13 @@
             height: 100px;
             background-color: #2b2b2b;
         }
-        .test{
+
+        .test {
             animation-name: change;
             animation-duration: 5s;
             animation-timing-function: linear;
             animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
         }
 
     </style>
@@ -45,7 +47,7 @@
     let div = document.querySelectorAll('div')[0];
     let btn = document.getElementsByTagName('button')[0];
     btn.onclick = function () {
-        div.className = '01test.html';
+        div.className = "test";
     }
 
 </script>
