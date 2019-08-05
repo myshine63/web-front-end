@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 先执行同步任务
+    // 同步任务执行完毕后检测执行微任务。常见微任务promise.then. async
+    // 微任务执行完毕后执行宏任务 常见 ajax,timeout setInterval ,click
+    async function async1() {
+        console.log('async1 start');
+        await async2();
+        console.log('async1 end');
+    }
+
+    async function async2() {
+        console.log('async2');
+    }
+
+    console.log('script start');
+    setTimeout(function () {
+        console.log('setTimeout');
+    }, 0);
+    async1();
+    new Promise(function (resolve) {
+        console.log('promise1');
+        resolve();
+    }).then(function () {
+        console.log('promise2');
+    }).then(function () {
+        console.log(1111)
+        setTimeout(function () {
+            console.log(2222);
+        })
+    });
+    console.log('script end');
+</script>
+</body>
+</html>
