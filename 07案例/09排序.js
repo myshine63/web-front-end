@@ -23,6 +23,9 @@ function insert(arr) {
             return arr
         }
     }
+    else {
+        throw Error();
+    }
 }
 
 // 选择排序。先找出数组中最小的值，和第一个元素交换位置。然后找出排除第一个元素剩下的数组的最小值和第二个元素交换位置，依次类推

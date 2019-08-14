@@ -5,10 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-<script>
-    let arr = [1, true, 0, false, undefined, null];
-    let b = arr.filter(boolean);
-    console.log(Boolean);
-</script>
 </body>
+<script>
+    // 只计算同步任务所花费的时间
+    console.time();
+    setTimeout(function () {
+        console.log("hello tom")
+    }, 5000);
+
+    function fib(value) {
+        if (value === 1 || value === 2) {
+            return value
+        }
+        return fib(value - 1) + fib(value - 2)
+    }
+    console.log(fib(10));
+    console.timeEnd();
+</script>
 </html>
