@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            padding: 0;
+            margin: 0;
+            border: 1px solid chartreuse;
+        }
+
+        ul:hover {
+            cursor: pointer;
+        }
+
+        li {
+            list-style: none;
+            border: 1px solid coral;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>hello tom</li>
+    <li>hello jerry</li>
+    <li>hello spike</li>
+</ul>
+</body>
+<script>
+    const ul = document.getElementsByTagName("ul")[0];
+    ul.onclick = function (e) {
+        console.log(e);
+        let ele = e.target;
+        console.log(ele.tagName)
+        alert(ele.innerText)
+    }
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj = {
+        id: "obj",
+        say() {
+            console.log(this.id);
+        }
+    };
+    let a = {
+        id: "a"
+    };
+    var id = "window"; // 通过var定义的变量会作为window属性
+    obj.say();// obj
+    obj.say.call(null);// window
+    obj.say.call(a);// a
+    obj.say.call(this); // window
+    obj.say.apply(null); // window
+    obj.say.apply(a);// a
+    obj.say.apply(this);// window
+    obj.say.bind(this)();// window
+    obj.say.bind(obj)();// obj
+    obj.say.bind(a)();// a
+</script>
+</body>
+</html>
