@@ -22,9 +22,9 @@
 </head>
 <body>
 <ul>
-    <li>hello tom</li>
-    <li>hello jerry</li>
-    <li>hello spike</li>
+    <li data-key="1">hello tom</li>
+    <li key="1">hello jerry</li>
+    <li key="1">hello spike</li>
 </ul>
 </body>
 <script>
@@ -32,7 +32,7 @@
     ul.onclick = function (e) {
         console.log(e);
         let ele = e.target;
-        console.log(ele.tagName)
+        console.log(ele.dataset.key);
         alert(ele.innerText)
     }
 </script>
