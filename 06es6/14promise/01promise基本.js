@@ -11,6 +11,7 @@ let promise = new Promise((resolve, reject) => {
     if (a === 10) {
         a++;
         resolve(a);
+        console.log(1221212121121111);
         throw new Error("11111111111111")// 无效的
     } else {
         reject('error');

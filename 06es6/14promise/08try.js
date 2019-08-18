@@ -4,8 +4,8 @@ function f() {
 }
 
 //方法一，用async
-(async ()=>{
-    f()
+(async () => {
+     await f()
 })();
 console.log(11111);
 

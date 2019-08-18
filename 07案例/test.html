@@ -26,23 +26,32 @@
 </div>
 </body>
 <script>
-    function createFun() {
-        let count = 1;
-        return function () {
-            if (count % 2 === 0) {
-                count++;
-                return 2
-            }
-            if (count % 2 === 1) {
-                count++;
-                return 1
-            }
-        }
+    function f() {
+        console.log(1)
     }
-    let a = createFun();
-    console.log(a());
-    console.log(a());
-    console.log(a());
-    console.log(a());
+
+    setTimeout(function () {
+        console.log(2)
+    }, 0);
+
+    async function f1() {
+        console.log(11111);
+        await f()
+        await setTimeout(function () {
+            console.log(3)
+        }, 0);
+        await f()
+    }
+
+    console.log(5);
+    new Promise((resolve, reject) => {
+        console.log(6)
+        resolve();
+    }).then(function () {
+        console.log(7)
+    }).then(function () {
+        console.log(8)
+    })
+    f1();
 </script>
 </html>
