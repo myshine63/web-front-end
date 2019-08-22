@@ -4,54 +4,34 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .blue, .red-inner {
-            height: 50px;
-            margin: 10px 0;
+        .box12 {
+            width: 500px;
+            height: 500px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .blue {
-            background: blue;
-        }
-
-        .red-outer {
-            overflow: hidden;
-            background: red;
+        .out12 {
+            width: 200px;
+            height: 200px;
+            background-color: #3ae679;
+            border: 1px solid #000;
         }
     </style>
 </head>
 <body>
-<div class="blue"></div>
-<div class="red-outer">
-    <div class="red-inner">red inner</div>
+<div class="box12">
+    <div class="out12">1111122223333</div>
+    <div>1111</div>
 </div>
 </body>
 <script>
-    function f() {
-        console.log(1)
-    }
-
-    setTimeout(function () {
-        console.log(2)
-    }, 0);
-
-    async function f1() {
-        console.log(11111);
-        await f()
-        await setTimeout(function () {
-            console.log(3)
-        }, 0);
-        await f()
-    }
-
-    console.log(5);
-    new Promise((resolve, reject) => {
-        console.log(6)
-        resolve();
-    }).then(function () {
-        console.log(7)
-    }).then(function () {
-        console.log(8)
-    })
-    f1();
+    var a = {n: 1};
+    var b = a;
+    a.x = a = {n: 2};
+    console.log(a.x);
+    console.log(b.x);
 </script>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = b = 1;
+    console.log(window.a); //1
+    console.log(window.b); //1
+    let c = d = 2;
+    console.log(window.c); //undefined
+    console.log(window.d); //2
+    function f() {
+        var a = b = 3;
+        console.log(window.a); //1
+        console.log(window.b); //3
+        let c = d = 4;
+        console.log(window.c); //undefined
+        console.log(window.d); //4
+    }
+    f();
+</script>
+</body>
+</html>
