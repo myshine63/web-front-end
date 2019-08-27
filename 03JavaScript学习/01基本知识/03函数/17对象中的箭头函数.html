@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var param = "jerry";
+    let obj = {
+        param: "tom",
+        f1: function () {
+            console.log(this.param)
+        },
+        f2: () => {
+            console.log(this.param)
+        }
+    };
+    obj.f1();// tom
+    obj.f2();// jerry,因为对象是在全局作用域创建的，this指向的便是window
+    obj.f2.bind({param: "spike"})();//jerry
+</script>
+</body>
+</html>

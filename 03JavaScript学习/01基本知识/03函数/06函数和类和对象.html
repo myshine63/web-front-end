@@ -10,14 +10,17 @@
     function Person(name, age) {//创建函数，他也是一个类
         this.name = name;//给函数的属性赋值
         this.age = age;
-        this.fuc = function () {//给每个实例都添加了一个fuc方法
-            console.log(this.name);
-            console.log(this.age)
+        this.fuc = function () {//给每个实例都添加了一个fuc方法,而且是独立的一个方法。
+            console.log(this.name,this.age);
         }
     }
 
-    var p = Person("xiaoming", 24);//用函数创建一个对象，并且把该对象赋予给p变量
-    p.fuc();//调用对象的方法
+    var p = Person("xiaoming", 24);//直接调用构造函数，this相当于window
+    console.log(window.name, window.age);
+    // 通过new 调用函数,创建了一个对象。
+    let a = new Person("tom", 15);
+    a.fuc();
+
     function test1(name) {
         console.log(name);
     }

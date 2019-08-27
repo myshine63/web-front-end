@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*函数中和对象中的箭头函数this表示对象实例*/
+    function f(param) {
+        this.param = param;
+        this.fun = function () {
+            console.log(1, this.param);
+        };
+        this.func = () => {
+            console.log(2, this.param);
+        };
+
+        function f1() {
+            console.log(3, this.param)
+        }
+
+        let f2 = () => {
+            console.log(4, this.param)
+        };
+        f1();
+        f1.call(window);
+        f2();
+        f2.call(window);
+    }
+
+    // 直接调用函数，this指向了window。
+    f("tom"); // tom tom tom tom
+    window.fun();//tom
+    window.func();//tom
+    window.fun.call({param: "spike"});//spike 说明常规方法this指向的是传入对象
+    window.func.call({param: "spike"});//tom this是window说明箭头函数中的this是函数生成是的环境对象也就是window
+    // 通过new去创建对象
+    console.log("end");
+    // 3,tom 3,tom,说明在用new方法创建对象的过程中,f1()函数的this指向的是window。
+    // 4,jerry 4,jerry,说明在用new方法创建对象的过程中,f2()箭头函数中函数的this指向的是实例。
+    let a = new f("jerry");
+    a.fun(); //jerry
+    a.func();//jerry
+    a.fun.call({param: "lux"});//lux 说明常规方法this指向的是传入对象
+    a.func.call({param: "lux"})//jerry 说明箭头函数中的this是new对象的环境
+</script>
+</body>
+</html>

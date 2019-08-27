@@ -7,15 +7,23 @@
 <body>
 <script>
     //new关键字，将创建一个环境变量，然后把当前的执行环境交给新建的环境变量
-    function f(name) {
+    function F(name) {
         this.name = name;
         return name;//如果没有return时，直接执行，那么b=undefined
     }
-    let a=new f('tom');//通过new执行，则返回对象a:{name:'tom'}
+
+    let a = new F('tom');//通过new执行，则返回对象a:{name:'tom'}
     console.log(a.name);//tom
-    let b=f('jerry');//由于直接执行，那么环境变量为window，因此window.name='jerry';
+    let b = F('jerry');//由于直接执行，那么环境变量为window，因此window.name='jerry';
     console.log(b);//jerry
-    console.log(window.name);
+    console.log(window.name);//jerry
+    function test() {
+        this.name = "tom";
+        return {}
+    }
+
+    console.log(new test()); //{}
+    console.log(test())//{}
 </script>
 </body>
 </html>
