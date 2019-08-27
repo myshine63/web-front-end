@@ -4,34 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .box12 {
-            width: 500px;
-            height: 500px;
-            border: 1px solid #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        .out12 {
-            width: 200px;
-            height: 200px;
-            background-color: #3ae679;
-            border: 1px solid #000;
-        }
     </style>
 </head>
 <body>
-<div class="box12">
-    <div class="out12">1111122223333</div>
-    <div>1111</div>
-</div>
-</body>
 <script>
-    var a = {n: 1};
-    var b = a;
-    a.x = a = {n: 2};
-    console.log(a.x);
-    console.log(b.x);
+    var name = 222;
+    let a = {
+        name: 123,
+        sa: () => {
+            console.log(this.name);
+        }
+    };
+    a.sa();
 </script>
+</body>
+
 </html>

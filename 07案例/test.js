@@ -1,19 +1,8 @@
-function Foo() {
-    Foo.a = function () {
-        console.log(1)
-    };
-    this.a = function () {
-        console.log(2)
+function F(name) {
+    this.name=name;
+    this.sa=()=>{
+        console.log(this.name);
     }
 }
-
-Foo.prototype.a = function () {
-    console.log(3)
-};
-Foo.a = function () {
-    console.log(4)
-};
-Foo.a();
-let obj = new Foo();
-obj.a();
-Foo.a();
+let a =new F(123);
+a.sa();

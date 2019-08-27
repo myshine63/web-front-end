@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>显示</button>
+<br>
+<img data-src="./1.jpeg">
+<script>
+    let img = document.getElementsByTagName("img")[0];
+    document.getElementsByTagName("button")[0].onclick = function () {
+        img.src = img.dataset.src;
+    }
+</script>
+</body>
+</html>
