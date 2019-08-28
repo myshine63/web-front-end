@@ -1,8 +1,1 @@
-function F(name) {
-    this.name=name;
-    this.sa=()=>{
-        console.log(this.name);
-    }
-}
-let a =new F(123);
-a.sa();
+console.log("123".padEnd(10,"00"))

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var param = "1111";
+    function f() {
+        var param = "jerry";
+        // this.param = "tom";
+        let f1 = () => {
+            console.log(this.param)
+        };
+        f1();
+    }
+
+    f();
+</script>
+</body>
+</html>
