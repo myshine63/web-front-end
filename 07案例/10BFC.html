@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            background-color: #d1ff4a;
+        }
+
+        .word1 {
+            background-color: red;
+            border: 1px solid #000;
+            margin-bottom: 100px;
+        }
+
+        .word2 {
+            border: 1px solid #000;
+            margin-top: 50px;
+            background-color: green;
+        }
+
+        .wrap {
+            /*display: flow-root;*/
+            overflow: hidden;
+        }
+
+        .box2 {
+            background-color: #d1ff4a;
+            /*overflow: hidden;*/
+            display: flow-root;
+        }
+
+        .float {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: 1px solid #000;
+        }
+
+        .content {
+            border: 1px solid orange;
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+用来处理外边距重合问题
+<div class="box">
+    <div class="word1">
+        hello tom
+    </div>
+    <div class="wrap">
+        <div class="word2">
+            hello word
+        </div>
+    </div>
+</div>
+用来处理浮动的问题
+<div class="box2">
+    <div class="float">
+        hello tom
+    </div>
+    <div class="content">
+        hello word
+    </div>
+</div>
+</body>
+</html>

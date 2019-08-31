@@ -6,15 +6,15 @@
     <style>
         @keyframes change {
             0% {
-                width: 200px;
-                height: 200px;
+                width: 0;
+                height: 0;
                 background-color: #2a6496;
             }
-            40% {
-                width: 400px;
-                height: 400px;
-                background-color: green;
-            }
+            /*40% {*/
+            /*    width: 400px;*/
+            /*    height: 400px;*/
+            /*    background-color: green;*/
+            /*}*/
             100% {
                 width: 300px;
                 height: 300px;
@@ -23,18 +23,17 @@
             }
         }
 
-        div {
-            width: 100px;
-            height: 100px;
-            background-color: #2b2b2b;
-        }
+        /*div {*/
+        /*    width: 100px;*/
+        /*    height: 100px;*/
+        /*    background-color: #2b2b2b;*/
+        /*}*/
 
         .test {
             animation-name: change;
             animation-duration: 5s;
             animation-timing-function: linear;
             animation-fill-mode: forwards;
-            animation-iteration-count: infinite;
         }
 
     </style>
