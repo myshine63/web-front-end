@@ -4,63 +4,71 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .green{
+        .green {
             width: 200px;
             height: 200px;
             background-color: green;
             border: 1px solid #000;
             float: left;
         }
-        .red{
+
+        .red {
             width: 200px;
             height: 200px;
             background-color: red;
             border: 1px solid #000;
             float: right;
         }
-        .blue{
+
+        .blue {
             width: 200px;
             height: 200px;
             background-color: blue;
             border: 1px solid #000;
             float: left;
         }
-        .orange{
+
+        .orange {
             width: 200px;
             height: 200px;
             background-color: orange;
             border: 1px solid #000;
             float: right;
         }
-        .pink{
+
+        .pink {
             width: 200px;
             height: 200px;
             background-color: pink;
             border: 1px solid #000;
             float: left;
         }
-        .yellow{
+
+        .yellow {
             width: 200px;
             height: 200px;
             background-color: yellow;
             border: 1px solid #000;
             float: right;
         }
-        .silver{
+
+        .silver {
             width: 200px;
             height: 200px;
-            background-color:silver;
+            background-color: silver;
             border: 1px solid #000;
             float: left;
         }
-        .cyan{
+
+        .cyan {
             width: 200px;
             height: 200px;
             background-color: cyan;
             border: 1px solid #000;
             float: right;
         }
-        .test{
+
+        .test {
             width: 600px;
             height: 600px;
             background-color: black;
@@ -74,22 +82,20 @@
     动时换行,clear:both,表示该与元素一定是新开一行. <br>
     本案例中由于 div中的元素全部都是浮动元素,因此test 的div将直接出现在p元素下面
 </p>
-<div>
-    <div class="green">向左浮动</div>
-    <div class="red">向右浮动</div>
-    <div class="blue">向左浮动</div>
-    <div class="orange">向右浮动</div>
-    <div class="pink" style="clear: left">向左浮动,清除向左浮动,因此他会在左边换行</div>
-    <div class="yellow" style="clear: right">向右浮动,清除向右浮动,因此他会在右边换行</div>
-    <div class="green">向左浮动</div>
-    <div class="red">向右浮动</div>
-    <div class="silver" style="clear: both">向左浮动,清除两边浮动,因此它会在左边新启一行</div>
-    <div class="green">向左浮动</div>
-    <div class="yellow" style="clear: right">向右浮动,清除向右浮动,因此他会在右边换行</div>
-    <div class="cyan" style="clear: both">向右浮动,清除两边浮动,因此它会在右边新启一行</div>
-    <div class="pink" style="clear: left">向左浮动,清除向左浮动,因此他会在左边换行行</div>
-    <div class="red">向右浮动</div>
-</div>
+<div class="green">向左浮动</div>
+<div class="red">向右浮动</div>
+<div class="blue">向左浮动</div>
+<div class="orange">向右浮动</div>
+<div class="pink" style="clear: left">向左浮动,清除向左浮动,因此他会在左边换行</div>
+<div class="yellow" style="clear: right">向右浮动,清除向右浮动,因此他会在右边换行</div>
+<div class="green">向左浮动</div>
+<div class="red">向右浮动</div>
+<div class="silver" style="clear: both">向左浮动,清除两边浮动,因此它会在左边新启一行</div>
+<div class="green">向左浮动</div>
+<div class="yellow" style="clear: right">向右浮动,清除向右浮动,因此他会在右边换行</div>
+<div class="cyan" style="clear: both">向右浮动,清除两边浮动,因此它会在右边新启一行</div>
+<div class="pink" style="clear: left">向左浮动,清除向左浮动,因此他会在左边换行行</div>
+<div class="red">向右浮动</div>
 <div class="test"></div>
 </body>
 </html>

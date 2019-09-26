@@ -1,22 +1,7 @@
-async function f() {
-    let a = await f1();
-    let b = await f2();
+let a = [1, 2, 3].reduce((a, b) => {
+    console.log(1111);
     console.log(a);
     console.log(b);
-}
-
-function f1() {
-    return "123"
-}
-
-function f2() {
-    setTimeout(function () {
-        console.log(456);
-    }, 1000)
-}
-
-let a = f();
+    return a + b;
+},10);
 console.log(a);
-a.then(ss => {
-    console.log(ss)
-});
