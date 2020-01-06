@@ -12,3 +12,4 @@ map.get('he');
 //类似于set数据结构 都有has,delete,clear,
 map.has('name');
 map.delete('name');
+console.log(map)

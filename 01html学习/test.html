@@ -8,10 +8,13 @@
     </style>
 </head>
 <body>
+<img src="./图片测试.jpg" alt="">
 </body>
 <script>
-   let obj={a:1,b:2};
-   let obj1={b:2,a:1};
-   console.log(JSON.parse(JSON.stringify(obj))===JSON.parse(JSON.stringify(obj1)))
+  let a = new Image();
+  a.src = 'https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg';
+  a.onload = function (e) {
+    document.getElementsByTagName('img')[0].src = a.src
+  }
 </script>
 </html>
