@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container {
+            height: 500px;
+            margin: 0 auto;
+            width: 50%;
+            padding: 0;
+            border: 1px solid greenyellow;
+            overflow: auto;
+        }
+
+        .content {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<ul id="container"></ul>
+<script>
+  let container = document.getElementById('container');
+  let count = 0;
+
+  function canLoadMore() {
+    return (container.scrollHeight - container.clientHeight - container.scrollTop) < 100
+  }
+
+  function addElement() {
+    let li = document.createElement('li');
+    li.innerText = count++
+    li.className = 'content'
+    container.append(li);
+  }
+
+  while (canLoadMore()) {
+    addElement();
+  }
+
+  function addMore() {
+    if (canLoadMore()) {
+      addElement()
+    }
+  }
+
+  container.addEventListener("scroll", addMore);
+</script>
+</body>
+</html>

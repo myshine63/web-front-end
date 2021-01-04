@@ -5,7 +5,7 @@
     <title>Insert title here</title>
 </head>
 <body>
-<form action="http://localhost:8080" method="post" target="_self" id="test">
+<form action="http://localhost:3000" method="post" target="_self" id="test">
     用户名：<input id="username" name="username" type="text" maxlength="20" placeholder="提示语" autofocus/><br/>
     密码：<input id="password" name="password" type="password" maxlength="20"/><br/>
     只读文本框：<input id="readonly" name="readonly" type="text" value="只读文本" readonly="readonly"/><br/>
@@ -30,5 +30,10 @@
 <input form="test" value="test">
 </body>
 <script>
+    let a = document.getElementById('file');
+    a.addEventListener('change',(e)=>{
+      console.log(e.target.files[0])
+    })
+    console.log(a)
 </script>
 </html>
