@@ -7,9 +7,9 @@ f([1, 2, 3]);//1,2
 f([1, 2]);//1,2
 f([1]);//1,undefined
 f([]);//undefined,undefined
+// f();报错,必须要传入一个数组
 console.log('.......');
 
-// f();报错,必须要传入一个数组
 function f1([x = 0, y = 0]) {
     console.log(x, y)
 }
