@@ -6,28 +6,28 @@
 </head>
 <body>
 <script>
-    /*普通函数中的this,谁调用它,它就代表谁*/
-    function F(num) {
-        this.num = num;
-        this.info = function () {
-            console.log(this.num);
-        };
+  /*普通函数中的this,谁调用它,它就代表谁*/
+  function F(num) {
+    this.num = num;
+    this.info = function () {
+      console.log(this.num);
+    };
 
-        function f1() {
-            console.log(this.num);
-        }
-
-        f1();//直接调用,调用者默认为window。this指向window
-        f1.call(this);//0,调用者为this,这里的this是这对象实例,因此这里的函数内的this也是对象实例
+    function f1() {
+      console.log(this.num);
     }
 
-    var num = "window";
-    let a = new F("obj");//window , obj
-    a.info();//obj,调用对象的info方法,调用者为a实例
-    a.info.call();//window,调用a实例的info方法,没有调用者默认为window,因此函数内的this指window
-    //当直接调用类函数时,函数中的this全部都指window
-    F("test");//test,test,相当于修改了window.num的值
-    console.log(window.num);//test
+    f1();// 直接调用,调用者默认为window。this指向window
+    f1.call(this);// 0,调用者为this,这里的this是这对象实例,因此这里的函数内的this也是对象实例
+  }
+
+  var num = "window";
+  let a = new F("obj"); // window , obj
+  a.info();//obj,调用对象的info方法,调用者为a实例
+  a.info.call();//window,调用a实例的info方法,没有调用者默认为window,因此函数内的this指window
+  //当直接调用类函数时,函数中的this全部都指window
+  F("test");//test,test,相当于修改了window.num的值
+  console.log(window.num);//test
 </script>
 </body>
 </html>
