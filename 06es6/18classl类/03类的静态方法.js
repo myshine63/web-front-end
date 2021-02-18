@@ -2,7 +2,6 @@
 // 静态方法中的this指的是类，而不是实例对象
 class Person {
   constructor(age) {
-
     this.age = age;
   }
 
@@ -14,9 +13,12 @@ class Person {
     console.log('hello');
   }
 
+  static c() {
+    this.b(); // 静态方法中的this指的是Person
+  }
 }
 
 let p = new Person(14);
 p.a();//14
 Person.b();//hello
-
+Person.c();//
