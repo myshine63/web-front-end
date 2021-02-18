@@ -1,0 +1,1 @@
+console.log(Object.create({name: 'tom', age: 14}))
