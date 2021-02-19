@@ -1,8 +1,8 @@
 // 要求生成n-m的随机整数，且几率相等
 
-function intRandom(n, m) {
-  let num = m - n + 1;
-  return Math.floor(Math.random() * num) + n;
+function intRandom(min, max) {
+  let numberCount = max - min + 1;
+  return Math.floor(Math.random() * numberCount) + min;
 }
 
 let count = {

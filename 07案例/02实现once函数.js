@@ -3,24 +3,24 @@
  * @param func 传入的函数。
  * @returns {Function} 封装后的函数
  */
-const once = function (func) {
-    let count = 0;
-    let result;//用来返回传入函数直接的结果，如果传入的函数没有返回值，则result为空
-    return function () {
-        if (count === 0) {
-            count++;
-            result = func.apply(null, arguments);//调用传入的函数，并将结果保存在result中
-            return result;
-        } else
-            return result;
+function once(func) {
+  let flag = true;
+  let self = this;
+  let res;
+  return function () {
+    if (flag) {
+      res = func.apply(self, arguments);
+      flag = false
     }
-};
-
-function f(name) {
-    return name + 5;
+    return res
+  }
 }
 
-let a = once(f);
-console.log(a(1));
-console.log(a(2));
-console.log(a(3));
+function logName(name) {
+  console.log('hello ' + name);
+  return name
+}
+
+let newFunc = once(logName);
+console.log(newFunc('tom'));
+console.log(newFunc('jerry'));
