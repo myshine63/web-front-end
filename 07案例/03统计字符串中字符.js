@@ -1,16 +1,14 @@
-let str = "abbcccdddd     ";
-
 // 统计字符串中的字符个数
 function countChar(str = '') {
-  let map = new Map();
+  let res = new Map();
   for (let val of str) {
-    if (map.has(val)) {
-      map.set(val, map.get(val) + 1)
+    if (res.has(val)) {
+      res.set(val, res.get(val) + 1)
     } else {
-      map.set(val, 1)
+      res.set(val, 1)
     }
   }
-  return map;
+  return res;
 }
 
-console.log(countChar(str))
+console.log(countChar('hello tom'))
