@@ -1,46 +1,45 @@
 // BST树：也叫二叉搜索树，特点是子节点左边的值比父节点小，右边的值比父节点大
-function Node(key) {
-  return {
-    key,
-    left: null,
-    right: null
+
+class Node {
+  constructor(key) {
+    this.key = key;
+    this.left = null;
+    this.right = null;
+  }
+
+  compare(key) {
+    return this.key > key
+  }
+
+  equal(key) {
+    return this.key === key;
   }
 }
 
-function compareFun(node, key) {
-  return node.key > key
-}
-
-function logNode(node) {
-  console.log(node.key)
-}
-
 class BinarySearchTree {
-  constructor(compareFun, Node) {
-    this.compareFun = compareFun;
-    this.createNode = Node
+  constructor() {
     this.root = null
   }
 
   // 插入节点
   insert(key) {
     if (this.root === null) {
-      this.root = this.createNode(key);
+      this.root = new Node(key);
     } else {
       this.insertNode(this.root, key);
     }
   }
 
   insertNode(node, key) {
-    if (this.compareFun(node, key)) {
+    if (node.compare(key)) {
       if (node.left === null) {
-        node.left = this.createNode(key)
+        node.left = new Node(key)
       } else {
         this.insertNode(node.left, key)
       }
     } else {
       if (node.right === null) {
-        node.right = this.createNode(key)
+        node.right = new Node(key)
       } else {
         this.insertNode(node.right, key)
       }
@@ -106,9 +105,9 @@ class BinarySearchTree {
   search(key) {
     let res = this.root
     while (res) {
-      if (res.key === key) {
+      if (res.equal(key)) {
         return res
-      } else if (this.compareFun(res, key)) {
+      } else if (res.compare(key)) {
         res = res.left
       } else {
         res = res.right
@@ -117,7 +116,11 @@ class BinarySearchTree {
   }
 }
 
-let bst = new BinarySearchTree(compareFun, Node);
+function logNode(node) {
+  console.log(node.key)
+}
+
+let bst = new BinarySearchTree();
 bst.insert(10);
 bst.insert(5);
 bst.insert(8);

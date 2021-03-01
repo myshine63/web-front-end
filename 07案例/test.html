@@ -12,13 +12,14 @@
 
 </div>
 <script>
-  let a = 1;
-  setInterval(()=>{
-    console.log(a);
-  },1000)
-  setInterval(()=>{
-    a++
-  },1000)
+    function F(age){
+      this.age= age;
+      return function (){
+        console.log(123)
+      }
+    }
+    let a = new F(12);
+    a()
 </script>
 </body>
 
