@@ -6,26 +6,26 @@
 </head>
 <body>
 <script>
-    let obj = {
-        id: "obj",
-        say() {
-            console.log(this.id);
-        }
-    };
-    let a = {
-        id: "a"
-    };
-    var id = "window"; // 通过var定义的变量会作为window属性
-    obj.say();// obj
-    obj.say.call(null);// window
-    obj.say.call(a);// a
-    obj.say.call(this); // window
-    obj.say.apply(null); // window
-    obj.say.apply(a);// a
-    obj.say.apply(this);// window
-    obj.say.bind(this)();// window
-    obj.say.bind(obj)();// obj
-    obj.say.bind(a)();// a
+  // call,apply,bind,都可以用来修改this的指向
+  let tom = {
+    name: "tom",
+    say() {
+      console.log(this.name);
+    }
+  };
+  let jerry = {
+    name: "jerry"
+  };
+  var name = 'spike'
+
+  function logName() {
+    console.log(this.name)
+  }
+
+  logName(); // spike 直接调用this指向window
+  logName.call(tom) // tom
+  logName.apply(jerry) // jerry
+  tom.say.bind(jerry)() // jerry
 </script>
 </body>
 </html>
