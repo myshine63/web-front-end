@@ -1,7 +1,13 @@
-Function.prototype.myCall = function () {
-  this();
+Function.prototype.myBind = function (context, ...args) {
+  const self = this
+  return function () {
+    self.apply(context, [...args, ...arguments])
+  }
 }
-function say(){
-  console.log('hello tom')
+
+function add(a, b, c) {
+  console.log(a + b + c);
 }
-say.myCall()
+
+let add1 = add.myBind(null, 1, 2);
+add1(5, 10)
