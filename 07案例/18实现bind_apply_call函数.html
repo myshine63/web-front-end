@@ -12,7 +12,7 @@
   Function.prototype.myBind = function (context, ...args) {
     let self = this;
     return function () {
-      self.apply(context, [...args, ...arguments])
+      return self.apply(context, [...args, ...arguments])
     }
   }
   // 实现apply
@@ -20,16 +20,18 @@
     context = context || window
     let fnSymbol = Symbol('fn');
     context[fnSymbol] = this;
-    context[fnSymbol](...args);
+    let res = context[fnSymbol](...args);
     delete context[fnSymbol];
+    return res
   }
   // 实现call
   Function.prototype.myCall = function (context, ...args) {
     context = context || window
     let fnSymbol = Symbol('fn');
     context[fnSymbol] = this;
-    context[fnSymbol](...args);
+    let res = context[fnSymbol](...args);
     delete context[fnSymbol];
+    return res
   }
 
   let obj = {
