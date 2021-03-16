@@ -5,35 +5,35 @@
     <title>Title</title>
 </head>
 <body>
-
 <button>add 1</button>
-<p>hello tom 0</p>
+<p></p>
 </body>
 <script>
   // 利用闭包实现一个防抖函数,快速多次点击按钮，只会执行一次
   function debounce(fn, wait) {
-    let timer = null;
+    let canRun = true;
     let self = this;
     return function () {
       //如果定时器存在
-      if (timer) {
-        // 先清除掉原来的定时器
-        clearTimeout(timer);
+      if (!canRun) {
+        return
       }
+      canRun = false
       // 创建一个新的定时器，去执行函数
-      timer = setTimeout(() => {
+      setTimeout(() => {
         fn.apply(self, arguments)
+        canRun = true
       }, wait);
     }
   }
 
   let btn = document.querySelector("button");
   let p = document.querySelector("p");
-  let count = 1;
+  let count = 0;
   let handleClick = debounce(function (e) {
-    console.log(e)
-    p.innerText = "hello tom " + count++
-  }, 1000);
+    count++
+    p.innerText = `函数执行了${count}次`
+  }, 2000);
   btn.onclick = handleClick;
 </script>
 </html>
