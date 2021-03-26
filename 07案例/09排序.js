@@ -2,7 +2,7 @@ let arr = [3, 2, 2, 1];
 
 // 冒泡算法O(n2)
 function popSort(arr) {
-  for (let i = 0; i < arr.length - 1``; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     for (let j = 0; j < arr.length - 1 - i; j++) {
       if (arr[j + 1] < arr[j]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
@@ -31,8 +31,7 @@ function check(arr) {
         }
       }
       // 当前和后面最小的值交换位置；接着进行下一次轮换
-      arr[index] = arr[m];
-      arr[m] = min;
+      [arr[index], arr[m]] = [arr[m], arr[index]]
     }
     return arr;
   }

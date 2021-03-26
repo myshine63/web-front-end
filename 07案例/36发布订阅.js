@@ -11,6 +11,9 @@ class EventEmitter {
       this.subcribes.set(type, [fn])
     }
   }
+  once(type,fn){
+
+  }
 
   off(type) {
     this.subcribes.delete(type)
@@ -23,6 +26,7 @@ class EventEmitter {
       })
     }
   }
+
 }
 
 let emitter = new EventEmitter;

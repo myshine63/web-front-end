@@ -1,11 +1,4 @@
-var g = function* () {
-    try {
-        yield;
-    } catch (e) {
-        console.log(e);
-    }
-};
-
-var i = g();
-i.next();
-i.throw(Error('err'));
+Number.prototype.compare=function (m,  m ) {
+  return this<m
+}
+console.log((3).compare(4))
