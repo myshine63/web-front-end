@@ -23,83 +23,67 @@ class BinarySearchTree {
 
   // 插入节点
   insert(key) {
-    if (this.root === null) {
-      this.root = new Node(key);
-    } else {
+    if (this.root) {
       this.insertNode(this.root, key);
+    } else {
+      this.root = new Node(key);
     }
   }
 
   insertNode(node, key) {
     if (node.compare(key)) {
-      if (node.left === null) {
-        node.left = new Node(key)
-      } else {
+      if (node.left) {
         this.insertNode(node.left, key)
+      } else {
+        node.left = new Node(key)
       }
     } else {
-      if (node.right === null) {
-        node.right = new Node(key)
-      } else {
+      if (node.right) {
         this.insertNode(node.right, key)
+      } else {
+        node.right = new Node(key)
       }
     }
   }
 
-  // 先序
-  preTravel(node, callback) {
+  preTravel(callback, node = this.root,) {
     if (node) {
       callback(node);
-      this.preTravel(node.left, callback)
-      this.preTravel(node.right, callback)
+      this.preTravel(callback, node.left)
+      this.preTravel(callback, node.right,)
     }
   }
 
   // 中序
-  midTravel(node, callback) {
+  midTravel(callback, node = this.root,) {
     if (node) {
-      this.midTravel(node.left, callback)
+      this.midTravel(callback, node.left)
       callback(node);
-      this.midTravel(node.right, callback)
+      this.midTravel(callback, node.right)
     }
   }
 
   // 后序
-  lastTravel(node, callback) {
+  postTravel(callback, node = this.root,) {
     if (node) {
-      this.lastTravel(node.left, callback)
-      this.lastTravel(node.right, callback)
+      this.postTravel(callback, node.left)
+      this.postTravel(callback, node.right)
       callback(node);
     }
   }
 
-  // 遍历的时候可以传入回调方法用来处理node
-  preTravelTree(callback) {
-    this.preTravel(this.root, callback)
-  }
-
-  midTravelTree(callback) {
-    this.midTravel(this.root, callback)
-  }
-
-  lastTravelTree(callback) {
-    this.lastTravel(this.root, callback)
-  }
-
-  searchMinVal() {
-    let res = this.root;
-    while (res.left) {
-      res = res.left
+  searchMinVal(node = this.root) {
+    while (node.left) {
+      node = node.left
     }
-    return res
+    return node
   }
 
-  searchMaxVal() {
-    let res = this.root
-    while (res.right) {
-      res = res.right
+  searchMaxVal(node = this.root) {
+    while (node.right) {
+      node = node.right
     }
-    return res
+    return node
   }
 
   search(key) {
@@ -107,30 +91,59 @@ class BinarySearchTree {
     while (res) {
       if (res.equal(key)) {
         return res
-      } else if (res.compare(key)) {
+      }
+      if (res.compare(key)) {
         res = res.left
       } else {
         res = res.right
       }
     }
   }
+
+  remove(target) {
+    this.root = this.removeNode(this.root, target)
+  }
+
+  removeNode(node, target) {
+    if (node === null) {
+      return null
+    }
+
+    if (node.equal(target)) {
+      if (node.left === null && node.right === null) {
+        node = null;
+        return node
+      } else if (node.left === null) {
+        node = node.right;
+        return node
+      } else if (node.right === null) {
+        node = node.left;
+        return node
+      } else {
+        let minNode = this.searchMinVal(node.right);
+        node.key = minNode.key;
+        node.right = this.removeNode(node.right, minNode.key)
+        return node;
+      }
+    } else if (node.compare(target)) {
+      node.left = this.removeNode(node.left, target)
+      return node
+    } else {
+      node.right = this.removeNode(node.right, target)
+      return node
+    }
+  }
 }
 
 function logNode(node) {
-  console.log(node.key)
+  if (node) {
+    console.log(node)
+  }
 }
 
 let bst = new BinarySearchTree();
-bst.insert(10);
-bst.insert(5);
-bst.insert(8);
-bst.insert(12);
-bst.insert(11);
-bst.preTravelTree(logNode)
-console.log('-----------')
-bst.midTravelTree(logNode)
-console.log('-----------')
-bst.lastTravelTree(logNode)
-console.log(bst.searchMinVal().key, 'min')
-console.log(bst.searchMaxVal().key, 'max')
-console.log(bst.search(5))
+let arr = [11]
+for (let val of arr) {
+  bst.insert(val)
+}
+bst.remove(7)
