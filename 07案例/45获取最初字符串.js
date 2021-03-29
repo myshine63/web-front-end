@@ -16,7 +16,7 @@ function getMaxLengthStr(s) {
   if (str.length > res.length) {
     res = str;
   }
-  return res.length
+  return res
 }
 
 console.log(getMaxLengthStr("ohomm"))

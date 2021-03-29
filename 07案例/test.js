@@ -1,16 +1,29 @@
-let arr = [1,2,3]
-
-arr.reduce((current,count)=>{
-  return current+count
-}, 0)
-
-Array.prototype.myReduce= function(callback,num){
-  let count=num;
-  this.forEach(val=>{
-    count = callback(val,count)
-  })
-  return count
+function countChar(str) {
+  if (!str || str.length === 1) {
+    return str;
+  }
+  let res = '';
+  let flag = str[0];
+  let count = 1;
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === flag) {
+      count++
+    } else {
+      if (count > 1) {
+        res += flag + count
+      } else {
+        res += flag;
+      }
+      flag = str[i];
+      count = 1
+    }
+  }
+  if (count > 1) {
+    res += flag + count
+  } else {
+    res += flag;
+  }
+  return res
 }
-console.log(arr.myReduce((current,count)=>{
-  return current+count
-}, 0))
+
+console.log(countChar('aabcc'))
