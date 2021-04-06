@@ -46,16 +46,16 @@ class BinarySearchTree {
     }
   }
 
-  preTravel(callback, node = this.root,) {
+  preTravel(callback, node = this.root) {
     if (node) {
       callback(node);
       this.preTravel(callback, node.left)
-      this.preTravel(callback, node.right,)
+      this.preTravel(callback, node.right)
     }
   }
 
   // 中序
-  midTravel(callback, node = this.root,) {
+  midTravel(callback, node = this.root) {
     if (node) {
       this.midTravel(callback, node.left)
       callback(node);
@@ -64,7 +64,7 @@ class BinarySearchTree {
   }
 
   // 后序
-  postTravel(callback, node = this.root,) {
+  postTravel(callback, node = this.root) {
     if (node) {
       this.postTravel(callback, node.left)
       this.postTravel(callback, node.right)
@@ -108,7 +108,6 @@ class BinarySearchTree {
     if (node === null) {
       return null
     }
-
     if (node.equal(target)) {
       if (node.left === null && node.right === null) {
         node = null;
@@ -133,6 +132,14 @@ class BinarySearchTree {
       return node
     }
   }
+
+  getTreeHeight(node = this.root) {
+    if (node === null) {
+      return -1
+    } else {
+      return Math.max(this.getTreeHeight(node.left), this.getTreeHeight(node.right)) + 1
+    }
+  }
 }
 
 function logNode(node) {
@@ -141,9 +148,4 @@ function logNode(node) {
   }
 }
 
-let bst = new BinarySearchTree();
-let arr = [11]
-for (let val of arr) {
-  bst.insert(val)
-}
-bst.remove(7)
+module.exports = BinarySearchTree

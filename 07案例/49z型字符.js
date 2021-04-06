@@ -16,5 +16,3 @@ var convert = function (str, n) {
 }
 console.log(convert('PAYPALISHIRING', 3))
 
-console.log(parseFloat('-3.14'))
-
