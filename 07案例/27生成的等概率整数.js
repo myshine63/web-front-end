@@ -1,7 +1,16 @@
+// 生成min-max的正整数，包括min,max
+// Math.random的范围是[0,1)
 function production(min, max) {
+  let length = max - min + 1 // 生成整数的长度范围
+  let num = Math.floor(Math.random() * length) // 生成等概率的整数范围
+  return num + min
+}
+
+function testProduction(min, max) {
   let res = {};
-  for (i = 0; i < 100000000; i++) {
-    let num = parseInt(Math.random() * (max - min) + min);
+  let num;
+  for (i = 0; i < 10000; i++) {
+    num = production(min, max);//
     if (!res[num]) {
       res[num] = 1
     } else {
@@ -10,4 +19,5 @@ function production(min, max) {
   }
   console.log(res)
 }
-production(1,4);
+
+testProduction(1, 4)

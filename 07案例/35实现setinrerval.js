@@ -1,17 +1,29 @@
-let obj = {}
-
 function MyInterval(fn, time) {
-  setTimeout(() => {
-    fn();
-    if (obj) {
-      MyInterval(fn, time)
-    }
-  }, time)
+  let flag = {
+    canRun: true
+  }
+
+  function createTimer() {
+    setTimeout(() => {
+      if (flag.canRun) {
+        fn();
+        createTimer()
+      }
+    }, time)
+  }
+
+  createTimer()
+  return flag
 }
 
-let a = MyInterval(() => {
+function clearMyInterval(timer) {
+  timer.canRun = false
+}
+
+let timer = MyInterval(() => {
   console.log(123)
 }, 1000)
-setTimeout(()=>{
-  obj = null;
-},5000)
+
+setTimeout(() => {
+  clearMyInterval(timer)
+}, 5500)

@@ -1,5 +1,5 @@
-function _new(fn, ...arg) {
-  const obj = Object.create(fn.prototype);
-  const ret = fn.apply(obj, arg);
-  return ret instanceof Object ? ret : obj;
+function _new(fn, ...args) {
+  let obj = Object.create(fn.prototype);
+  let res = fn.apply(obj, args);
+  return res instanceof Object ? res : obj;
 }

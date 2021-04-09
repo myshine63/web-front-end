@@ -7,9 +7,9 @@ function once(func) {
   let flag = true;
   let self = this;
   let res;
-  return function () {
+  return function (...args) {
     if (flag) {
-      res = func.apply(self, arguments);
+      res = func.apply(self, args);
       flag = false
     }
     return res

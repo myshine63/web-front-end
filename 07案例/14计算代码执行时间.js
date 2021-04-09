@@ -1,5 +1,4 @@
 // 只能计算出同步任务的执行时间。
-
 console.time();
 setTimeout(function () {
     console.log("hello tom")

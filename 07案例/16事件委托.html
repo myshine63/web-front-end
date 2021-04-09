@@ -23,17 +23,15 @@
 <body>
 <ul>
     <li data-key="1">hello tom</li>
-    <li key="1">hello jerry</li>
-    <li key="1">hello spike</li>
+    <li data-key="2">hello jerry</li>
+    <li data-key="3">hello spike</li>
 </ul>
 </body>
 <script>
-    const ul = document.getElementsByTagName("ul")[0];
-    ul.onclick = function (e) {
-        console.log(e);
-        let ele = e.target;
-        console.log(ele.dataset.key);
-        alert(ele.innerText)
-    }
+  const ul = document.getElementsByTagName("ul")[0];
+  ul.onclick = function (e) {
+    let ele = e.target;
+    alert(ele.dataset.key)
+  }
 </script>
 </html>

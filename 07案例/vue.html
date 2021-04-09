@@ -4,8 +4,19 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<sc>
-<body>
 
+<body>
+<script>
+  var a =10;
+  let b = {
+    a:'123',
+    f:()=>{
+      console.log(this.a)
+    }
+  }
+  console.log(b.f.apply({
+    a:1231231
+  }));
+</script>
 </body>
 </html>

@@ -17,8 +17,12 @@ function throttle(fn, wait) {
       canNewTimer = false;
       // 创建一个新的定时器，去执行函数
       setTimeout(async () => {
-        await fn();
-        canNewTimer = true;
+        try {
+          await fn();
+          canNewTimer = true;
+        } catch (e) {
+          canNewTimer = true;
+        }
       }, wait);
     }
   }

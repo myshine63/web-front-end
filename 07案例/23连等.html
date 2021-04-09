@@ -6,21 +6,29 @@
 </head>
 <body>
 <script>
-    var a = b = 1;
-    console.log(window.a); //1
-    console.log(window.b); //1
-    let c = d = 2;
-    console.log(window.c); //undefined
-    console.log(window.d); //2
-    function f() {
-        var a = b = 3;
-        console.log(window.a); //1
-        console.log(window.b); //3
-        let c = d = 4;
-        console.log(window.c); //undefined
-        console.log(window.d); //4
-    }
-    f();
+  // 用var定义时，相当于定义了3个var变量
+  var a = b = c = 1
+  console.log('a:', window.a, a); // 1 1
+  console.log('b:', window.b, b); // 1 1
+  console.log('c:', window.c, c); // 1 1
+  // 定义了一个let e,
+  let d = e = f = 2
+  console.log('d:', window.d, d); // undefined 2
+  console.log('e:', window.e, e); // 2 2
+  console.log('f:', window.f, f); // 2 2
+
+  function z() {
+    var g = h = i = 3
+    console.log('g:', window.g, g); // undefined 3
+    console.log('h:', window.h, h); // 3 3
+    console.log('i:', window.i, i); // 3 3
+    let j = k = l = 4
+    console.log('j:', window.j, j); // undefined 4
+    console.log('k:', window.k, k); // 4 4
+    console.log('l:', window.l, l); // 4 4
+  }
+
+  z();
 </script>
 </body>
 </html>
