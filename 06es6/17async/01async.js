@@ -5,7 +5,7 @@
 async function f() {
   console.log(1);
   await console.log(2)
-  await Promise.resolve(3)
+  await f1();
   console.log(4);
 }
 
@@ -14,4 +14,9 @@ console.log(5);
 a.then(() => {
   console.log(6)
 })
-// 输出 1,2,5,4,6
+
+function f1() {
+  console.log(3)
+}
+
+// 输出 1,2,5,3,4,6

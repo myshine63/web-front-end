@@ -1,5 +1,14 @@
-function MyNew(fn, ...args) {
-  let obj = Object.create(fn.prototype);
-  let res = fn.apply(obj, args);
-  return res instanceof Object ? res : obj
+function run(fn) {
+  return new Promise((resolve, reject) => {
+    reject(123);
+    console.log('aaaa')
+    resolve(456)
+  })
 }
+
+let a = run();
+a.then(data => {
+  console.log(data)
+}, err => {
+  console.log(err)
+})
