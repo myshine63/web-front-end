@@ -1,5 +1,5 @@
 // 1. async是generator函数的语法糖，内置了co模块
-// 2. await后面的函数可以返回promise或者原始值，undefined
+// 2. await后面的函数可以返回promise或者基本变量
 // 3. 调用async总会返回一个promise
 // 4. let a = await Promise.resolve(val); a不是一个promise,a === val
 async function f() {

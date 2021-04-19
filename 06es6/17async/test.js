@@ -1,4 +1,4 @@
-function compose(genF) {
+function run(genF) {
   return new Promise((resolve, reject) => {
     let gen = genF();
 
@@ -12,9 +12,9 @@ function compose(genF) {
       if (next.done) {
         return resolve(next.value)
       }
-      Promise.resolve(next.value).then(value => {
+      Promise.resolve(next.value).then(data => {
         dispatch(function () {
-          return gen.next(value)
+          return gen.next(data)
         })
       }, err => {
         dispatch(function () {

@@ -1,24 +1,24 @@
-async function fn(args) {
-  // ...
+// async方式
+async function asyncFn(a, b) {
+  let m = await Promise.resolve(a);
+  let n = await Promise.resolve(b);
+  console.log(a, b);
+  return {m, n}
 }
 
-// 等同于
+asyncFn(1, 2).then(data => {
+  console.log(data);
+})
 
-function fn1(args) {
-  return spawn(function* () {
-    // ...
-    yield 123
-  });
-}
-
-function spawn(genF) {
+// generator函数自动执行的co函数
+function run(genF) {
   return new Promise(function (resolve, reject) {
     const gen = genF();
 
-    function step(nextF) {
+    function dispatch(fn) {
       let next;
       try {
-        next = nextF();
+        next = fn();
       } catch (e) {
         return reject(e);
       }
@@ -26,25 +26,33 @@ function spawn(genF) {
         return resolve(next.value);
       }
       Promise.resolve(next.value).then(function (v) {
-        step(function () {
+        dispatch(function () {
           return gen.next(v);
         });
       }, function (e) {
-        step(function () {
+        dispatch(function () {
           return gen.throw(e);
         });
       });
     }
 
-    step(function () {
+    dispatch(function () {
       return gen.next(undefined);
     });
   });
 }
 
-function* f() {
-  let a = yield Promise.resolve(1);
-  let b = yield Promise.resolve(2);
-  console.log(a, b);
-  return 3
+function genFn(a, b) {
+  function* genF() {
+    let m = yield Promise.resolve(a);
+    let n = yield Promise.resolve(b);
+    console.log(m, n);
+    return {m, n}
+  }
+
+  return run(genF);
 }
+
+genFn(1, 2).then(data => {
+  console.log(data);
+})

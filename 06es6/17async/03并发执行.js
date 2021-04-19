@@ -21,6 +21,7 @@ async function f1() {
   console.log(a, b);// 5秒后执行
 }
 // f1()
+
 // 同步执行
 async function f2(){
   let pro1 = sleep(1,5000);

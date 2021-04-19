@@ -7,7 +7,7 @@ function spawn(genFunc) {
       try {
         next = nextFn;
       } catch (e) {
-        reject(e)
+        return reject(e)
       }
       if (next.done) {
         return resolve(next.value);
