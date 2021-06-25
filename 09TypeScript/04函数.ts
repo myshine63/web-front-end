@@ -8,7 +8,7 @@ function f1(name: string = 'tom', age = 123): void {
     console.log(name, age);
 }
 
-// rest参数
+// rest参数K
 function f2(name: string, ...rest: string[]): void {
     console.log(name, ...rest);
 }
