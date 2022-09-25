@@ -1,8 +1,13 @@
-let a = 0;
-while (a < 10) {
-  while (a < 5) {
-    a++
-    console.log(a);
+function check(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        [arr[i], arr[j]] = [arr[j], arr[i]]
+      }
+    }
   }
-  a++
 }
+
+let arr = [4, 3, 2, 1]
+check(arr)
+console.log(arr)

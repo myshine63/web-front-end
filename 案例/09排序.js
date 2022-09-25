@@ -2,7 +2,7 @@ let arr = [3, 2, 2, 1];
 
 // 冒泡算法O(n2)
 function popSort(arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
+  for (let i = 0; i < arr.length; i++) {
     for (let j = 0; j < arr.length - 1 - i; j++) {
       if (arr[j + 1] < arr[j]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
@@ -14,36 +14,25 @@ function popSort(arr) {
 
 // 选择排序。先找出数组中最小的值，和第一个元素交换位置。然后找出排除第一个元素剩下的数组的最小值和第二个元素交换位置，依次类推On2
 function check(arr) {
-  for (let m = 0; m < arr.length - 1; m++) {
-    let minIndex = m;
-    for (let n = m + 1; n < arr.length; n++) {
-      //找出最小的值和他的位置
-      if (arr[n] < arr[minIndex]) {
-        minIndex = n
+  for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] > arr[j]) {
+        [arr[i], arr[j]] = [arr[j], arr[i]]
       }
     }
-    // 找到最小值的位置，并进行交换
-    if (minIndex !== m) {
-      [arr[minIndex], arr[m]] = [arr[m], arr[minIndex]]
-    }
   }
-  return arr;
 }
 
-// 插入排序。把数组分成前面部分arr1和后面部分arr2.选出arr2的第一个元素，放在arr1合适的位置，然后arr1+1，arr2-1。再执行相同操作
+// 插入排序。将数组分为arr1,arr2，且arr1已经排好序。
+// 从arr2中取第一个元素，和arr1的最后一个比较，然后交换位置，然后一直交换位置
 function insert(arr) {
-  let flag
-  for (let m = 1; m < arr.length; m++) {
-    let j = m;
-    flag = arr[m]
-    // m位置前面部分为已经好序，m及后面部分为待排序部分
-    while (j > 0 && arr[j - 1] > flag) {
-      arr[j] = arr[j - 1];
-      j--;
+  for (let i = 1; i < arr.length; i++) {
+    for (let j = i - 1; j >= 0; j--) {
+      if (arr[j + 1] < arr[j]) {
+        [arr[j + 1], arr[j]] = [arr[j], arr[j + 1]]
+      }
     }
-    arr[j] = flag
   }
-  return arr
 }
 
 console.log(insert(arr));
