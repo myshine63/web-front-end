@@ -9,7 +9,7 @@ function production(min, max) {
 function testProduction(min, max) {
   let res = {};
   let num;
-  for (i = 0; i < 10000; i++) {
+  for (i = 0; i < 100000000; i++) {
     num = production(min, max);//
     if (!res[num]) {
       res[num] = 1

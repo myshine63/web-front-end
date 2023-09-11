@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            width: 200px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: red;
+            padding: 50px;
+        }
+        .a{
+            width: 100%;
+            background-color: chartreuse;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+ <div class="a">123123</div>
+ <div class="a">456456</div>
+</div>
+<script>
+    fetch('https://www.baidu.com',res=>{
+        console.log(res)
+    }).catch(err=>{
+        console.log(err)
+    })
+</script>
+</body>
+</html>
