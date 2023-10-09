@@ -6,17 +6,65 @@
 </head>
 <body>
 <script>
-    var param = "1111";
-    function f() {
-        var param = "jerry";
-        // this.param = "tom";
-        let f1 = () => {
-            console.log(this.param)
-        };
-        f1();
+    var name = 'tom'
+
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+
+        apply() {
+            console.log(this.name)
+
+            function f() {
+                console.log(this?.name)  // 在class中，这里是undefined
+            }
+
+            let f1 = () => {
+                console.log(this.name)
+            }
+            f()
+            f1()
+        }
     }
 
-    f();
+
+    var per = new Person('jerry')
+
+    per.apply()
+    console.log('***************')
+
+    function F(name) {
+        this.name = name;
+        this.apply = function () {
+            console.log(this.name)
+
+            function f() {
+                console.log(this.name)
+            }
+
+            let f1 = () => {
+                console.log(this.name)
+            }
+            f() // 函数直接调用，内部的this=window
+            f1()
+        }
+    }
+
+    F.prototype.app = function () {
+        console.log(this.name)
+
+        function f() {
+            console.log(this.name)
+        }
+
+        f()
+    }
+
+    let a = new F('spike')
+    a.apply()
+    a.app();
 </script>
 </body>
 </html>
+

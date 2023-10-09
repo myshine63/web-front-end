@@ -6,7 +6,7 @@ function F(name) {
 
 // new关键字会创建一个对象，然后将函数内部的this指向该对象
 let a = new F('tom');//通过new执行，则返回对象a:{name:'tom'}
-console.log(a);//tom
+console.log('a', a);//tom
 // 由于直接执行，那么环境变量为顶层对象，浏览器为window,node中为global,global.name='jerry';
 let b = F('jerry');
 console.log(b);//jerry
