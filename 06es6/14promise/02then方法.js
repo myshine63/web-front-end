@@ -1,11 +1,12 @@
-/*then方法返回的是一个新的Promise对象*/
-let promise = new Promise((resolve, reject) => {
+// then方法返回的是一个新的Promise实例（注意，不是原来那个Promise实例）。
+// 因此可以采用链式写法，即then方法后面再调用另一个then方法
+let p = new Promise((resolve, reject) => {
     resolve(1);
 });
-/*1.当then方法中有return时,默认执行resolve(返回值)*/
-let a = promise.then(x => {
+
+let a = p.then(x => {
     console.log(x);//1
-    return x;
+    return x + 1;
 });
 /*then方法不含有return,默认执行resolve()*/
 a.then((value) => {
@@ -13,3 +14,4 @@ a.then((value) => {
 }).then((value) => {
     console.log(value)
 });
+

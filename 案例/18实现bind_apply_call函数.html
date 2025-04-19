@@ -10,10 +10,12 @@
 <script>
   // 实现bind
   Function.prototype.myBind = function (context, ...args) {
-    let self = this;
-    return function () {
-      return self.apply(context, [...args, ...arguments])
-    }
+      let self = this;
+      function f (){
+          let obj = this instanceof f ? this : context;
+          return self.apply(obj, [...args, ...arguments])
+      }
+      return f
   }
   // 实现apply
   Function.prototype.myApply = function (context, args) {

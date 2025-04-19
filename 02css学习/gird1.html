@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            height: 500px;
+            border: 1px solid cadetblue;
+            padding: 5px;
+        }
+        .grid{
+            display: grid;
+            grid-template-columns: 1fr 200px 2fr;
+            grid-template-rows: auto 200px;
+            grid-gap: 5px;
+            grid-template-areas:
+                    'item5 item1 item3'
+                    'item4 item2 item6';
+            justify-items: start;
+            align-items: center;
+        }
+
+
+        .grid div {
+            display: flex;
+            border: 1px solid coral;
+            text-align: center;
+            align-items: center;
+            background-color: orange;
+        }
+
+
+        .item1 {
+            grid-area: item1;
+        }
+
+        .item2 {
+            grid-area: item2;
+        }
+
+        .item3 {
+            grid-area: item3;
+        }
+
+        .item4 {
+            grid-area: item4;
+        }
+
+        .item5 {
+            grid-area: item5;
+        }
+
+        .item6 {
+            grid-area: item6;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper grid">
+    <div class="item1"><span>item1</span></div>
+    <div class="item2"><span>item1</span></div>
+    <div class="item3"><span>item1</span></div>
+    <div class="item4"><span>item1</span></div>
+    <div class="item5"><span>item1</span></div>
+    <div class="item6"><span>item1</span></div>
+</div>
+</body>
+</html>

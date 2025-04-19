@@ -1,6 +1,6 @@
-console.log(f)
-
-function f(){
+function F(){
 
 }
-var f = 123
+Function.prototype.male = 123;
+let f = new F();
+console.log(f.male);

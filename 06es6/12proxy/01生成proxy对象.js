@@ -4,9 +4,11 @@ let obj = {
 }
 let proxy = new Proxy(obj, {
   set(target, key, val) {
+    console.log(`set value: key is ${key} value is ${val}`)
     target[key] = val + 1
   },
   get(target, key) {
+    console.log(`get value: key is ${key} value is ${target[key]}`)
     return target[key]
   }
 })

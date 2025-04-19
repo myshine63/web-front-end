@@ -1,8 +1,21 @@
+// 1. 首先promise构造函数接受一个回调方法，在创建实例时会立即执行。并且如果该方法抛出异常
+// 会导致promise变为reject
+// 2. 回调方法接受resolve,和reject两个方法
+// 3. promise的初始状态为pending
+// 4. 调用resolve。状态变为fulfilled
+// 5. 调用reject，状态变为rejected
+// 6. 状态一旦改变就不可逆
+// 7. then方法接受两个方法，分别为fulfilled和rejected的回到
+// 8. 如果then方法传入的是不是函数，则会进行透传，则会进行透传
+// 9. 如果then方法返回的是一个promise，则会等待promise执行完毕后，在将执行结果进行透传
+// 10. then方法抛出的错误会修改后面promise的状态
+// 11. then方法不能返回自己本身
+// 12. 在promise状态为改变前，多次调用then方法，不会立即执行。
+
 class MyPromise {
     constructor(executor) {
         this.state = 'pending';
-        this.value = undefined;
-        this.reason = undefined;
+        this.res = undefined;
         this.onResolvedCallbacks = [];
         this.onRejectedCallbacks = [];
         this.resolve = this.resolve.bind(this)
@@ -17,30 +30,28 @@ class MyPromise {
     resolve(value) {
         if (this.state === 'pending') {
             this.state = 'fulfilled';
-            this.value = value;
-            this.onResolvedCallbacks.forEach((callback) => callback(this.value));
+            this.res = value;
+            this.onResolvedCallbacks.forEach((callback) => callback(this.res));
         }
     };
 
     reject(reason) {
         if (this.state === 'pending') {
             this.state = 'rejected';
-            this.reason = reason;
-            this.onRejectedCallbacks.forEach((callback) => callback(this.reason));
+            this.res = reason;
+            this.onRejectedCallbacks.forEach((callback) => callback(this.res));
         }
     };
 
     then(onFulfilled, onRejected) {
-        onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : (value) => value;
-        onRejected = typeof onRejected === 'function' ? onRejected : (reason) => {
-            throw reason;
-        };
+        onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+        onRejected = typeof onRejected === 'function' ? onRejected : value => value;
 
         const promise = new MyPromise((resolve, reject) => {
             if (this.state === 'fulfilled') {
                 setTimeout(() => {
                     try {
-                        const x = onFulfilled(this.value);
+                        const x = onFulfilled(this.res);
                         this.resolvePromise(promise, x, resolve, reject);
                     } catch (error) {
                         reject(error);
@@ -51,7 +62,7 @@ class MyPromise {
             if (this.state === 'rejected') {
                 setTimeout(() => {
                     try {
-                        const x = onRejected(this.reason);
+                        const x = onRejected(this.res);
                         this.resolvePromise(promise, x, resolve, reject);
                     } catch (error) {
                         reject(error);

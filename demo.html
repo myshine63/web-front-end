@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .container{
+        .container {
             width: 200px;
             height: 200px;
             display: flex;
@@ -13,7 +13,8 @@
             background-color: red;
             padding: 50px;
         }
-        .a{
+
+        .a {
             width: 100%;
             background-color: chartreuse;
             margin-bottom: 20px;
@@ -22,15 +23,22 @@
 </head>
 <body>
 <div class="container">
- <div class="a">123123</div>
- <div class="a">456456</div>
+    <div class="a">123123</div>
+    <div class="a">456456</div>
 </div>
 <script>
-    fetch('https://www.baidu.com',res=>{
-        console.log(res)
-    }).catch(err=>{
-        console.log(err)
-    })
+    const worker = new Worker('./work.js');
+    let ch = new MessageChannel();
+    let port1 = ch.port1
+    let port2 = ch.port2
+    worker.postMessage('port1', [port1])
+    worker.onmessage = me => {
+        console.log(me)
+    }
+    port2.onmessage = e => {
+        console.log(e)
+        port2.postMessage('hello jerry')
+    }
 </script>
 </body>
 </html>

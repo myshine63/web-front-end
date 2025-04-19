@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    Function.prototype.myBind = function (context, ...args) {
+        let self = this;
+        function f (){
+            let obj = this instanceof f ? this : context;
+            return self.apply(obj, [...args, ...arguments])
+        }
+        return f
+    }
+    var name = 'spike'
+    var age = 16;
+    function F(name, age) {
+        this.name = name;
+        this.age = age
+        this.apply = function () {
+            console.log(this.name, this.age);
+        }
+        this.apply();
+    }
+
+    let jerry = {
+        name: 'jerry',
+        age: 14
+    }
+    let f = F.bind(jerry);
+    f('piter',17);
+    let a = new f('tom',15);
+    a.apply();
+    console.log(jerry)
+
+
+</script>
+</body>
+</html>

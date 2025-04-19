@@ -1,13 +1,13 @@
 let proxy = new Proxy({}, {
-  get(target) {
-    return "hello " + target.name
+  get(target,key) {
+    console.log(`get value: key is ${key}`)
+    return target[key]
   },
-  set(target, name, val) {
-    target.name = val
+  set(target, key, val) {
+    console.log(`set value: key is ${key} value is ${val}`)
+    target[key] = val
   }
 })
 
-proxy.name = 'tom'
-console.log(proxy.name)
-proxy.name = 'jerry'
-console.log(proxy.name)
+proxy.name = 0;
+proxy.name++;
